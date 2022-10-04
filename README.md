@@ -1,0 +1,3 @@
+# Welcome to Electrical Consumption!
+
+Work in progress...
