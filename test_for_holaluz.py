@@ -23,14 +23,17 @@ class HolaluzTestCase(unittest.TestCase):
 
     @responses.activate
     def test_holaluz_failed_login(self):
+        expected_error_code = 404
         responses.post(
             "https://core.holaluz.com/api/private/login_check",
-            status = 404
+            status = expected_error_code
               )
 
-        hl = HolaLuz()
-        
-        self.assertIsNone(hl.token)
+        with self.assertRaises(Exception) as cm:
+            HolaLuz()
+
+        the_exception = cm.exception
+        self.assertTrue(f"{expected_error_code}" in str(the_exception))
 
 
 
