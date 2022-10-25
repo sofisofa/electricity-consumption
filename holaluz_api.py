@@ -30,7 +30,7 @@ class HolaLuz():
         auth_header = {'Authorization': f'Bearer{self.token}'}
         r = requests.get(request_url, auth_header)
         if r.status_code != 200:
-            print(f'Data retrieval failed! HTTPError: {r.status_code}.')
+            raise Exception(f'Data retrieval failed! HTTPError: {r.status_code}.')
         else:
             data = r.json()["daily"]
             return data
@@ -70,7 +70,7 @@ def month_from_num(num):
 if __name__ == "__main__":
     hl = HolaLuz()
     data = hl.retrieve_data()
-    data = clean_data(data)
+    data = hl.clean_data(data)
     
     #Get year and month of "data"
     date = dt.date.fromisoformat(data[0]["date"])

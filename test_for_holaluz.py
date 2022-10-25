@@ -36,7 +36,7 @@ class HolaluzTestCase(unittest.TestCase):
         self.assertTrue(f"{expected_error_code}" in str(the_exception))
 
     @responses.activate
-    def test_holaluz_retrieved_data(self):
+    def test_holaluz_retrieve_data(self):
         responses.post(
             "https://core.holaluz.com/api/private/login_check",
               json = {
@@ -55,10 +55,31 @@ class HolaluzTestCase(unittest.TestCase):
             
         hl = HolaLuz()
         data = hl.retrieve_data()
-        self.assertEquals("daily", data)
+        self.assertEqual("daily", data)
 
 
+    @responses.activate
+    def test_holaluz_failed_retrieve_data(self):
+        expected_error_code = 404
+        responses.post(
+            "https://core.holaluz.com/api/private/login_check",
+              json = {
+                "token": "token",
+                 "refresh_token" : "refresh_token"
+                 }
+              )
 
+        responses.get(
+            "https://zc-consumption.holaluz.com/consumption",
+            status = expected_error_code
+              )
+            
+        with self.assertRaises(Exception) as cm:
+            hl = HolaLuz()
+            hl.retrieve_data()
+
+        the_exception = cm.exception
+        self.assertTrue(f"{expected_error_code}" in str(the_exception))
 
 if __name__ == "__main__":
     unittest.main()
