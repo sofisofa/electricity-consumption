@@ -35,6 +35,29 @@ class HolaluzTestCase(unittest.TestCase):
         the_exception = cm.exception
         self.assertTrue(f"{expected_error_code}" in str(the_exception))
 
+    @responses.activate
+    def test_holaluz_retrieved_data(self):
+        responses.post(
+            "https://core.holaluz.com/api/private/login_check",
+              json = {
+                "token": "token",
+                 "refresh_token" : "refresh_token"
+                 }
+              )
+
+        responses.get(
+            "https://zc-consumption.holaluz.com/consumption",
+            json = {
+                "cups" : "cups",
+                "daily" : "daily"
+                }
+              )
+            
+        hl = HolaLuz()
+        data = hl.retrieve_data()
+        self.assertEquals("daily", data)
+
+
 
 
 if __name__ == "__main__":
