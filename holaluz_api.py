@@ -37,11 +37,7 @@ class HolaLuz():
 
     def clean_data(data):
         """Supposing JSON file as the one retrieved from holaluz, delete elements with 0 consumption (days not measured)"""
-        for day in data:
-            if dt.date.fromisoformat(day['date']) > dt.date.today() and day["total_consumption"] == 0.0:
-                del day
-    
-        return data
+        return [day for day in data if dt.date.fromisoformat(day['date']) <= dt.date.today() and day["total_consumption"] != 0.0]
     
 
 def month_from_num(num):
@@ -66,6 +62,9 @@ def month_from_num(num):
         print('Invalid month!')
     return month
 
+#TODO: 
+#   -implement refresh token, 
+#   -some way of getting data automatically at end of month
 
 if __name__ == "__main__":
     hl = HolaLuz()
