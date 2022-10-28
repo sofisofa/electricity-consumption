@@ -40,42 +40,25 @@ class HolaLuz():
         return [day for day in data if dt.date.fromisoformat(day['date']) <= dt.date.today() and day["total_consumption"] != 0.0]
     
 
-def month_from_num(num):
-    """Retrieve month of measurements from a number from 1 to 12"""    
-    switcher = {
-        1: 'january',
-        2: 'february',
-        3: 'march',
-        4: 'april',
-        5: 'may',
-        6: 'june',
-        7: 'july',
-        8: 'august',
-        9: 'september',
-        10: 'october', 
-        11: 'november',
-        12 : 'december'
-    }    
-    try :
-        month = switcher[num]
-    except KeyError:
-        print('Invalid month!')
-    return month
-
 #TODO: 
 #   -implement refresh token, 
 #   -some way of getting data automatically at end of month
 
-if __name__ == "__main__":
+def run():
     hl = HolaLuz()
     data = hl.retrieve_data()
     data = hl.clean_data(data)
     
     #Get year and month of "data"
     date = dt.date.fromisoformat(data[0]["date"])
-    num_month = date.month
-    month = month_from_num(num_month)
-    year = date.year
+    month = date.strftime("%b")
+    year = date.strftime("%y")
+
+    #month = date.month
+    #year = date.year
     
     with open(f'consumption_{month}_{year}.json', 'a') as f_obj:
         json.dump(data,f_obj)
+
+if __name__ == "__main__":
+    run()
