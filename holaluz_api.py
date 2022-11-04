@@ -35,9 +35,13 @@ class HolaLuz():
             data = r.json()["daily"]
             return data
 
+    @staticmethod
     def clean_data(data):
         """Supposing JSON file as the one retrieved from holaluz, delete elements with 0 consumption (days not measured)"""
-        return [day for day in data if dt.date.fromisoformat(day['date']) <= dt.date.today() and day["total_consumption"] != 0.0]
+        return [day for day in data
+                if dt.date.fromisoformat(day['date']) <= dt.date.today() and
+                day["total_consumption"] != 0.0
+                ]
     
 
 #TODO: 
@@ -46,19 +50,22 @@ class HolaLuz():
 
 def run():
     hl = HolaLuz()
-    data = hl.retrieve_data()
-    data = hl.clean_data(data)
+    consumption_data = hl.retrieve_data()
+    cleaned_data = hl.clean_data(consumption_data)
     
     #Get year and month of "data"
-    date = dt.date.fromisoformat(data[0]["date"])
+    date = dt.date.fromisoformat(cleaned_data[0]["date"])
     month = date.strftime("%b")
     year = date.strftime("%y")
 
     #month = date.month
     #year = date.year
     
-    with open(f'consumption_{month}_{year}.json', 'a') as f_obj:
-        json.dump(data,f_obj)
+    cleaned_consumption_json = {'creation date'  : dt.date.isoformat(dt.date.today()),
+                             'daily_consumption' : cleaned_data}
+    
+    with open(f'.\consumption_files\consumption_{month}_{year}.json', 'a') as f_obj:
+        json.dump(cleaned_consumption_json,f_obj)
 
 if __name__ == "__main__":
     run()
