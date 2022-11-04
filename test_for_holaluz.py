@@ -7,38 +7,39 @@ from mockito import when, mock, verify, unstub
 import json
 import builtins
 
+#Fixtures
 def create_date(date, delta):
             new_date = dt.date.isoformat(date + dt.timedelta(days = delta))
             return new_date
 
+LOGIN_URL = "https://core.holaluz.com/api/private/login_check"
 
-class HolaluzTestCase(unittest.TestCase):
-        
-    def setUp(self):
-        self.login_url = "https://core.holaluz.com/api/private/login_check"
-        self.consumption_url =  "https://zc-consumption.holaluz.com/consumption"
-        self.api_login_json_reply = {
+CONSUMPTION_URL =  "https://zc-consumption.holaluz.com/consumption"
+
+API_LOGIN_JSON_REPLY = {
                 "token": "token",
                 "refresh_token" : "refresh_token"
                 }
         
-        self.consumption_data =  [
+CONSUMPTION_DATA =  [
             {'date': create_date(dt.date.today(), -1), 'total_consumption': 3.5},
             {'date': create_date (dt.date.today(), 0), 'total_consumption': -2},
             {'date': create_date(dt.date.today(), 1), 'total_consumption': 0.0},
             {'date': create_date(dt.date.today(), 2), 'total_consumption': 0},
-        ]
+            ]
+
+CONSUMPTION_DATA_WITHOUT_ZERO_VALUES = [
+            {'date': create_date(dt.date.today(), -1), 'total_consumption': 3.5},
+            {'date': create_date (dt.date.today(), 0), 'total_consumption': -2},
+            ]
         
-        self.api_consumption_json_reply = {
+API_CONSUMPTION_JSON_REPLY = {
                 "cups" : "cups",
                 "daily" : "daily"
                 }
-       
+
+class HolaluzTestCase(unittest.TestCase):
         
-        self.consumption_data_without_zero_values = [
-            {'date': create_date(dt.date.today(), -1), 'total_consumption': 3.5},
-            {'date': create_date (dt.date.today(), 0), 'total_consumption': -2},
-        ]
         
     def tearDown(self):
          unstub()
@@ -47,8 +48,8 @@ class HolaluzTestCase(unittest.TestCase):
     def test_holaluz_login(self):
         # Given
         responses.post(
-            self.login_url,
-              json = self.api_login_json_reply
+            LOGIN_URL,
+              json = API_LOGIN_JSON_REPLY
               )
 
         # When
@@ -60,7 +61,7 @@ class HolaluzTestCase(unittest.TestCase):
     def test_holaluz_failed_login(self):
         expected_error_code = 404
         responses.post(
-            self.login_url,
+            LOGIN_URL,
             status = expected_error_code
               )
 
@@ -73,13 +74,13 @@ class HolaluzTestCase(unittest.TestCase):
     @responses.activate
     def test_holaluz_retrieve_data(self):
         responses.post(
-           self.login_url,
-              json = self.api_login_json_reply
+           LOGIN_URL,
+              json = API_LOGIN_JSON_REPLY
               )
 
         responses.get(
-            self.consumption_url,
-            json = self.api_consumption_json_reply
+            CONSUMPTION_URL,
+            json = API_CONSUMPTION_JSON_REPLY
               )
             
         hl = HolaLuz()
@@ -91,12 +92,12 @@ class HolaluzTestCase(unittest.TestCase):
     def test_failed_retrieve_data(self):
         expected_error_code = 404
         responses.post(
-            self.login_url,
-              json = self.api_login_json_reply
+            LOGIN_URL,
+              json = API_LOGIN_JSON_REPLY
               )
 
         responses.get(
-            self.consumption_url,
+            CONSUMPTION_URL,
             status = expected_error_code
               )
             
@@ -109,54 +110,31 @@ class HolaluzTestCase(unittest.TestCase):
 
     def test_clean_data(self):
         
-        data = HolaLuz.clean_data(self.consumption_data)
-        self.assertEqual(self.consumption_data_without_zero_values, data)
-
-    @responses.activate
-    def test_run_calls_json_dump_when_successful(self):
-        api_consumption_json_reply = {
-            "cups" : "cups",
-            "daily" : self.consumption_data
-        }
-       
-        responses.post(
-            self.login_url,
-              json = self.api_login_json_reply
-              )
-
-
-        responses.get(
-            self.consumption_url,
-            json = api_consumption_json_reply
-              )
-        
-        
-        when(json).dump(...).thenReturn()
-        run()
-        verify(json, times = 1).dump(...)
+        data = HolaLuz.clean_data(CONSUMPTION_DATA)
+        self.assertEqual(CONSUMPTION_DATA_WITHOUT_ZERO_VALUES, data)
         
     @responses.activate
     def test_run_opens_file_and_calls_json_dump(self):
         api_consumption_json_reply = {
             "cups" : "cups",
-            "daily" : self.consumption_data
+            "daily" : CONSUMPTION_DATA
         }
         
         json_to_dump = {'creation date'  : dt.date.isoformat(dt.date.today()),
-            'daily_consumption': self.consumption_data_without_zero_values}
+            'daily_consumption': CONSUMPTION_DATA_WITHOUT_ZERO_VALUES}
         
-        date = dt.date.fromisoformat(self.consumption_data[0]["date"])
+        date = dt.date.fromisoformat(CONSUMPTION_DATA[0]["date"])
         month = date.strftime("%b")
         year = date.strftime("%y")
        
         responses.post(
-            self.login_url,
-              json = self.api_login_json_reply
+            LOGIN_URL,
+              json = API_LOGIN_JSON_REPLY
               )
 
 
         responses.get(
-            self.consumption_url,
+            CONSUMPTION_URL,
             json = api_consumption_json_reply
               )
         
