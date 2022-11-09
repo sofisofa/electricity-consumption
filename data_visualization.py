@@ -8,8 +8,7 @@ from matplotlib import colors as clr
 #TODO:
 # -interact w database
 # -seaborn instead of matplotlib?
-
-
+# -grafana
 
 def make_bar_plot(x_values,y_values,title,x_label, y_label):
     
@@ -19,9 +18,9 @@ def make_bar_plot(x_values,y_values,title,x_label, y_label):
     plt.bar(x_values, y_values, width = 1, color = my_cmap(my_norm(y_values)), edgecolor= "#5F3B54")
     
     # Set chart title and label axes.
-    plt.title(title, fontsize=24)
-    plt.xlabel(x_label, fontsize=14)
-    plt.ylabel(y_label, fontsize=14)
+    plt.title(title, fontsize=20)
+    plt.xlabel(x_label, fontsize=16)
+    plt.ylabel(y_label, fontsize=16)
     
     # Set size of tick labels.
     plt.tick_params(axis='both', which='major', labelsize=12)
