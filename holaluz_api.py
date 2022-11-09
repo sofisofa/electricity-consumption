@@ -5,8 +5,8 @@ import datetime as dt
 class HolaLuz():
     """Login on energy provider web and retrieve data."""
 
-    USERNAME = 'pippo'
-    PW = 'password'
+    USERNAME = '***REMOVED***'
+    PW = '***REMOVED***'
     LOGIN_URL = 'https://core.holaluz.com/api/private/login_check'
     CONSUMPTION_URL = 'https://zc-consumption.holaluz.com/consumption'
     LOGIN_PAYLOAD = {'_app': 'customer', '_username' : USERNAME, '_password' : PW}
@@ -27,12 +27,13 @@ class HolaLuz():
 
     def retrieve_data(self):
         request_url = self.CONSUMPTION_URL
-        auth_header = {'Authorization': f'Bearer{self.token}'}
-        r = requests.get(request_url, auth_header)
+        auth_header = {'Authorization': f'Bearer {self.token}'}
+        
+        r = requests.get(request_url, headers=auth_header)
         if r.status_code != 200:
             raise Exception(f'Data retrieval failed! HTTPError: {r.status_code}.')
         else:
-            data = r.json()["daily"]
+            data = r.json()[0]["daily"]
             return data
 
     @staticmethod
