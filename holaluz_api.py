@@ -5,8 +5,8 @@ import datetime as dt
 class HolaLuz():
     """Login on energy provider web and retrieve data."""
 
-    USERNAME = '***REMOVED***'
-    PW = '***REMOVED***'
+    USERNAME = 'USERNAME'
+    PW = 'PASSWORD'
     LOGIN_URL = 'https://core.holaluz.com/api/private/login_check'
     CONSUMPTION_URL = 'https://zc-consumption.holaluz.com/consumption'
     LOGIN_PAYLOAD = {'_app': 'customer', '_username' : USERNAME, '_password' : PW}
@@ -65,7 +65,7 @@ def run():
     cleaned_consumption_json = {'creation date'  : dt.date.isoformat(dt.date.today()),
                              'daily_consumption' : cleaned_data}
     
-    with open(f'.\consumption_files\consumption_{month}_{year}.json', 'a') as f_obj:
+    with open(f'.\consumption_files\consumption_{month}_{year}.json', 'w') as f_obj:
         json.dump(cleaned_consumption_json,f_obj)
 
 if __name__ == "__main__":
