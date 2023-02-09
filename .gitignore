@@ -11,3 +11,5 @@ consumption_files/
 .env
 
 .idea
+
+poetry.lock
