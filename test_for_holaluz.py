@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import unittest
 import responses
 import datetime as dt
@@ -156,7 +158,7 @@ class HolaluzTestCase(unittest.TestCase):
         when(dummy_obj).__enter__(...).thenReturn(dummy_obj)
         when(dummy_obj).__exit__(...).thenReturn(None)
         when(builtins).open(
-            f'.\consumption_files\consumption_{month}_{year}.json', 'w').thenReturn(dummy_obj)
+            f'./consumption_files/consumption_{month}_{year}.json', 'w').thenReturn(dummy_obj)
         when(json).dump(...).thenReturn()
         run()
         verify(json, times=1).dump(json_to_dump, dummy_obj)
