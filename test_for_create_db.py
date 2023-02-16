@@ -173,6 +173,7 @@ class TestClassCreateDatabase:
         query_executed = create_database.execute_query(fake_query, dummy_conn, dummy_cur)
         #then
         assert query_executed == False
+        
 
     unstub()
 

@@ -4,6 +4,10 @@ import psycopg2
 import os
 from dotenv import load_dotenv
 
+#TODO:
+#   -refactor with SQLAlchemy
+#   -autocommit ("with cur as conn.cursor()...")
+
 load_dotenv()
 
 DB_USER = os.getenv('DB_USER')
@@ -97,6 +101,7 @@ def run():
     creating_table_query = "CREATE TABLE IF NOT EXISTS daily_consumption (" \
                      "day_id BIGSERIAL PRIMARY KEY, " \
                      "creation_date  DATE, " \
+                     "update_date  DATE, " \
                      "date DATE, "\
                      "consumption FLOAT(8), "\
                      "cost FLOAT(8));"
@@ -104,7 +109,9 @@ def run():
     conn = connect_to_database(DB_NAME, conn_info)
     cur = conn.cursor()
     created_table = execute_query(creating_table_query, conn, cur)
-    
+
+    conn.commit()
+
     cur.close()
     conn.close()
 
