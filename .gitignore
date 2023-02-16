@@ -12,6 +12,4 @@ consumption_files/
 
 .idea
 
-poetry.lock
-
 Dockerfile
