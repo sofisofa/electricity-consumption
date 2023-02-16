@@ -28,28 +28,35 @@ def create_db(db_name, conn_info):
 
     conn.autocommit = True
     cur = conn.cursor()
-
-    sql_query = f"CREATE DATABASE IF NOT EXISTS {db_name}"
-
-    try:
-        cur.execute(sql_query)
-    except Exception as exc:
-        print("Cannot connect")
-        print(f"{type(exc).__name__}")
-        print(f"Query:{cur.query}")
-        conn.close()
-        cur.close()
-        db_created = False
-        return db_created
+    
+    search_query = f"SELECT 1 FROM pg_catalog.pg_database WHERE datname = '{db_name}'"
+    cur.execute(search_query)
+    exists = cur.fetchone()
+    if not exists:
+        create_db_query = f"CREATE DATABASE {db_name}"
+    
+        try:
+            cur.execute(create_db_query)
+        except Exception as exc:
+            print("Cannot create database")
+            print(f"{type(exc).__name__}")
+            print(f"Query:{cur.query}")
+            conn.close()
+            cur.close()
+            db_created = False
+            return db_created
+        else:
+            conn.autocommit = False
+            cur.close()
+            conn.close()
+            db_created = True
+            return db_created
     else:
-        conn.autocommit = False
-        cur.close()
-        conn.close()
-        db_created = True
-        return db_created
+        return exists
 
 
 def connect_to_database(db_name, conn_info):
+
     try:
         conn = psycopg2.connect(
             database=db_name,
@@ -64,19 +71,17 @@ def connect_to_database(db_name, conn_info):
         raise exc
 
 
-def create_table(create_query, connection, cursor):
+def execute_query(create_query, connection, cursor):
     try:
         cursor.execute(create_query)
     except Exception as exc:
         print(f"\n {type(exc).__name__}")
         print(f"Query:{cursor.query}")
-        table_created = False
-        return table_created
+        query_executed = False
+        return query_executed
     else:
-        cursor.close()
-        connection.close()
-        table_created = True
-        return table_created
+        query_executed = True
+        return query_executed
 
 
 def run():
@@ -86,17 +91,22 @@ def run():
         "user": DB_USER,
         "password": DB_PW,
     }
-    database_created = create_db(DB_NAME, conn_info)
+    
+    database_created_or_existing = create_db(DB_NAME, conn_info)
 
-    creating_query = "CREATE TABLE IF NOT EXISTS daily_consumption (" \
-                     "day_id SERIAL PRIMARY KEY, --AUTO_INCREMENT integer, as primary key" \
-                     "creation_date  DATE," \
-                     "date DATE,"\
-                     "consumption FLOAT(8)"\
-                     "cost FLOAT(8))"
+    creating_table_query = "CREATE TABLE IF NOT EXISTS daily_consumption (" \
+                     "day_id BIGSERIAL PRIMARY KEY, " \
+                     "creation_date  DATE, " \
+                     "date DATE, "\
+                     "consumption FLOAT(8), "\
+                     "cost FLOAT(8));"
+
     conn = connect_to_database(DB_NAME, conn_info)
     cur = conn.cursor()
-    created_table = create_table(creating_query, conn, cur)
+    created_table = execute_query(creating_table_query, conn, cur)
+    
+    cur.close()
+    conn.close()
 
 
 if __name__ == "__main__":
