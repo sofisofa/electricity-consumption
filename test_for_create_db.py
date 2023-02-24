@@ -155,10 +155,11 @@ class TestClassCreateDatabase:
         fake_query = 'This is a query'
         dummy_conn = mock()
         dummy_cur = mock()
+        when(dummy_conn).cursor().thenReturn(dummy_cur)
         when(dummy_cur).execute(fake_query).thenReturn(None)
         
         #when
-        query_executed = create_database.execute_query(fake_query, dummy_conn, dummy_cur)
+        query_executed = create_database.execute_query(fake_query, dummy_conn)
         
         #then
         assert query_executed == True
@@ -168,13 +169,13 @@ class TestClassCreateDatabase:
         fake_query = 'This is a query'
         dummy_conn = mock()
         dummy_cur = mock()
+        when(dummy_conn).cursor().thenReturn(dummy_cur)
         when(dummy_cur).execute(fake_query).thenRaise(Exception)
         #when
-        query_executed = create_database.execute_query(fake_query, dummy_conn, dummy_cur)
+        query_executed = create_database.execute_query(fake_query, dummy_conn)
         #then
         assert query_executed == False
         
-
     unstub()
 
 

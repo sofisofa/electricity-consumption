@@ -75,15 +75,18 @@ def connect_to_database(db_name, conn_info):
         raise exc
 
 
-def execute_query(create_query, connection, cursor):
+def execute_query(query, connection):
     try:
-        cursor.execute(create_query)
+        cursor = connection.cursor()
+        cursor.execute(query)
     except Exception as exc:
         print(f"\n {type(exc).__name__}")
         print(f"Query:{cursor.query}")
+        cursor.close()
         query_executed = False
         return query_executed
     else:
+        cursor.close()
         query_executed = True
         return query_executed
 
@@ -107,12 +110,10 @@ def run():
                      "cost FLOAT(8));"
 
     conn = connect_to_database(DB_NAME, conn_info)
-    cur = conn.cursor()
-    created_table = execute_query(creating_table_query, conn, cur)
+    created_table = execute_query(creating_table_query, conn)
 
     conn.commit()
 
-    cur.close()
     conn.close()
 
 
