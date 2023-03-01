@@ -33,27 +33,24 @@ def create_db(db_name, conn_info):
     conn.autocommit = True
     cur = conn.cursor()
     
-    search_query = f"SELECT 1 FROM pg_catalog.pg_database WHERE datname = '{db_name}'"
-    cur.execute(search_query)
+    search_db_query = f"SELECT 1 FROM pg_catalog.pg_database WHERE datname = '{db_name}'"
+    cur.execute(search_db_query)
     exists = cur.fetchone()
     if not exists:
         create_db_query = f"CREATE DATABASE {db_name}"
     
         try:
             cur.execute(create_db_query)
+            db_created = True
         except Exception as exc:
             print("Cannot create database")
             print(f"{type(exc).__name__}")
             print(f"Query:{cur.query}")
-            conn.close()
-            cur.close()
             db_created = False
-            return db_created
-        else:
+        finally:
             conn.autocommit = False
             cur.close()
             conn.close()
-            db_created = True
             return db_created
     else:
         return exists
@@ -76,19 +73,8 @@ def connect_to_database(db_name, conn_info):
 
 
 def execute_query(query, connection):
-    try:
-        cursor = connection.cursor()
+    with connection.cursor() as cursor:
         cursor.execute(query)
-    except Exception as exc:
-        print(f"\n {type(exc).__name__}")
-        print(f"Query:{cursor.query}")
-        cursor.close()
-        query_executed = False
-        return query_executed
-    else:
-        cursor.close()
-        query_executed = True
-        return query_executed
 
 
 def run():
@@ -109,13 +95,15 @@ def run():
                      "consumption FLOAT(8), "\
                      "cost FLOAT(8));"
 
-    conn = connect_to_database(DB_NAME, conn_info)
-    created_table = execute_query(creating_table_query, conn)
+    with connect_to_database(DB_NAME, conn_info) as conn:
+        try:
+            execute_query(creating_table_query, conn)
+        except Exception as exc:
+            print(f"Unable to create table: \n {type(exc).__name__}")
+            raise exc
 
-    conn.commit()
-
-    conn.close()
-
+        conn.commit()
+    
 
 if __name__ == "__main__":
     run()
