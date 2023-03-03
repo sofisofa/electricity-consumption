@@ -4,7 +4,7 @@ import psycopg2
 import os
 from dotenv import load_dotenv
 
-#TODO:
+# TODO:
 #   -refactor with SQLAlchemy
 #   -autocommit ("with cur as conn.cursor()...")
 
@@ -15,6 +15,7 @@ DB_PW = os.getenv('DB_PASS')
 DB_NAME = os.getenv('DB_NAME')
 DB_PORT = os.getenv('DB_PORT')
 DB_HOST = os.getenv('DB_HOST')
+TABLE_NAME = os.getenv('TABLE_NAME')
 
 
 def create_db(db_name, conn_info):
@@ -29,7 +30,7 @@ def create_db(db_name, conn_info):
     except Exception as exc:
         print(f"Unable to connect: \n{type(exc).__name__}.")
         raise exc
-
+    
     conn.autocommit = True
     cur = conn.cursor()
     
@@ -38,7 +39,7 @@ def create_db(db_name, conn_info):
     exists = cur.fetchone()
     if not exists:
         create_db_query = f"CREATE DATABASE {db_name}"
-    
+        
         try:
             cur.execute(create_db_query)
             db_created = True
@@ -57,7 +58,6 @@ def create_db(db_name, conn_info):
 
 
 def connect_to_database(db_name, conn_info):
-
     try:
         conn = psycopg2.connect(
             database=db_name,
@@ -86,24 +86,24 @@ def run():
     }
     
     database_created_or_existing = create_db(DB_NAME, conn_info)
-
-    creating_table_query = "CREATE TABLE IF NOT EXISTS daily_consumption (" \
-                     "day_id BIGSERIAL PRIMARY KEY, " \
-                     "creation_date  DATE, " \
-                     "update_date  DATE, " \
-                     "date DATE, "\
-                     "consumption FLOAT(8), "\
-                     "cost FLOAT(8));"
-
+    
+    creating_table_query = f"CREATE TABLE IF NOT EXISTS {TABLE_NAME} (" \
+                           "day_id BIGSERIAL PRIMARY KEY, " \
+                           "creation_date  DATE, " \
+                           "update_date  DATE, " \
+                           "date DATE, " \
+                           "consumption FLOAT(8), " \
+                           "cost FLOAT(8));"
+    
     with connect_to_database(DB_NAME, conn_info) as conn:
         try:
             execute_query(creating_table_query, conn)
         except Exception as exc:
             print(f"Unable to create table: \n {type(exc).__name__}")
             raise exc
-
+        
         conn.commit()
-    
+
 
 if __name__ == "__main__":
     run()
