@@ -2,8 +2,8 @@
 
 import pytest
 import psycopg2
-import create_database
 from mockito import when, mock, verify, unstub
+from .
 
 DB_NAME = 'DB_NAME'
 DB_USER = 'DB_USER'
