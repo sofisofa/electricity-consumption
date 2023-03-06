@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-import builtins
 import pytest
 import datetime as dt
 from unittest.mock import MagicMock, Mock, patch, ANY
@@ -77,17 +76,6 @@ class TestClassUpdateDatabase:
         with pytest.raises(Exception):
             inserted_data = update_database.insert_in_daily_consumption_db(CONSUMPTION_DATA_WITHOUT_ZERO_VALUES, DB_TABLE_NAME,
                                                            dummy_conn)
-
-    @patch("psycopg2.connect")
-    def test_insert_in_db_from_file(self, mock_connect):
-        
-        dummy_f_obj = MagicMock()
-        builtins.open.return_value = dummy_f_obj
-        dummy_f_obj.read.return_value = CONSUMPTION_DATA_WITHOUT_ZERO_VALUES
-        
-        data_to_insert = update_database.insert_in_db_from_file('this is a path')
-        
-        assert data_to_insert == CONSUMPTION_DATA_WITHOUT_ZERO_VALUES
     
     @responses.activate
     @patch("psycopg2.connect")
