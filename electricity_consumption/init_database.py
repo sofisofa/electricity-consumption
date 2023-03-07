@@ -48,6 +48,7 @@ def create_db(db_name, conn_info):
             print(f"{type(exc).__name__}")
             print(f"Query:{cur.query}")
             db_created = False
+            raise exc
         finally:
             conn.autocommit = False
             cur.close()

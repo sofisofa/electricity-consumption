@@ -2,8 +2,8 @@
 
 import os
 from dotenv import load_dotenv
-from holaluz_api import HolaLuz
-from create_database import connect_to_database, execute_query
+from .holaluz_api import HolaLuz
+from .init_database import connect_to_database, execute_query
 import datetime as dt
 import json
 
@@ -32,16 +32,18 @@ def insert_in_daily_consumption_db(data_to_insert, table_name, db_conn):
                                  "ORDER BY date DESC " \
                                  "LIMIT 1;"
         try:
-            last_date = cur.execute(select_last_date_query)
+            cur.execute(select_last_date_query)
+            last_date = cur.fetchall()
         except Exception as exc:
             print(f"Unable to get last date: \n{type(exc).__name__}.")
             raise exc
         
         for day in data_to_insert:
-            if day['date'] > last_date:
+            if last_date is None or day['date'] > last_date:
                 try:
                     insert_query = f"INSERT INTO {table_name} (creation_date, update_date, date, consumption, cost) " \
-                                   f"VALUES ({dt.date.today()}, {dt.date.today()}, {day['date']}, {day['total_consumption']}, {day['total_cost']} );"
+                                   f"VALUES (CURRENT_DATE, CURRENT_DATE, '{day['date']}', " \
+                                   f"{day['total_consumption']}, {day['total_cost']} );"
                     execute_query(insert_query, db_conn)
                 except Exception as exc:
                     print(f"Unable to insert data: \n{type(exc).__name__}.")
@@ -54,22 +56,6 @@ def insert_in_daily_consumption_db(data_to_insert, table_name, db_conn):
     db_conn.close()
     
     return inserted_data
-
-
-def insert_in_db_from_file(path_to_json):
-    """This method connects to the db, inserts the data in a table,
-    if their date is after than the last date inserted in the table.
-
-    Parameters:
-        -path_to_json: path to the json with data similar to holaluz_api.cleaned_data
-        -db_name: name of the database
-        -db_conn: connection to the database
-    """
-    
-    with open(f'{path_to_json}', 'r') as f_obj:
-        data_to_insert = f_obj.read()
-    
-    return data_to_insert
 
 
 def run():

@@ -2,8 +2,8 @@
 import pytest
 import datetime as dt
 from unittest.mock import MagicMock, Mock, patch, ANY
-from test_for_holaluz import create_date
-import update_database
+from .test_for_holaluz import create_date
+from .. import update_database
 import responses
 
 DB_NAME = 'DB_NAME'
@@ -34,7 +34,7 @@ SELECT_LAST_DATE_QUERY = f"SELECT date FROM {DB_TABLE_NAME} " \
                              "LIMIT 1;"
 
 INSERT_QUERY = f"INSERT INTO {DB_TABLE_NAME} (creation_date, update_date, date, consumption, cost) " \
-               f"VALUES (current_date, current_date, {CONSUMPTION_DATA_WITHOUT_ZERO_VALUES[1]['date']}, " \
+               f"VALUES (CURRENT_DATE, CURRENT_DATE, {CONSUMPTION_DATA_WITHOUT_ZERO_VALUES[1]['date']}, " \
                f"{CONSUMPTION_DATA_WITHOUT_ZERO_VALUES[1]['total_consumption']}, {CONSUMPTION_DATA_WITHOUT_ZERO_VALUES[1]['total_cost']} );"
 
 
@@ -96,7 +96,7 @@ class TestClassUpdateDatabase:
         )
         
         expected_insert_query = "INSERT INTO daily_consumption (creation_date, update_date, date, consumption, cost) " \
-                                f"VALUES ({dt.date.today()}, {dt.date.today()}, {CONSUMPTION_DATA_WITHOUT_ZERO_VALUES[1]['date']}, " \
+                                f"VALUES (CURRENT_DATE, CURRENT_DATE, {CONSUMPTION_DATA_WITHOUT_ZERO_VALUES[1]['date']}, " \
                                 f"{CONSUMPTION_DATA_WITHOUT_ZERO_VALUES[1]['total_consumption']}, {CONSUMPTION_DATA_WITHOUT_ZERO_VALUES[1]['total_cost']} );"
         
         dummy_conn = mock_connect.return_value

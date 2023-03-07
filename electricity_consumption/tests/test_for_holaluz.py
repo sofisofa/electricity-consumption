@@ -3,8 +3,8 @@
 import unittest
 import responses
 import datetime as dt
-from holaluz_api import HolaLuz
-from holaluz_api import run
+from ..holaluz_api import HolaLuz
+from ..holaluz_api import run
 from mockito import when, mock, verify, unstub
 import json
 import builtins

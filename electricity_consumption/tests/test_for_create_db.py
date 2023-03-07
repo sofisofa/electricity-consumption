@@ -3,7 +3,7 @@
 import pytest
 import psycopg2
 from mockito import when, mock, verify, unstub
-from .
+from .. import init_database
 
 DB_NAME = 'DB_NAME'
 DB_USER = 'DB_USER'

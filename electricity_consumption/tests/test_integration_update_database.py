@@ -1,14 +1,12 @@
 #!/usr/bin/env python3
 
 import pytest
-from unittest.mock import MagicMock, Mock, patch, ANY
-import responses
 import os
 from dotenv import load_dotenv
-from holaluz_api import HolaLuz
-from create_database import connect_to_database, execute_query
-import datetime as dt
+import responses
 import json
+from .. import update_database
+from ..init_database import execute_query, connect_to_database
 
 load_dotenv()
 
@@ -19,12 +17,12 @@ DB_PORT = os.getenv('DB_PORT')
 DB_HOST = os.getenv('DB_HOST')
 TABLE_NAME = os.getenv('TABLE_NAME')
 
-DB_CONN_INFO = {
+CONN_INFO = {
     "host": DB_HOST,
     "port": DB_PORT,
     "user": DB_USER,
     "password": DB_PW,
-}
+    }
 
 LOGIN_URL = 'https://core.holaluz.com/api/private/login_check'
 CONSUMPTION_URL = 'https://zc-consumption.holaluz.com/consumption'
@@ -34,19 +32,23 @@ HL_API_LOGIN_JSON_REPLY = {
     "refresh_token": "refresh_token"
 }
 
+PATH_TO_JSON = os.getenv('PATH_TO_JSON')
+
 
 class TestClassIntegrationUpdateDatabase:
     @responses.activate
-    def test_insert_in_db_from_json(self, path_to_json):
-        with open(f'{path_to_json}', 'r') as f_obj:
-            data_to_insert = f_obj.read()
+    def test_api_reply_stored_in_db(self):
+        
+        with open(f'{PATH_TO_JSON}', 'r') as f_obj:
+            json_to_dict= json.load(f_obj)
+            
+        data_to_insert = json_to_dict["daily_consumption"]
 
         hl_api_consumption_json_reply = [
             {
                 "cups": "cups",
-                "daily": [
-                    data_to_insert
-                ]
+                "daily": data_to_insert
+                
             }
         ]
 
@@ -55,4 +57,23 @@ class TestClassIntegrationUpdateDatabase:
             json=HL_API_LOGIN_JSON_REPLY
         )
         
+        responses.get(
+            CONSUMPTION_URL,
+            json=hl_api_consumption_json_reply
+        )
         
+        update_database.run()
+        
+        expected_number_of_rows = len(data_to_insert)
+        
+        count_query = f'SELECT COUNT(day_id) FROM {TABLE_NAME}'
+        with connect_to_database(DB_NAME, CONN_INFO) as conn:
+            with conn.cursor() as cur:
+                cur.execute(count_query)
+                rows_inserted = cur.fetchall()
+            
+        assert rows_inserted == expected_number_of_rows
+
+
+if __name__ == "__main__":
+    pytest.main([__file__])
