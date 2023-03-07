@@ -70,7 +70,7 @@ class TestClassIntegrationUpdateDatabase:
         with connect_to_database(DB_NAME, CONN_INFO) as conn:
             with conn.cursor() as cur:
                 cur.execute(count_query)
-                rows_inserted = cur.fetchall()
+                rows_inserted = cur.fetchone()[0]
             
         assert rows_inserted == expected_number_of_rows
 

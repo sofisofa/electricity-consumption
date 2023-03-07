@@ -33,13 +33,13 @@ def insert_in_daily_consumption_db(data_to_insert, table_name, db_conn):
                                  "LIMIT 1;"
         try:
             cur.execute(select_last_date_query)
-            last_date = cur.fetchall()
+            last_date = cur.fetchone()[0]
         except Exception as exc:
             print(f"Unable to get last date: \n{type(exc).__name__}.")
             raise exc
         
         for day in data_to_insert:
-            if last_date is None or day['date'] > last_date:
+            if last_date is None or dt.date.fromisoformat(day['date']) > last_date:
                 try:
                     insert_query = f"INSERT INTO {table_name} (creation_date, update_date, date, consumption, cost) " \
                                    f"VALUES (CURRENT_DATE, CURRENT_DATE, '{day['date']}', " \
@@ -48,10 +48,12 @@ def insert_in_daily_consumption_db(data_to_insert, table_name, db_conn):
                 except Exception as exc:
                     print(f"Unable to insert data: \n{type(exc).__name__}.")
                     db_conn.close()
+                    inserted_data = False
                     raise exc
                 else:
                     inserted_data = True
-    
+            else:
+                inserted_data = False
     db_conn.commit()
     db_conn.close()
     
