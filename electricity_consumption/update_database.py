@@ -2,8 +2,8 @@
 
 import os
 from dotenv import load_dotenv
-from .holaluz_api import HolaLuz
-from .init_database import connect_to_database, execute_query
+from electricity_consumption.holaluz_api import HolaLuz
+from electricity_consumption.init_database import connect_to_database, execute_query
 import datetime as dt
 import json
 
@@ -77,7 +77,7 @@ def run():
     cleaned_data = hl.clean_data(consumption_data)
     
     conn = connect_to_database(DB_NAME, db_conn_info)
-    inserted_data = insert_in_daily_consumption_db(cleaned_data, TABLE_NAME, conn)
+    insert_in_daily_consumption_db(cleaned_data, TABLE_NAME, conn)
 
 
 if __name__ == "__main__":
