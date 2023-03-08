@@ -1,15 +1,16 @@
 version: '3.8'
+
 services:
   db:
     image: postgres
     restart: always
-    env_file: .env_prod
+    container_name: 'prod'
     environment:
       - POSTGRES_USER=${DB_USER}
       - POSTGRES_PASSWORD=${DB_PASS}
       - POSTGRES_DB=${DB_NAME}
     ports:
-      - '62871:5432'
+      - '${DB_PORT}:5432'
     volumes:
       - db-prod:/var/lib/postgresql/data
 volumes:

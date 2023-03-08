@@ -3,14 +3,10 @@ services:
   db:
     image: postgres
     restart: always
+    container_name: 'test'
     environment:
       - POSTGRES_USER=${DB_USER}
       - POSTGRES_PASSWORD=${DB_PASS}
       - POSTGRES_DB=${DB_NAME}
     ports:
       - '${DB_PORT}:5432'
-    volumes:
-      - db-storage:/var/lib/postgresql/data
-volumes:
-  db-storage:
-    driver: local

@@ -5,8 +5,8 @@ coverage:
 	coverage report -m
 	coverage erase
 
-#prod:
-#	docker compose -f './docker-compose-prod.yml' up
+prod:
+	docker compose -f './docker-compose-prod.yml' --env-file ./.env_prod up
 
 dockerup:
 	docker compose up

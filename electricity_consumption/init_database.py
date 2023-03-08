@@ -19,7 +19,19 @@ TABLE_NAME = os.getenv('TABLE_NAME')
 
 
 def create_db(db_name, conn_info):
-    """Connects to server, creates the database"""
+    """Connects to server, creates the database, in case it was not created before.
+    
+     Parameters:
+        -db_name: string, name of the database
+        -conn_info: dict, containing information for the connection
+                {
+                "host": DB_HOST,
+                "port": DB_PORT,
+                "user": DB_USER,
+                "password": DB_PW,
+                }
+        
+    """
     try:
         conn = psycopg2.connect(
             host=conn_info['host'],
@@ -59,6 +71,19 @@ def create_db(db_name, conn_info):
 
 
 def connect_to_database(db_name, conn_info):
+    """Connects to a Postgres database.
+    
+    Parameters:
+        -db_name: string, name of the database
+        -conn_info: dict, containing information for the connection
+                {
+                "host": DB_HOST,
+                "port": DB_PORT,
+                "user": DB_USER,
+                "password": DB_PW,
+                }
+        
+    """
     try:
         conn = psycopg2.connect(
             database=db_name,
@@ -74,19 +99,19 @@ def connect_to_database(db_name, conn_info):
 
 
 def execute_query(query, connection):
+    """Executes a SQL query, given the connection to a Postgres database."""
     with connection.cursor() as cursor:
         cursor.execute(query)
 
 
 def run():
+    """Connects to database and creates the table in case it was not already created"""
     conn_info = {
         "host": DB_HOST,
         "port": DB_PORT,
         "user": DB_USER,
         "password": DB_PW,
     }
-    
-    database_created_or_existing = create_db(DB_NAME, conn_info)
     
     creating_table_query = f"CREATE TABLE IF NOT EXISTS {TABLE_NAME} (" \
                            "day_id BIGSERIAL PRIMARY KEY, " \

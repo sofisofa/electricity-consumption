@@ -36,6 +36,7 @@ PATH_TO_JSON = os.getenv('PATH_TO_JSON')
 
 
 class TestClassIntegrationUpdateDatabase:
+    """Integration test: collects data stored in a .json in tests and updates the test db with it."""
     @responses.activate
     def test_api_reply_stored_in_db(self):
         
