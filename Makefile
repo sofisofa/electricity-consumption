@@ -1,4 +1,7 @@
-tests: dockerup coverage dockerdown
+tests: initTestDb coverage dockerDown
+
+initTestDb:
+	python3 ./electricity_consumption/init_database.py
 
 coverage:
 	coverage run -m pytest
@@ -8,7 +11,8 @@ coverage:
 prod:
 	docker compose -f './docker-compose-prod.yml' --env-file ./.env_prod up
 
-dockerup:
+dockerUp:
 	docker compose up
-dockerdown:
+
+dockerDown:
 	docker compose down
