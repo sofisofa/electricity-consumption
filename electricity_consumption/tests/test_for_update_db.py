@@ -48,7 +48,8 @@ class TestClassUpdateDatabase:
         dummy_conn.cursor.return_value = dummy_cur
         dummy_cur.__enter__.return_value = dummy_cur
         dummy_cur.__exit__.return_value = None
-        dummy_cur.execute.side_effect = [create_date(dt.date.today(), -1), None]
+        dummy_cur.fetchone.return_value = [dt.date.today() - dt.timedelta(days=1)]
+        dummy_cur.execute.side_effect = [None, None]
         dummy_cur.close.return_value = None
         
         #When
@@ -67,7 +68,8 @@ class TestClassUpdateDatabase:
         dummy_conn.cursor.return_value = dummy_cur
         dummy_cur.__enter__.return_value = dummy_cur
         dummy_cur.__exit__.return_value = None
-        dummy_cur.execute.side_effect = [create_date(dt.date.today(), -1), Exception('oh no!')]
+        dummy_cur.fetchone.return_value = [dt.date.today() - dt.timedelta(days=1)]
+        dummy_cur.execute.side_effect = [None, Exception('oh no!')]
         dummy_cur.close.return_value = None
         
         #When
@@ -96,7 +98,7 @@ class TestClassUpdateDatabase:
         )
         
         expected_insert_query = "INSERT INTO daily_consumption (creation_date, update_date, date, consumption, cost) " \
-                                f"VALUES (CURRENT_DATE, CURRENT_DATE, {CONSUMPTION_DATA_WITHOUT_ZERO_VALUES[1]['date']}, " \
+                                f"VALUES (CURRENT_DATE, CURRENT_DATE, '{CONSUMPTION_DATA_WITHOUT_ZERO_VALUES[1]['date']}', " \
                                 f"{CONSUMPTION_DATA_WITHOUT_ZERO_VALUES[1]['total_consumption']}, {CONSUMPTION_DATA_WITHOUT_ZERO_VALUES[1]['total_cost']} );"
         
         dummy_conn = mock_connect.return_value
@@ -107,12 +109,13 @@ class TestClassUpdateDatabase:
         dummy_conn.cursor.return_value = dummy_cur
         dummy_cur.__enter__.return_value = dummy_cur
         dummy_cur.__exit__.return_value = None
-        dummy_cur.execute.side_effect = [create_date(dt.date.today(), -1), None]
+        dummy_cur.fetchone.return_value = [dt.date.today() - dt.timedelta(days=1)]
+        dummy_cur.execute.side_effect = [None,  None]
         dummy_cur.close.return_value = None
         update_database.run()
         dummy_cur.execute.assert_called_with(expected_insert_query)
 
-        
+
 if __name__ == "__main__":
     pytest.main([__file__])
     

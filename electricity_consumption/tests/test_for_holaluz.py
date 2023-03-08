@@ -185,7 +185,6 @@ class HolaluzTestCase(unittest.TestCase):
         when(json).dump(...).thenReturn()
         run()
         verify(json, times=1).dump(json_to_dump, dummy_obj)
-
-
+    
 if __name__ == "__main__":
     unittest.main()

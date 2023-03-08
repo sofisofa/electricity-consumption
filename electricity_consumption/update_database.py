@@ -33,7 +33,11 @@ def insert_in_daily_consumption_db(data_to_insert, table_name, db_conn):
                                  "LIMIT 1;"
         try:
             cur.execute(select_last_date_query)
-            last_date = cur.fetchone()[0]
+            fetched = cur.fetchone()
+            if fetched is None:
+                last_date = fetched
+            else:
+                last_date = fetched[0]
         except Exception as exc:
             print(f"Unable to get last date: \n{type(exc).__name__}.")
             raise exc

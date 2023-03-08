@@ -22,6 +22,11 @@ SEARCH_FOR_DB_QUERY = f"SELECT 1 FROM pg_catalog.pg_database WHERE datname = '{D
 
 
 class TestClassCreateDatabase:
+    @pytest.fixture(autouse=True)
+    def unstub_after_test(self):
+        yield
+        unstub()
+        
     def test_connected_to_database(self):
         
         dummy_conn = mock()
@@ -33,7 +38,7 @@ class TestClassCreateDatabase:
             port=CONN_INFO['port'],
         ).thenReturn(dummy_conn)
         
-        conn = create_database.connect_to_database(DB_NAME, CONN_INFO)
+        conn = init_database.connect_to_database(DB_NAME, CONN_INFO)
         assert conn == dummy_conn
     
     def test_not_connected_to_database(self):
@@ -47,7 +52,7 @@ class TestClassCreateDatabase:
         ).thenRaise(Exception)
         
         with pytest.raises(Exception):
-            create_database.connect_to_database(DB_NAME, CONN_INFO)
+            init_database.connect_to_database(DB_NAME, CONN_INFO)
     
     def test_database_created(self):
         # Given
@@ -68,7 +73,7 @@ class TestClassCreateDatabase:
         when(dummy_cur).close().thenReturn(None)
         
         # when
-        db_created= create_database.create_db(DB_NAME, CONN_INFO)
+        db_created= init_database.create_db(DB_NAME, CONN_INFO)
         
         # then
         assert db_created == True
@@ -92,7 +97,7 @@ class TestClassCreateDatabase:
         when(dummy_cur).close().thenReturn(None)
         
         # when
-        db_created = create_database.create_db(DB_NAME, CONN_INFO)
+        db_created = init_database.create_db(DB_NAME, CONN_INFO)
     
         # then
         assert db_created == False
@@ -117,7 +122,7 @@ class TestClassCreateDatabase:
         when(dummy_cur).close().thenReturn(None)
     
         # when
-        db_exists = create_database.create_db(DB_NAME, CONN_INFO)
+        db_exists = init_database.create_db(DB_NAME, CONN_INFO)
     
         # then
         assert db_exists == True
@@ -134,7 +139,7 @@ class TestClassCreateDatabase:
         when(dummy_cur).close().thenReturn(None)
         
         #when
-        create_database.execute_query(fake_query, dummy_conn)
+        init_database.execute_query(fake_query, dummy_conn)
         
         #then
         verify(dummy_cur).execute(fake_query)
@@ -151,10 +156,8 @@ class TestClassCreateDatabase:
         
         #then
         with pytest.raises(Exception):
-            create_database.execute_query(fake_query, dummy_conn)
-        
-    unstub()
-
+            init_database.execute_query(fake_query, dummy_conn)
+    
 
 if __name__ == "__main__":
     pytest.main([__file__])
