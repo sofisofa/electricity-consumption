@@ -58,6 +58,27 @@ class TestClassUpdateDatabase:
         #Then
         assert inserted_data == True
 
+    def test_insert_in_daily_consumption_db_cannot_get_last_date(self):
+        # Given
+    
+        dummy_conn = Mock()
+        dummy_conn.commit.return_value = None
+        dummy_conn.close.return_value = None
+        dummy_cur = MagicMock()
+        dummy_conn.cursor.return_value = dummy_cur
+        dummy_cur.__enter__.return_value = dummy_cur
+        dummy_cur.__exit__.return_value = None
+        dummy_cur.fetchone.return_value = [None]
+        dummy_cur.execute.side_effect = [Exception('oh no!'), None]
+        dummy_cur.close.return_value = None
+
+        # When
+    
+        # Then
+        with pytest.raises(Exception):
+            update_database.insert_in_daily_consumption_db(CONSUMPTION_DATA_WITHOUT_ZERO_VALUES, DB_TABLE_NAME,
+                                                           dummy_conn)
+
     def test_insert_in_daily_consumption_db_raises_exception(self):
         # Given
         
@@ -76,8 +97,7 @@ class TestClassUpdateDatabase:
         
         # Then
         with pytest.raises(Exception):
-            inserted_data = update_database.insert_in_daily_consumption_db(CONSUMPTION_DATA_WITHOUT_ZERO_VALUES, DB_TABLE_NAME,
-                                                           dummy_conn)
+            update_database.insert_in_daily_consumption_db(CONSUMPTION_DATA_WITHOUT_ZERO_VALUES, DB_TABLE_NAME,dummy_conn)
     
     @responses.activate
     @patch("psycopg2.connect")
