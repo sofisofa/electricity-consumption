@@ -1,4 +1,4 @@
-tests: initTestDb coverage dockerDown
+tests: dockerUp sleep2 initTestDb coverage dockerDown
 
 initTestDb:
 	python3 ./electricity_consumption/init_database.py
@@ -9,10 +9,13 @@ coverage:
 	coverage erase
 
 prod:
-	docker compose -f './docker-compose-prod.yml' --env-file ./.env_prod up
+	docker compose -d -f './docker-compose-prod.yml' --env-file ./.env_prod up
 
 dockerUp:
-	docker compose up
+	docker compose up -d
 
 dockerDown:
 	docker compose down
+
+sleep2:
+	sleep 2
