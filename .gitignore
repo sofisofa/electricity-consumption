@@ -9,7 +9,7 @@ month_from_num.py
 electricity_consumption/tests/consumption_files/
 
 .env
-.env_prod
+.env.prod
 
 .idea
 
