@@ -39,65 +39,51 @@ INSERT_QUERY = f"INSERT INTO {DB_TABLE_NAME} (creation_date, update_date, date, 
 
 
 class TestClassUpdateDatabase:
-    def test_insert_in_daily_consumption_db(self):
-        #Given
+    @pytest.fixture()
+    def stub_connection(self):
         dummy_conn = Mock()
         dummy_conn.close.return_value = None
         dummy_conn.commit.return_value = None
+        yield dummy_conn
+        
+    @pytest.fixture()
+    def stub_cursor(self, stub_connection):
+        dummy_conn = stub_connection
         dummy_cur = MagicMock()
         dummy_conn.cursor.return_value = dummy_cur
         dummy_cur.__enter__.return_value = dummy_cur
         dummy_cur.__exit__.return_value = None
+        dummy_cur.close.return_value = None
+        yield dummy_cur
+    
+    def test_insert_in_daily_consumption_db(self, stub_cursor, stub_connection):
+        dummy_conn = stub_connection
+        dummy_cur = stub_cursor
         dummy_cur.fetchone.return_value = [dt.date.today() - dt.timedelta(days=1)]
         dummy_cur.execute.side_effect = [None, None]
-        dummy_cur.close.return_value = None
-        
-        #When
+
         inserted_data = update_database.insert_in_daily_consumption_db(CONSUMPTION_DATA_WITHOUT_ZERO_VALUES, DB_TABLE_NAME, dummy_conn)
-        
-        #Then
+
         assert inserted_data == True
 
-    def test_insert_in_daily_consumption_db_cannot_get_last_date(self):
-        # Given
-    
-        dummy_conn = Mock()
-        dummy_conn.commit.return_value = None
-        dummy_conn.close.return_value = None
-        dummy_cur = MagicMock()
-        dummy_conn.cursor.return_value = dummy_cur
-        dummy_cur.__enter__.return_value = dummy_cur
-        dummy_cur.__exit__.return_value = None
+    def test_insert_in_daily_consumption_db_cannot_get_last_date(self, stub_cursor, stub_connection):
+        dummy_conn = stub_connection
+        dummy_cur = stub_cursor
         dummy_cur.fetchone.return_value = [None]
         dummy_cur.execute.side_effect = [Exception('oh no!'), None]
-        dummy_cur.close.return_value = None
 
-        # When
-    
-        # Then
         with pytest.raises(Exception):
             update_database.insert_in_daily_consumption_db(CONSUMPTION_DATA_WITHOUT_ZERO_VALUES, DB_TABLE_NAME,
                                                            dummy_conn)
 
-    def test_insert_in_daily_consumption_db_raises_exception(self):
-        # Given
-        
-        dummy_conn = Mock()
-        dummy_conn.commit.return_value = None
-        dummy_conn.close.return_value = None
-        dummy_cur = MagicMock()
-        dummy_conn.cursor.return_value = dummy_cur
-        dummy_cur.__enter__.return_value = dummy_cur
-        dummy_cur.__exit__.return_value = None
+    def test_insert_in_daily_consumption_db_raises_exception(self, stub_cursor, stub_connection):
+        dummy_conn = stub_connection
+        dummy_cur = stub_cursor
         dummy_cur.fetchone.return_value = [dt.date.today() - dt.timedelta(days=1)]
         dummy_cur.execute.side_effect = [None, Exception('oh no!')]
-        dummy_cur.close.return_value = None
-        
-        #When
-        
-        # Then
+
         with pytest.raises(Exception):
-            update_database.insert_in_daily_consumption_db(CONSUMPTION_DATA_WITHOUT_ZERO_VALUES, DB_TABLE_NAME,dummy_conn)
+            update_database.insert_in_daily_consumption_db(CONSUMPTION_DATA_WITHOUT_ZERO_VALUES, DB_TABLE_NAME, dummy_conn)
     
     @responses.activate
     @patch("psycopg2.connect")

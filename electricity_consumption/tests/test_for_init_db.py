@@ -21,17 +21,33 @@ CONN_INFO = {
             "password": DB_PW,
         }
 
-SEARCH_FOR_DB_QUERY = f"SELECT 1 FROM pg_catalog.pg_database WHERE datname = '{DB_NAME}'"
-
 
 class TestClassCreateDatabase:
+    @pytest.fixture()
+    def stub_connection(self):
+        dummy_conn = mock()
+        when(dummy_conn).close().thenReturn(None)
+        when(dummy_conn).__enter__(...).thenReturn(dummy_conn)
+        when(dummy_conn).__exit__(...).thenReturn(None)
+        yield dummy_conn
+        
+    @pytest.fixture()
+    def stub_cursor(self, stub_connection):
+        dummy_conn = stub_connection
+        dummy_cur = mock()
+        when(dummy_conn).cursor().thenReturn(dummy_cur)
+        when(dummy_cur).close().thenReturn(None)
+        when(dummy_cur).__enter__(...).thenReturn(dummy_cur)
+        when(dummy_cur).__exit__(...).thenReturn(None)
+        yield dummy_cur
+        
     @pytest.fixture(autouse=True)
     def unstub_after_test(self):
         yield
         unstub()
         
-    def test_connected_to_database(self):
-        dummy_conn = mock()
+    def test_connected_to_database(self, stub_connection):
+        dummy_conn = stub_connection
         when(psycopg2).connect(
             database=DB_NAME,
             host=CONN_INFO['host'],
@@ -39,14 +55,11 @@ class TestClassCreateDatabase:
             password=CONN_INFO['password'],
             port=CONN_INFO['port'],
         ).thenReturn(dummy_conn)
-        
         conn = init_database.connect_to_database(DB_NAME, CONN_INFO)
         assert conn == dummy_conn
     
     def test_not_connected_to_database(self):
-        
         when(psycopg2).connect(
-            database=DB_NAME,
             host=CONN_INFO['host'],
             user=CONN_INFO['user'],
             password=CONN_INFO['password'],
@@ -56,140 +69,42 @@ class TestClassCreateDatabase:
         with pytest.raises(Exception):
             init_database.connect_to_database(DB_NAME, CONN_INFO)
 
-    def test_cannot_connect_to_server(self):
-        # Given
-        create_db_query = f"CREATE DATABASE {DB_NAME}"
-        dummy_conn = mock()
-        dummy_cur = mock()
-        when(psycopg2).connect(
-            host=CONN_INFO['host'],
-            user=CONN_INFO['user'],
-            password=CONN_INFO['password'],
-            port=CONN_INFO['port'],
-        ).thenRaise(Exception)
-        when(dummy_conn).cursor().thenReturn(dummy_cur)
-        when(dummy_cur).execute(SEARCH_FOR_DB_QUERY).thenReturn(None)
-        when(dummy_cur).fetchone(...).thenReturn(False)
-        when(dummy_cur).execute(create_db_query).thenReturn(None)
-        when(dummy_conn).close().thenReturn(None)
-        when(dummy_cur).close().thenReturn(None)
-    
-        with pytest.raises(Exception):
-            init_database.create_db(DB_NAME, CONN_INFO)
-        
-    def test_database_created(self):
-        # Given
-       
-        dummy_conn = mock()
-        dummy_cur = mock()
-        when(psycopg2).connect(
-            host=CONN_INFO['host'],
-            user=CONN_INFO['user'],
-            password=CONN_INFO['password'],
-            port=CONN_INFO['port'],
-        ).thenReturn(dummy_conn)
-        when(dummy_conn).cursor().thenReturn(dummy_cur)
-        
-        when(dummy_cur).execute(...).thenReturn(None)
-        when(dummy_cur).fetchone(...).thenReturn(False)
-        when(dummy_conn).close().thenReturn(None)
-        when(dummy_cur).close().thenReturn(None)
-        
-        # when
-        db_created= init_database.create_db(DB_NAME, CONN_INFO)
-        
-        # then
-        assert db_created == True
-    
-    def test_database_not_created(self):
-        # Given
-        create_db_query = f"CREATE DATABASE {DB_NAME}"
-        dummy_conn = mock()
-        dummy_cur = mock()
-        when(psycopg2).connect(
-            host=CONN_INFO['host'],
-            user=CONN_INFO['user'],
-            password=CONN_INFO['password'],
-            port=CONN_INFO['port'],
-        ).thenReturn(dummy_conn)
-        when(dummy_conn).cursor().thenReturn(dummy_cur)
-        when(dummy_cur).execute(SEARCH_FOR_DB_QUERY).thenReturn(None)
-        when(dummy_cur).fetchone(...).thenReturn(False)
-        when(dummy_cur).execute(create_db_query).thenRaise(Exception)
-        when(dummy_conn).close().thenReturn(None)
-        when(dummy_cur).close().thenReturn(None)
-        
-        # when
-        db_created = init_database.create_db(DB_NAME, CONN_INFO)
-    
-        # then
-        assert db_created == False
-
-    def test_database_exists(self):
-        # Given
-        dummy_conn = mock()
-        dummy_cur = mock()
-        
-        when(psycopg2).connect(
-            host=CONN_INFO['host'],
-            user=CONN_INFO['user'],
-            password=CONN_INFO['password'],
-            port=CONN_INFO['port'],
-            ).thenReturn(dummy_conn)
-        
-        when(dummy_conn).cursor().thenReturn(dummy_cur)
-
-        when(dummy_cur).execute(SEARCH_FOR_DB_QUERY).thenReturn(None)
-        when(dummy_cur).fetchone(...).thenReturn(True)
-        when(dummy_conn).close().thenReturn(None)
-        when(dummy_cur).close().thenReturn(None)
-    
-        # when
-        db_exists = init_database.create_db(DB_NAME, CONN_INFO)
-    
-        # then
-        assert db_exists == True
-        
-    def test_query_executed(self):
-        #Given
+    def test_query_executed(self, stub_cursor, stub_connection):
         fake_query = 'This is a query'
-        dummy_conn = mock()
-        dummy_cur = mock()
-        when(dummy_conn).cursor().thenReturn(dummy_cur)
-        when(dummy_cur).__enter__(...).thenReturn(dummy_cur)
-        when(dummy_cur).__exit__(...).thenReturn(None)
+        dummy_conn = stub_connection
+        when(psycopg2).connect(
+            database=DB_NAME,
+            host=CONN_INFO['host'],
+            user=CONN_INFO['user'],
+            password=CONN_INFO['password'],
+            port=CONN_INFO['port'],
+        ).thenReturn(dummy_conn)
+        dummy_cur = stub_cursor
         when(dummy_cur).execute(fake_query).thenReturn(None)
         when(dummy_cur).close().thenReturn(None)
         
-        #when
         init_database.execute_query(fake_query, dummy_conn)
         
-        #then
         verify(dummy_cur).execute(fake_query)
         
-    def test_query_not_executed(self):
-        #Given
+    def test_query_not_executed(self, stub_cursor, stub_connection):
         fake_query = 'This is a query'
-        dummy_conn = mock()
-        dummy_cur = mock()
-        when(dummy_conn).cursor().thenReturn(dummy_cur)
-        when(dummy_cur).__enter__(...).thenReturn(dummy_cur)
-        when(dummy_cur).__exit__(...).thenReturn(None)
+        dummy_conn = stub_connection
+        when(psycopg2).connect(
+            database=DB_NAME,
+            host=CONN_INFO['host'],
+            user=CONN_INFO['user'],
+            password=CONN_INFO['password'],
+            port=CONN_INFO['port'],
+        ).thenReturn(dummy_conn)
+        dummy_cur = stub_cursor
         when(dummy_cur).execute(fake_query).thenRaise(Exception)
         
-        #then
         with pytest.raises(Exception):
             init_database.execute_query(fake_query, dummy_conn)
     
-    def test_run_connects_to_db_and_creates_the_table(self):
-        load_dotenv()
-        db_user = os.getenv('DB_USER')
-        db_pw = os.getenv('DB_PASS')
-        db_name = os.getenv('DB_NAME')
-        db_port = os.getenv('DB_PORT')
-        db_host = os.getenv('DB_HOST')
+    def test_run_connects_to_db_and_creates_the_table(self, stub_cursor, stub_connection):
         table_name = os.getenv('TABLE_NAME')
-
         create_table_q = f"CREATE TABLE IF NOT EXISTS {table_name} (" \
                              "day_id BIGSERIAL PRIMARY KEY, " \
                              "creation_date  DATE, " \
@@ -197,8 +112,15 @@ class TestClassCreateDatabase:
                              "date DATE, " \
                              "consumption FLOAT(8), " \
                              "cost FLOAT(8));"
-
-        dummy_conn = mock()
+        
+        load_dotenv()
+        db_user = os.getenv('DB_USER')
+        db_pw = os.getenv('DB_PASS')
+        db_name = os.getenv('DB_NAME')
+        db_port = os.getenv('DB_PORT')
+        db_host = os.getenv('DB_HOST')
+        dummy_conn = stub_connection
+        
         when(psycopg2).connect(
             database=db_name,
             host=db_host,
@@ -207,27 +129,15 @@ class TestClassCreateDatabase:
             port=db_port,
         ).thenReturn(dummy_conn)
         
-        when(dummy_conn).__enter__(...).thenReturn(dummy_conn)
-        when(dummy_conn).__exit__(...).thenReturn(None)
-        dummy_cur = mock()
-        when(dummy_conn).cursor().thenReturn(dummy_cur)
-        when(dummy_cur).__enter__(...).thenReturn(dummy_cur)
-        when(dummy_cur).__exit__(...).thenReturn(None)
+        dummy_cur = stub_cursor
         when(dummy_cur).execute(create_table_q).thenReturn(None)
 
         init_database.run()
         
         verify(dummy_cur).execute(create_table_q)
 
-    def test_run_connects_to_db_and_raises_exception(self):
-        load_dotenv()
-        db_user = os.getenv('DB_USER')
-        db_pw = os.getenv('DB_PASS')
-        db_name = os.getenv('DB_NAME')
-        db_port = os.getenv('DB_PORT')
-        db_host = os.getenv('DB_HOST')
+    def test_run_connects_to_db_and_raises_exception(self, stub_cursor, stub_connection):
         table_name = os.getenv('TABLE_NAME')
-    
         create_table_q = f"CREATE TABLE IF NOT EXISTS {table_name} (" \
                          "day_id BIGSERIAL PRIMARY KEY, " \
                          "creation_date  DATE, " \
@@ -235,8 +145,15 @@ class TestClassCreateDatabase:
                          "date DATE, " \
                          "consumption FLOAT(8), " \
                          "cost FLOAT(8));"
-    
-        dummy_conn = mock()
+        
+        load_dotenv()
+        db_user = os.getenv('DB_USER')
+        db_pw = os.getenv('DB_PASS')
+        db_name = os.getenv('DB_NAME')
+        db_port = os.getenv('DB_PORT')
+        db_host = os.getenv('DB_HOST')
+        
+        dummy_conn = stub_connection
         when(psycopg2).connect(
             database=db_name,
             host=db_host,
@@ -245,12 +162,7 @@ class TestClassCreateDatabase:
             port=db_port,
         ).thenReturn(dummy_conn)
     
-        when(dummy_conn).__enter__(...).thenReturn(dummy_conn)
-        when(dummy_conn).__exit__(...).thenReturn(None)
-        dummy_cur = mock()
-        when(dummy_conn).cursor().thenReturn(dummy_cur)
-        when(dummy_cur).__enter__(...).thenReturn(dummy_cur)
-        when(dummy_cur).__exit__(...).thenReturn(None)
+        dummy_cur = stub_cursor
         when(dummy_cur).execute(create_table_q).thenRaise(Exception("oh no!"))
     
         with pytest.raises(Exception):

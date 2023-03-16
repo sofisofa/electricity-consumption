@@ -2,10 +2,9 @@
 
 import os
 from dotenv import load_dotenv
-from electricity_consumption.holaluz_api import HolaLuz
-from electricity_consumption.init_database import connect_to_database, execute_query
+from .holaluz_api import HolaLuz
+from .init_database import connect_to_database, execute_query
 import datetime as dt
-import json
 
 load_dotenv()
 

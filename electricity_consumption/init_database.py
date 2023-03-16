@@ -6,7 +6,6 @@ from dotenv import load_dotenv
 
 # TODO:
 #   -refactor with SQLAlchemy
-#   -autocommit ("with cur as conn.cursor()...")
 
 load_dotenv()
 
@@ -16,58 +15,6 @@ DB_NAME = os.getenv('DB_NAME')
 DB_PORT = os.getenv('DB_PORT')
 DB_HOST = os.getenv('DB_HOST')
 TABLE_NAME = os.getenv('TABLE_NAME')
-
-
-def create_db(db_name, conn_info):
-    """Connects to server, creates the database, in case it was not created before.
-    
-     Parameters:
-        -db_name: string, name of the database
-        -conn_info: dict, containing information for the connection
-                {
-                "host": DB_HOST,
-                "port": DB_PORT,
-                "user": DB_USER,
-                "password": DB_PW,
-                }
-        
-    """
-    try:
-        conn = psycopg2.connect(
-            host=conn_info['host'],
-            user=conn_info['user'],
-            password=conn_info['password'],
-            port=conn_info['port'],
-        )
-    except Exception as exc:
-        print(f"Unable to connect: \n{type(exc).__name__}.")
-        raise exc
-    
-    conn.autocommit = True
-    cur = conn.cursor()
-    
-    search_db_query = f"SELECT 1 FROM pg_catalog.pg_database WHERE datname = '{db_name}'"
-    cur.execute(search_db_query)
-    exists = cur.fetchone()
-    if not exists:
-        create_db_query = f"CREATE DATABASE {db_name}"
-        
-        try:
-            cur.execute(create_db_query)
-            db_created = True
-        except Exception as exc:
-            print("Cannot create database")
-            print(f"{type(exc).__name__}")
-            print(f"Query:{cur.query}")
-            db_created = False
-            raise exc
-        finally:
-            conn.autocommit = False
-            cur.close()
-            conn.close()
-            return db_created
-    else:
-        return exists
 
 
 def connect_to_database(db_name, conn_info):
