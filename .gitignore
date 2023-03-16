@@ -14,3 +14,7 @@ electricity_consumption/tests/consumption_files/
 .idea
 
 Dockerfile
+
+
+/electricity_consumption/tests/test_for_createdb.py
+/electricity_consumption/create_db.py

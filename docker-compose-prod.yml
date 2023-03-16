@@ -4,7 +4,7 @@ services:
   db:
     image: postgres
     restart: always
-    container_name: 'prod'
+    container_name: 'prod-db'
     environment:
       - POSTGRES_USER=${DB_USER}
       - POSTGRES_PASSWORD=${DB_PASS}
@@ -13,6 +13,16 @@ services:
       - '${DB_PORT}:5432'
     volumes:
       - db-prod:/var/lib/postgresql/data
+  grafana:
+    image: grafana/grafana-oss
+    restart: always
+    container_name: 'test-grafana'
+    ports:
+      - '3000:3000'
+    volumes:
+      - prod-grafana-storage:/var/lib/grafana
 volumes:
   db-prod:
+    driver: local
+  prod-grafana-storage:
     driver: local
