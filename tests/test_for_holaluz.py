@@ -3,7 +3,7 @@
 import unittest
 import responses
 import datetime as dt
-from src.electricity_consumption.holaluz_api import HolaLuz
+from src.electricity_consumption.api_interactions import Api
 from src.electricity_consumption.holaluz_api import run
 from mockito import when, mock, verify, unstub
 import json
@@ -11,7 +11,6 @@ import builtins
 
 
 # Fixtures
-
 
 def create_date(date, delta):
     new_date = dt.date.isoformat(date + dt.timedelta(days=delta))
@@ -67,7 +66,7 @@ class HolaluzTestCase(unittest.TestCase):
         )
         
         # When
-        hl = HolaLuz()
+        hl = Api()
         # Then
         self.assertEqual(hl.token, "token")
     
@@ -80,7 +79,7 @@ class HolaluzTestCase(unittest.TestCase):
         )
         
         with self.assertRaises(Exception) as cm:
-            HolaLuz()
+            Api()
         
         the_exception = cm.exception
         self.assertTrue(f"{expected_error_code}" in str(the_exception))
@@ -97,7 +96,7 @@ class HolaluzTestCase(unittest.TestCase):
             json=API_CONSUMPTION_JSON_REPLY
         )
         
-        hl = HolaLuz()
+        hl = Api()
         data = hl.retrieve_data()
         self.assertEqual([
             {
@@ -121,7 +120,7 @@ class HolaluzTestCase(unittest.TestCase):
         )
         
         with self.assertRaises(Exception) as cm:
-            hl = HolaLuz()
+            hl = Api()
             hl.retrieve_data()
         
         the_exception = cm.exception
@@ -143,14 +142,14 @@ class HolaluzTestCase(unittest.TestCase):
         )
         expected_error = 'Data retrieved but is empty!'
         with self.assertRaises(Exception) as cm:
-            hl = HolaLuz()
+            hl = Api()
             hl.retrieve_data()
         
         the_exception = cm.exception
         self.assertEqual(f"{expected_error}", str(the_exception))
     
     def test_clean_data(self):
-        data = HolaLuz.clean_data(CONSUMPTION_DATA)
+        data = Api.clean_data(CONSUMPTION_DATA)
         self.assertEqual(CONSUMPTION_DATA_WITHOUT_ZERO_VALUES, data)
     
     @responses.activate

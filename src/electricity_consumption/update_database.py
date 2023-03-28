@@ -3,8 +3,8 @@
 import os
 from dotenv import load_dotenv
 import datetime as dt
-from api_interactions import Api
-from init_database import connect_to_database, execute_query
+from src.electricity_consumption.api_interactions import Api
+from src.electricity_consumption.init_database import connect_to_database, execute_query
 
 
 load_dotenv()

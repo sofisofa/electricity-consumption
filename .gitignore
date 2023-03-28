@@ -1,4 +1,7 @@
 __pycache__/
+.pytest_cache/
+./tests/.pytest_cache
+./src/electricity_consumption/.pytest_cache
 
 .vscode/
 

@@ -2,7 +2,7 @@
 import pytest
 import datetime as dt
 from unittest.mock import MagicMock, Mock, patch
-from test_for_holaluz import create_date
+from .test_for_holaluz import create_date
 import responses
 from src.electricity_consumption import update_database
 

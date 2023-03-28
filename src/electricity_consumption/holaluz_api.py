@@ -1,6 +1,6 @@
 import requests
 import json
-from api_interactions import Api
+from src.electricity_consumption.api_interactions import Api
 import datetime as dt
 import os
 from dotenv import load_dotenv
@@ -58,3 +58,4 @@ def run():
 
 if __name__ == "__main__":
     run()
+
