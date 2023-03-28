@@ -2,9 +2,10 @@
 
 import os
 from dotenv import load_dotenv
-from holaluz_api import HolaLuz
-from init_database import connect_to_database, execute_query
 import datetime as dt
+from api_interactions import Api
+from init_database import connect_to_database, execute_query
+
 
 load_dotenv()
 
@@ -71,7 +72,7 @@ def run():
         "password": DB_PW,
     }
     
-    hl = HolaLuz()
+    hl = Api()
     consumption_data = hl.retrieve_data()
     cleaned_data = hl.clean_data(consumption_data)
     

@@ -12,7 +12,7 @@ DB_PW = 'DB_PW'
 DB_PORT = 'DB_PORT'
 DB_HOST = 'DB_HOST'
 
-HL_USER= 'HL_USER'
+HL_USER = 'HL_USER'
 HL_PW = 'HL_PASS'
 LOGIN_URL = 'https://core.holaluz.com/api/private/login_check'
 CONSUMPTION_URL = 'https://zc-consumption.holaluz.com/consumption'

@@ -8,7 +8,6 @@ import json
 from src.electricity_consumption import update_database
 from src.electricity_consumption.init_database import connect_to_database
 
-
 load_dotenv()
 
 DB_USER = os.getenv('DB_USER')
