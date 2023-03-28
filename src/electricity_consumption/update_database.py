@@ -2,8 +2,8 @@
 
 import os
 from dotenv import load_dotenv
-from .holaluz_api import HolaLuz
-from .init_database import connect_to_database, execute_query
+from holaluz_api import HolaLuz
+from init_database import connect_to_database, execute_query
 import datetime as dt
 
 load_dotenv()

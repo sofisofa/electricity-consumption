@@ -16,7 +16,7 @@ services:
   grafana:
     image: grafana/grafana-oss
     restart: always
-    container_name: 'test-grafana'
+    container_name: 'prod-grafana'
     ports:
       - '3000:3000'
     volumes:

@@ -6,7 +6,7 @@ diego_holaluz_api.py
 
 month_from_num.py
 
-electricity_consumption/tests/consumption_files/
+tests/consumption_files/
 
 .env
 .env.prod
@@ -15,6 +15,7 @@ electricity_consumption/tests/consumption_files/
 
 Dockerfile
 
+.coverage
 
-/electricity_consumption/tests/test_for_createdb.py
-/electricity_consumption/create_db.py
+/tests/test_for_createdb.py
+/src/electricity_consumption/create_db.py

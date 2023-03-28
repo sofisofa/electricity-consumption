@@ -5,8 +5,9 @@ import os
 from dotenv import load_dotenv
 import responses
 import json
-from .. import update_database
-from ..init_database import execute_query, connect_to_database
+from src.electricity_consumption import update_database
+from src.electricity_consumption.init_database import connect_to_database
+
 
 load_dotenv()
 

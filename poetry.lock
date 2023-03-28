@@ -436,6 +436,17 @@ files = [
 ]
 
 [[package]]
+name = "logging"
+version = "0.4.9.6"
+description = "A logging module for Python"
+category = "main"
+optional = false
+python-versions = "*"
+files = [
+    {file = "logging-0.4.9.6.tar.gz", hash = "sha256:26f6b50773f085042d301085bd1bf5d9f3735704db9f37c1ce6d8b85c38f2417"},
+]
+
+[[package]]
 name = "matplotlib"
 version = "3.6.3"
 description = "Python plotting package"
@@ -987,4 +998,4 @@ socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "4326f7333aba1bcd708f372dfa3fa335c2dd4d9bf5f1fdce57322cf6c1ad33ea"
+content-hash = "afe0398b39a5a0849c90e892e72773a15ce314c4689b44405cd44c6dcfe51d3f"

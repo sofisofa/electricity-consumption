@@ -3,7 +3,7 @@
 import pytest
 import psycopg2
 from mockito import when, mock, verify, unstub
-from .. import init_database
+from src.electricity_consumption import init_database
 import os
 from dotenv import load_dotenv
 
