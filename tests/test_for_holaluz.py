@@ -3,7 +3,7 @@
 import unittest
 import responses
 import datetime as dt
-from src.electricity_consumption.api_interactions import Api
+from src.electricity_consumption.holaluz_api import HolaLuz
 from src.electricity_consumption.holaluz_api import run
 from mockito import when, mock, verify, unstub
 import json
@@ -18,7 +18,6 @@ def create_date(date, delta):
 
 
 LOGIN_URL = "https://core.holaluz.com/api/private/login_check"
-
 CONSUMPTION_URL = "https://zc-consumption.holaluz.com/consumption"
 
 API_LOGIN_JSON_REPLY = {
@@ -66,9 +65,9 @@ class HolaluzTestCase(unittest.TestCase):
         )
         
         # When
-        hl = Api()
+        hl = HolaLuz()
         # Then
-        self.assertEqual(hl.token, "token")
+        self.assertEqual(hl.api.token, "token")
     
     @responses.activate
     def test_holaluz_failed_login(self):
@@ -79,77 +78,13 @@ class HolaluzTestCase(unittest.TestCase):
         )
         
         with self.assertRaises(Exception) as cm:
-            Api()
+            HolaLuz()
         
         the_exception = cm.exception
         self.assertTrue(f"{expected_error_code}" in str(the_exception))
-    
-    @responses.activate
-    def test_holaluz_retrieve_data(self):
-        responses.post(
-            LOGIN_URL,
-            json=API_LOGIN_JSON_REPLY
-        )
-        
-        responses.get(
-            CONSUMPTION_URL,
-            json=API_CONSUMPTION_JSON_REPLY
-        )
-        
-        hl = Api()
-        data = hl.retrieve_data()
-        self.assertEqual([
-            {
-                "date": "2022-11-01",
-                "total_consumption": 7.901000000000001,
-                "total_cost": 3.48054689064485
-            },
-        ], data)
-    
-    @responses.activate
-    def test_failed_retrieve_data(self):
-        expected_error_code = 404
-        responses.post(
-            LOGIN_URL,
-            json=API_LOGIN_JSON_REPLY
-        )
-        
-        responses.get(
-            CONSUMPTION_URL,
-            status=expected_error_code
-        )
-        
-        with self.assertRaises(Exception) as cm:
-            hl = Api()
-            hl.retrieve_data()
-        
-        the_exception = cm.exception
-        self.assertTrue(f"{expected_error_code}" in str(the_exception))
-    
-    @responses.activate
-    def test_retrieved_empty_data(self):
-        responses.post(
-            LOGIN_URL,
-            json=API_LOGIN_JSON_REPLY
-        )
-        
-        responses.get(
-            CONSUMPTION_URL,
-            json=[{
-                "cups": "cups",
-                "daily": []
-            }]
-        )
-        expected_error = 'Data retrieved but is empty!'
-        with self.assertRaises(Exception) as cm:
-            hl = Api()
-            hl.retrieve_data()
-        
-        the_exception = cm.exception
-        self.assertEqual(f"{expected_error}", str(the_exception))
     
     def test_clean_data(self):
-        data = Api.clean_data(CONSUMPTION_DATA)
+        data = HolaLuz.clean_data(CONSUMPTION_DATA)
         self.assertEqual(CONSUMPTION_DATA_WITHOUT_ZERO_VALUES, data)
     
     @responses.activate
