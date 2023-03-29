@@ -3,7 +3,7 @@
 import os
 from dotenv import load_dotenv
 import datetime as dt
-from src.electricity_consumption.api_interactions import Api
+from src.electricity_consumption.holaluz_api import HolaLuz
 from src.electricity_consumption.init_database import connect_to_database, execute_query
 
 
@@ -72,8 +72,8 @@ def run():
         "password": DB_PW,
     }
     
-    hl = Api()
-    consumption_data = hl.retrieve_data()
+    hl = HolaLuz()
+    consumption_data = hl.api.retrieve_data()
     cleaned_data = hl.clean_data(consumption_data)
     
     conn = connect_to_database(DB_NAME, db_conn_info)

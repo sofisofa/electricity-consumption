@@ -16,7 +16,7 @@ class HolaLuz:
     LOGIN_URL = 'https://core.holaluz.com/api/private/login_check'
     CONSUMPTION_URL = 'https://zc-consumption.holaluz.com/consumption'
     LOGIN_PAYLOAD = {'_app': 'customer', '_username': USERNAME, '_password': PW}
-    API_INFO = {
+    HL_API_INFO = {
         'user': USERNAME,
         'pw': PW,
         'login_url': LOGIN_URL,
@@ -25,7 +25,7 @@ class HolaLuz:
     }
 
     def __init__(self):
-        self.api = Api(self.API_INFO)
+        self.api = Api(self.HL_API_INFO)
     
     @staticmethod
     def clean_data(data):

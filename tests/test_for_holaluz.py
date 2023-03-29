@@ -2,20 +2,28 @@
 
 import unittest
 import responses
+from responses.matchers import query_param_matcher
 import datetime as dt
 from src.electricity_consumption.holaluz_api import HolaLuz
 from src.electricity_consumption.holaluz_api import run
 from mockito import when, mock, verify, unstub
 import json
 import builtins
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
 # Fixtures
-
 def create_date(date, delta):
     new_date = dt.date.isoformat(date + dt.timedelta(days=delta))
     return new_date
 
+
+USERNAME = os.getenv('HL_USER')
+PW = os.getenv('HL_PASS')
+LOGIN_PAYLOAD = {'_app': 'customer', '_username': USERNAME, '_password': PW}
 
 LOGIN_URL = "https://core.holaluz.com/api/private/login_check"
 CONSUMPTION_URL = "https://zc-consumption.holaluz.com/consumption"
