@@ -1,4 +1,3 @@
-import requests
 import json
 from src.electricity_consumption.api_interactions import Api
 import datetime as dt

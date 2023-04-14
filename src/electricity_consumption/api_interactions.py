@@ -15,7 +15,7 @@ class Api:
     def __init__(self, api_info):
         self.token = None
         self.refresh_token = None
-        self.login_payload = {'_app': 'customer', '_username': api_info['user'], '_password': api_info['pw']}
+        self.login_payload = api_info['login_payload']
         self.login_url = api_info['login_url']
         self.consumption_url = api_info['consumption_url']
         self.login()
