@@ -51,7 +51,7 @@ def run():
     cleaned_consumption_json = {'creation date': dt.date.isoformat(dt.date.today()),
                                 'daily_consumption': cleaned_data}
     
-    with open(f'./electricity_consumption/tests/consumption_files/consumption_{month}_{year}.json', 'w') as f_obj:
+    with open(f'./tests/consumption_files/hl_consumption_{month}_{year}.json', 'w+') as f_obj:
         json.dump(cleaned_consumption_json, f_obj)
 
 

@@ -32,7 +32,7 @@ HL_API_LOGIN_JSON_REPLY = {
     "refresh_token": "refresh_token"
 }
 
-PATH_TO_JSON = os.getenv('PATH_TO_JSON')
+PATH_TO_JSON = os.getenv('HL_PATH_TO_JSON')
 
 
 class TestClassIntegrationUpdateDatabase:
@@ -41,7 +41,7 @@ class TestClassIntegrationUpdateDatabase:
     def test_api_reply_stored_in_db(self):
         
         with open(f'{PATH_TO_JSON}', 'r') as f_obj:
-            json_to_dict= json.load(f_obj)
+            json_to_dict = json.load(f_obj)
             
         data_to_insert = json_to_dict["daily_consumption"]
 

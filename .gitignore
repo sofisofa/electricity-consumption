@@ -1,7 +1,7 @@
 __pycache__/
 .pytest_cache/
-./tests/.pytest_cache
-./src/electricity_consumption/.pytest_cache
+/tests/.pytest_cache
+/src/electricity_consumption/.pytest_cache
 
 .vscode/
 
@@ -23,6 +23,8 @@ Dockerfile
 /tests/test_for_createdb.py
 /src/electricity_consumption/create_db.py
 
-./src/electricity_consumption/credentials.py
-./src/electricity_consumption/edistribution.access
-./src/electricity_consumption/edistribution.session
+credentials.py
+edistribucion.access
+edistribucion.session
+/src/electricity_consumption/edistribucion.access
+/src/electricity_consumption/edistribucion.session
