@@ -48,12 +48,13 @@ class Endesa:
                 new_date = dt.datetime.strptime(raw_date, '%d/%m/%Y')
                 new_date = new_date.date()
                 point["date"] = new_date.isoformat()
+        return data
     
         
 def run():
     endesa = Endesa(USERNAME, PW)
     consumption_data = endesa.get_last_consumption_data()
-    endesa.reformat_data(consumption_data)
+    consumption_data = endesa.reformat_data(consumption_data)
     
     # Get year and month of consumption data
     date = dt.date.fromisoformat(consumption_data[0][0]["date"])
