@@ -12,7 +12,6 @@ DB_USER = 'DB_USER'
 DB_PW = 'DB_PW'
 DB_PORT = 'DB_PORT'
 DB_HOST = 'DB_HOST'
-TABLE_NAME = 'TABLE'
 
 CONN_INFO = {
             "host": DB_HOST,
@@ -40,6 +39,12 @@ class TestClassCreateDatabase:
         when(dummy_cur).__enter__(...).thenReturn(dummy_cur)
         when(dummy_cur).__exit__(...).thenReturn(None)
         yield dummy_cur
+
+    @pytest.fixture()
+    def stub_env_var(self, monkeypatch):
+        monkeypatch.setenv('HOLALUZ_ENABLED', 'True')
+        monkeypatch.setenv('ENDESA_ENABLED', 'True')
+        yield
         
     @pytest.fixture(autouse=True)
     def unstub_after_test(self):
@@ -103,17 +108,27 @@ class TestClassCreateDatabase:
         with pytest.raises(Exception):
             init_database.execute_query(fake_query, dummy_conn)
     
-    def test_run_connects_to_db_and_creates_the_table(self, stub_cursor, stub_connection):
-        table_name = os.getenv('TABLE_NAME')
-        create_table_q = f"CREATE TABLE IF NOT EXISTS {table_name} (" \
-                             "day_id BIGSERIAL PRIMARY KEY, " \
-                             "creation_date  DATE, " \
-                             "update_date  DATE, " \
-                             "date DATE, " \
-                             "consumption FLOAT(8), " \
-                             "cost FLOAT(8));"
-        
+    def test_run_connects_to_db_and_creates_the_tables(self, stub_env_var, stub_cursor, stub_connection):
         load_dotenv()
+        hl_table_name = os.getenv('HL_TABLE_NAME')
+        en_table_name = os.getenv('EN_TABLE_NAME')
+        
+        hl_create_table_q = f"CREATE TABLE IF NOT EXISTS {hl_table_name} (" \
+                            "day_id BIGSERIAL PRIMARY KEY, " \
+                            "creation_date  DATE, " \
+                            "update_date  DATE, " \
+                            "date DATE, " \
+                            "consumption FLOAT(8), " \
+                            "cost FLOAT(8));"
+        
+        en_create_table_q = f"CREATE TABLE IF NOT EXISTS {en_table_name} (" \
+                            "day_id BIGSERIAL PRIMARY KEY, " \
+                            "creation_date  DATE, " \
+                            "update_date  DATE, " \
+                            "date DATE, " \
+                            "hour TIME, " \
+                            "consumption FLOAT(8));"
+        
         db_user = os.getenv('DB_USER')
         db_pw = os.getenv('DB_PASS')
         db_name = os.getenv('DB_NAME')
@@ -130,23 +145,36 @@ class TestClassCreateDatabase:
         ).thenReturn(dummy_conn)
         
         dummy_cur = stub_cursor
-        when(dummy_cur).execute(create_table_q).thenReturn(None)
+        when(dummy_cur).execute(en_create_table_q).thenReturn(None)
+        when(dummy_cur).execute(hl_create_table_q).thenReturn(None)
 
         init_database.run()
-        
-        verify(dummy_cur).execute(create_table_q)
 
-    def test_run_connects_to_db_and_raises_exception(self, stub_cursor, stub_connection):
-        table_name = os.getenv('TABLE_NAME')
-        create_table_q = f"CREATE TABLE IF NOT EXISTS {table_name} (" \
-                         "day_id BIGSERIAL PRIMARY KEY, " \
-                         "creation_date  DATE, " \
-                         "update_date  DATE, " \
-                         "date DATE, " \
-                         "consumption FLOAT(8), " \
-                         "cost FLOAT(8));"
-        
+        verify(dummy_cur).execute(en_create_table_q)
+        verify(dummy_cur).execute(hl_create_table_q)
+
+    def test_run_connects_to_db_and_hl_table_raises_exception(self, stub_env_var, stub_cursor, stub_connection):
+
         load_dotenv()
+        hl_table_name = os.getenv('HL_TABLE_NAME')
+        en_table_name = os.getenv('EN_TABLE_NAME')
+        
+        hl_create_table_q = f"CREATE TABLE IF NOT EXISTS {hl_table_name} (" \
+                            "day_id BIGSERIAL PRIMARY KEY, " \
+                            "creation_date  DATE, " \
+                            "update_date  DATE, " \
+                            "date DATE, " \
+                            "consumption FLOAT(8), " \
+                            "cost FLOAT(8));"
+        
+        en_create_table_q = f"CREATE TABLE IF NOT EXISTS {en_table_name} (" \
+                            "day_id BIGSERIAL PRIMARY KEY, " \
+                            "creation_date  DATE, " \
+                            "update_date  DATE, " \
+                            "date DATE, " \
+                            "hour TIME, " \
+                            "consumption FLOAT(8));"
+        
         db_user = os.getenv('DB_USER')
         db_pw = os.getenv('DB_PASS')
         db_name = os.getenv('DB_NAME')
@@ -163,8 +191,52 @@ class TestClassCreateDatabase:
         ).thenReturn(dummy_conn)
     
         dummy_cur = stub_cursor
-        when(dummy_cur).execute(create_table_q).thenRaise(Exception("oh no!"))
+        when(dummy_cur).execute(en_create_table_q).thenReturn(None)
+        when(dummy_cur).execute(hl_create_table_q).thenRaise(Exception("oh no!"))
     
+        with pytest.raises(Exception):
+            init_database.run()
+    
+    def test_run_connects_to_db_and_en_table_raises_exception(self, stub_env_var, stub_cursor, stub_connection):
+        load_dotenv()
+        hl_table_name = os.getenv('HL_TABLE_NAME')
+        en_table_name = os.getenv('EN_TABLE_NAME')
+
+        hl_create_table_q = f"CREATE TABLE IF NOT EXISTS {hl_table_name} (" \
+                            "day_id BIGSERIAL PRIMARY KEY, " \
+                            "creation_date  DATE, " \
+                            "update_date  DATE, " \
+                            "date DATE, " \
+                            "consumption FLOAT(8), " \
+                            "cost FLOAT(8));"
+        
+        en_create_table_q = f"CREATE TABLE IF NOT EXISTS {en_table_name} (" \
+                            "day_id BIGSERIAL PRIMARY KEY, " \
+                            "creation_date  DATE, " \
+                            "update_date  DATE, " \
+                            "date DATE, " \
+                            "hour TIME, " \
+                            "consumption FLOAT(8));"
+        
+        db_user = os.getenv('DB_USER')
+        db_pw = os.getenv('DB_PASS')
+        db_name = os.getenv('DB_NAME')
+        db_port = os.getenv('DB_PORT')
+        db_host = os.getenv('DB_HOST')
+        
+        dummy_conn = stub_connection
+        when(psycopg2).connect(
+            database=db_name,
+            host=db_host,
+            user=db_user,
+            password=db_pw,
+            port=db_port,
+        ).thenReturn(dummy_conn)
+        
+        dummy_cur = stub_cursor
+        when(dummy_cur).execute(hl_create_table_q).thenReturn(None)
+        when(dummy_cur).execute(en_create_table_q).thenRaise(Exception("oh no!"))
+        
         with pytest.raises(Exception):
             init_database.run()
         

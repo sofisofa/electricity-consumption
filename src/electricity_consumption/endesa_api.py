@@ -45,9 +45,12 @@ class Endesa:
         for day in data:
             for point in day:
                 raw_date = point["date"]
+                raw_hour = point["hour"]
                 new_date = dt.datetime.strptime(raw_date, '%d/%m/%Y')
                 new_date = new_date.date()
                 point["date"] = new_date.isoformat()
+                new_hour = dt.time(hour=raw_hour-1)
+                point["hour"] = new_hour.isoformat('seconds')
         return data
     
         

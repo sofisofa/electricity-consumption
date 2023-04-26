@@ -52,8 +52,8 @@ EXPECTED_CONSUMPTION_DATA = [[
 ]]
 
 EXPECTED_REFORMAT_DATA = [[
-    {'date': '2023-03-08', 'hour': 1, 'label': '00 - 01 h', 'consumption': 0.922},
-    {'date': '2023-03-08', 'hour': 2, 'label': '01 - 02 h', 'consumption': 0.539}
+    {'date': '2023-03-08', 'hour': '00:00:00', 'label': '00 - 01 h', 'consumption': 0.922},
+    {'date': '2023-03-08', 'hour': '01:00:00', 'label': '01 - 02 h', 'consumption': 0.539}
 ]]
 
 

@@ -15,7 +15,7 @@ DB_PW = os.getenv('DB_PASS')
 DB_NAME = os.getenv('DB_NAME')
 DB_PORT = os.getenv('DB_PORT')
 DB_HOST = os.getenv('DB_HOST')
-TABLE_NAME = os.getenv('TABLE_NAME')
+HL_TABLE_NAME = os.getenv('HL_TABLE_NAME')
 
 CONN_INFO = {
     "host": DB_HOST,
@@ -67,7 +67,7 @@ class TestClassIntegrationUpdateDatabase:
         
         expected_number_of_rows = len(data_to_insert)
         
-        count_query = f'SELECT COUNT(day_id) FROM {TABLE_NAME}'
+        count_query = f'SELECT COUNT(day_id) FROM {HL_TABLE_NAME}'
         with connect_to_database(DB_NAME, CONN_INFO) as conn:
             with conn.cursor() as cur:
                 cur.execute(count_query)

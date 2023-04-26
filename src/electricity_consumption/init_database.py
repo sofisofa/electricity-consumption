@@ -2,6 +2,7 @@
 
 import logging
 import psycopg2
+from distutils.util import strtobool
 import os
 from dotenv import load_dotenv
 
@@ -15,7 +16,10 @@ DB_PW = os.getenv('DB_PASS')
 DB_NAME = os.getenv('DB_NAME')
 DB_PORT = os.getenv('DB_PORT')
 DB_HOST = os.getenv('DB_HOST')
-TABLE_NAME = os.getenv('TABLE_NAME')
+
+HL_TABLE_NAME = os.getenv('HL_TABLE_NAME')
+
+EN_TABLE_NAME = os.getenv('EN_TABLE_NAME')
 
 
 def connect_to_database(db_name, conn_info):
@@ -60,23 +64,42 @@ def run():
         "user": DB_USER,
         "password": DB_PW,
     }
-    
-    creating_table_query = f"CREATE TABLE IF NOT EXISTS {TABLE_NAME} (" \
-                           "day_id BIGSERIAL PRIMARY KEY, " \
-                           "creation_date  DATE, " \
-                           "update_date  DATE, " \
-                           "date DATE, " \
-                           "consumption FLOAT(8), " \
-                           "cost FLOAT(8));"
-    
-    with connect_to_database(DB_NAME, conn_info) as conn:
-        try:
-            execute_query(creating_table_query, conn)
-        except Exception as exc:
-            print(f"Unable to create table: \n {type(exc).__name__}")
-            raise exc
+
+    if strtobool(os.getenv('ENDESA_ENABLED')):
+        creating_table_query = f"CREATE TABLE IF NOT EXISTS {EN_TABLE_NAME} (" \
+                               "day_id BIGSERIAL PRIMARY KEY, " \
+                               "creation_date  DATE, " \
+                               "update_date  DATE, " \
+                               "date DATE, " \
+                               "hour TIME, " \
+                               "consumption FLOAT(8));"
         
-        conn.commit()
+        with connect_to_database(DB_NAME, conn_info) as conn:
+            try:
+                execute_query(creating_table_query, conn)
+            except Exception as exc:
+                print(f"Unable to create table: \n {type(exc).__name__}")
+                raise exc
+            
+            conn.commit()
+
+    if strtobool(os.getenv('HOLALUZ_ENABLED')):
+        creating_table_query = f"CREATE TABLE IF NOT EXISTS {HL_TABLE_NAME} (" \
+                               "day_id BIGSERIAL PRIMARY KEY, " \
+                               "creation_date  DATE, " \
+                               "update_date  DATE, " \
+                               "date DATE, " \
+                               "consumption FLOAT(8), " \
+                               "cost FLOAT(8));"
+        
+        with connect_to_database(DB_NAME, conn_info) as conn:
+            try:
+                execute_query(creating_table_query, conn)
+            except Exception as exc:
+                print(f"Unable to create table: \n {type(exc).__name__}")
+                raise exc
+            
+            conn.commit()
 
 
 if __name__ == "__main__":
