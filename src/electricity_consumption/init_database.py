@@ -67,7 +67,7 @@ def run():
 
     if strtobool(os.getenv('ENDESA_ENABLED')):
         creating_table_query = f"CREATE TABLE IF NOT EXISTS {EN_TABLE_NAME} (" \
-                               "day_id BIGSERIAL PRIMARY KEY, " \
+                               "point_id BIGSERIAL PRIMARY KEY, " \
                                "creation_date  DATE, " \
                                "update_date  DATE, " \
                                "date DATE, " \

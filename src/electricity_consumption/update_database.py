@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 
 import os
+
 from dotenv import load_dotenv
 from distutils.util import strtobool
 import datetime as dt
-from src.electricity_consumption.holaluz_api import HolaLuz
-from src.electricity_consumption.endesa_api import Endesa
-from src.electricity_consumption.init_database import connect_to_database, execute_query
-
+from holaluz_api import HolaLuz
+from endesa_api import Endesa
+from init_database import connect_to_database, execute_query
 
 load_dotenv()
 
