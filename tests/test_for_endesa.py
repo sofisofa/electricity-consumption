@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 
 import pytest
+import os
+from dotenv import load_dotenv
 import datetime as dt
-from unittest.mock import MagicMock, Mock, patch
-from .test_for_holaluz import create_date
-import responses
+from unittest.mock import MagicMock, patch
 from src.electricity_consumption import endesa_api as ea
-from src.electricity_consumption.endesa_api import Endesa, Edistribucion
+from src.electricity_consumption.endesa_api import Endesa
 
 EN_USER = 'EN_USER'
 EN_PW = 'EN_PASS'
@@ -73,7 +73,7 @@ class TestClassUpdateDatabase:
         Endesa.edis.get_list_cycles.assert_called_with('Id')
         Endesa.edis.get_meas.assert_called_with(L_CUPS['Id'], CYCLES[0])
         assert data == EXPECTED_CONSUMPTION_DATA
-        
+    
     def test_reformat_data(self):
         data = Endesa.reformat_data(EXPECTED_CONSUMPTION_DATA)
         assert data == EXPECTED_REFORMAT_DATA
@@ -96,10 +96,11 @@ class TestClassUpdateDatabase:
         dummy_obj.__exit__.return_value = None
         mock_open.return_value = dummy_obj
         consumption_json = {'creation date': dt.date.isoformat(dt.date.today()),
-                            'hourly_consumption': EXPECTED_REFORMAT_DATA}
-
+                            'hourly_consumption': EXPECTED_CONSUMPTION_DATA}
+        
+        load_dotenv()
         ea.run()
-        mock_open.assert_called_with(f'./tests/consumption_files/en_consumption_{month}_{year}.json', 'w')
+        mock_open.assert_called_with(f"{os.getenv('PATH_TO_CONSUMPTION_FILES')}en_consumption_{month}_{year}.json", 'w+')
         mock_dump.assert_called_with(consumption_json, dummy_obj)
 
 

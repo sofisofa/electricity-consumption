@@ -1,5 +1,5 @@
 import json
-from src.electricity_consumption.api_interactions import Api
+from api_interactions import Api
 import datetime as dt
 import os
 from dotenv import load_dotenv
@@ -51,7 +51,7 @@ def run():
     cleaned_consumption_json = {'creation date': dt.date.isoformat(dt.date.today()),
                                 'daily_consumption': cleaned_data}
     
-    with open(f'./tests/consumption_files/hl_consumption_{month}_{year}.json', 'w') as f_obj:
+    with open(f"{os.getenv('PATH_TO_CONSUMPTION_FILES')}hl_consumption_{month}_{year}.json", 'w+') as f_obj:
         json.dump(cleaned_consumption_json, f_obj)
 
 

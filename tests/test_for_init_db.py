@@ -46,6 +46,30 @@ class TestClassCreateDatabase:
         monkeypatch.setenv('ENDESA_ENABLED', 'True')
         yield
         
+    @pytest.fixture()
+    def init_var_for_table_creation(self):
+        load_dotenv()
+        hl_table_name = os.getenv('HL_TABLE_NAME')
+        en_table_name = os.getenv('EN_TABLE_NAME')
+        
+        hl_create_table_q = f"CREATE TABLE IF NOT EXISTS {hl_table_name} (" \
+                            "day_id BIGSERIAL PRIMARY KEY, " \
+                            "creation_date  DATE, " \
+                            "update_date  DATE, " \
+                            "date DATE, " \
+                            "consumption FLOAT(8), " \
+                            "cost FLOAT(8));"
+        
+        en_create_table_q = f"CREATE TABLE IF NOT EXISTS {en_table_name} (" \
+                            "point_id BIGSERIAL PRIMARY KEY, " \
+                            "creation_date  DATE, " \
+                            "update_date  DATE, " \
+                            "date DATE, " \
+                            "hour TIME, " \
+                            "consumption FLOAT(8));"
+        
+        return [hl_create_table_q, en_create_table_q]
+        
     @pytest.fixture(autouse=True)
     def unstub_after_test(self):
         yield
@@ -108,26 +132,11 @@ class TestClassCreateDatabase:
         with pytest.raises(Exception):
             init_database.execute_query(fake_query, dummy_conn)
     
-    def test_run_connects_to_db_and_creates_the_tables(self, stub_env_var, stub_cursor, stub_connection):
-        load_dotenv()
-        hl_table_name = os.getenv('HL_TABLE_NAME')
-        en_table_name = os.getenv('EN_TABLE_NAME')
+    def test_run_connects_to_db_and_creates_the_tables(self, stub_env_var, stub_cursor, stub_connection, init_var_for_table_creation):
+       
+        hl_create_table_q = init_var_for_table_creation[0]
         
-        hl_create_table_q = f"CREATE TABLE IF NOT EXISTS {hl_table_name} (" \
-                            "day_id BIGSERIAL PRIMARY KEY, " \
-                            "creation_date  DATE, " \
-                            "update_date  DATE, " \
-                            "date DATE, " \
-                            "consumption FLOAT(8), " \
-                            "cost FLOAT(8));"
-        
-        en_create_table_q = f"CREATE TABLE IF NOT EXISTS {en_table_name} (" \
-                            "day_id BIGSERIAL PRIMARY KEY, " \
-                            "creation_date  DATE, " \
-                            "update_date  DATE, " \
-                            "date DATE, " \
-                            "hour TIME, " \
-                            "consumption FLOAT(8));"
+        en_create_table_q = init_var_for_table_creation[1]
         
         db_user = os.getenv('DB_USER')
         db_pw = os.getenv('DB_PASS')
@@ -153,27 +162,10 @@ class TestClassCreateDatabase:
         verify(dummy_cur).execute(en_create_table_q)
         verify(dummy_cur).execute(hl_create_table_q)
 
-    def test_run_connects_to_db_and_hl_table_raises_exception(self, stub_env_var, stub_cursor, stub_connection):
-
-        load_dotenv()
-        hl_table_name = os.getenv('HL_TABLE_NAME')
-        en_table_name = os.getenv('EN_TABLE_NAME')
+    def test_run_connects_to_db_and_hl_table_raises_exception(self, stub_env_var, stub_cursor, stub_connection, init_var_for_table_creation):
+        hl_create_table_q = init_var_for_table_creation[0]
         
-        hl_create_table_q = f"CREATE TABLE IF NOT EXISTS {hl_table_name} (" \
-                            "day_id BIGSERIAL PRIMARY KEY, " \
-                            "creation_date  DATE, " \
-                            "update_date  DATE, " \
-                            "date DATE, " \
-                            "consumption FLOAT(8), " \
-                            "cost FLOAT(8));"
-        
-        en_create_table_q = f"CREATE TABLE IF NOT EXISTS {en_table_name} (" \
-                            "day_id BIGSERIAL PRIMARY KEY, " \
-                            "creation_date  DATE, " \
-                            "update_date  DATE, " \
-                            "date DATE, " \
-                            "hour TIME, " \
-                            "consumption FLOAT(8));"
+        en_create_table_q = init_var_for_table_creation[1]
         
         db_user = os.getenv('DB_USER')
         db_pw = os.getenv('DB_PASS')
@@ -197,27 +189,10 @@ class TestClassCreateDatabase:
         with pytest.raises(Exception):
             init_database.run()
     
-    def test_run_connects_to_db_and_en_table_raises_exception(self, stub_env_var, stub_cursor, stub_connection):
-        load_dotenv()
-        hl_table_name = os.getenv('HL_TABLE_NAME')
-        en_table_name = os.getenv('EN_TABLE_NAME')
-
-        hl_create_table_q = f"CREATE TABLE IF NOT EXISTS {hl_table_name} (" \
-                            "day_id BIGSERIAL PRIMARY KEY, " \
-                            "creation_date  DATE, " \
-                            "update_date  DATE, " \
-                            "date DATE, " \
-                            "consumption FLOAT(8), " \
-                            "cost FLOAT(8));"
+    def test_run_connects_to_db_and_en_table_raises_exception(self, stub_env_var, stub_cursor, stub_connection, init_var_for_table_creation):
+        hl_create_table_q = init_var_for_table_creation[0]
         
-        en_create_table_q = f"CREATE TABLE IF NOT EXISTS {en_table_name} (" \
-                            "day_id BIGSERIAL PRIMARY KEY, " \
-                            "creation_date  DATE, " \
-                            "update_date  DATE, " \
-                            "date DATE, " \
-                            "hour TIME, " \
-                            "consumption FLOAT(8));"
-        
+        en_create_table_q = init_var_for_table_creation[1]
         db_user = os.getenv('DB_USER')
         db_pw = os.getenv('DB_PASS')
         db_name = os.getenv('DB_NAME')

@@ -42,32 +42,39 @@ class Endesa:
     
     @staticmethod
     def reformat_data(data):
+        new_data = []
         for day in data:
+            new_day = []
             for point in day:
-                raw_date = point["date"]
-                raw_hour = point["hour"]
+                new_point = {}
+                raw_date = point['date']
+                raw_hour = point['hour']
                 new_date = dt.datetime.strptime(raw_date, '%d/%m/%Y')
                 new_date = new_date.date()
-                point["date"] = new_date.isoformat()
+                new_point['date'] = new_date.isoformat()
                 new_hour = dt.time(hour=raw_hour-1)
-                point["hour"] = new_hour.isoformat('seconds')
-        return data
+                new_point['hour'] = new_hour.isoformat('seconds')
+                new_point['label'] = point['label']
+                new_point['consumption'] = point['consumption']
+                new_day.append(new_point)
+            new_data.append(new_day)
+        return new_data
     
         
 def run():
     endesa = Endesa(USERNAME, PW)
     consumption_data = endesa.get_last_consumption_data()
-    consumption_data = endesa.reformat_data(consumption_data)
+    consumption_data_reform = endesa.reformat_data(consumption_data)
     
     # Get year and month of consumption data
-    date = dt.date.fromisoformat(consumption_data[0][0]["date"])
+    date = dt.date.fromisoformat(consumption_data_reform[0][0]["date"])
     month = date.strftime("%b")
     year = date.strftime("%y")
     #
     consumption_json = {'creation date': dt.date.isoformat(dt.date.today()),
                         'hourly_consumption': consumption_data}
     
-    with open(f'./tests/consumption_files/en_consumption_{month}_{year}.json', 'w') as f_obj:
+    with open(f"{os.getenv('PATH_TO_CONSUMPTION_FILES')}en_consumption_{month}_{year}.json", 'w+') as f_obj:
         json.dump(consumption_json, f_obj)
 
 

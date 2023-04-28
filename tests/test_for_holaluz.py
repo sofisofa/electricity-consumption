@@ -122,7 +122,7 @@ class HolaluzTestCase(unittest.TestCase):
         when(dummy_obj).__enter__(...).thenReturn(dummy_obj)
         when(dummy_obj).__exit__(...).thenReturn(None)
         when(builtins).open(
-            f'./tests/consumption_files/hl_consumption_{month}_{year}.json', 'w').thenReturn(dummy_obj)
+            f"{os.getenv('PATH_TO_CONSUMPTION_FILES')}hl_consumption_{month}_{year}.json", 'w+').thenReturn(dummy_obj)
         when(json).dump(...).thenReturn()
         run()
         verify(json, times=1).dump(json_to_dump, dummy_obj)
