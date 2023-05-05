@@ -4,6 +4,7 @@ import pytest
 import os
 from dotenv import load_dotenv
 import datetime as dt
+import pytz
 from unittest.mock import MagicMock, patch
 from src.electricity_consumption import endesa_api as ea
 from src.electricity_consumption.endesa_api import Endesa
@@ -52,8 +53,8 @@ EXPECTED_CONSUMPTION_DATA = [[
 ]]
 
 EXPECTED_REFORMAT_DATA = [[
-    {'date': '2023-03-08', 'hour': '00:00:00', 'label': '00 - 01 h', 'consumption': 0.922},
-    {'date': '2023-03-08', 'hour': '01:00:00', 'label': '01 - 02 h', 'consumption': 0.539}
+    {'datetime': '2023-03-07T23:00:00+00:00', 'consumption': 0.922},
+    {'datetime': '2023-03-08T00:00:00+00:00', 'consumption': 0.539}
 ]]
 
 
@@ -73,7 +74,13 @@ class TestClassUpdateDatabase:
         Endesa.edis.get_list_cycles.assert_called_with('Id')
         Endesa.edis.get_meas.assert_called_with(L_CUPS['Id'], CYCLES[0])
         assert data == EXPECTED_CONSUMPTION_DATA
-    
+
+    def test_convert_to_utc(self):
+        expected_utc = dt.datetime(2023, 3, 8, 0, 0, tzinfo=pytz.utc)
+        raw_dt = EXPECTED_CONSUMPTION_DATA[0][0]['date'] + f" 0{EXPECTED_CONSUMPTION_DATA[0][0]['hour']}:00:00"
+        data = Endesa.convert_to_utc(raw_dt)
+        assert data == expected_utc
+
     def test_reformat_data(self):
         data = Endesa.reformat_data(EXPECTED_CONSUMPTION_DATA)
         assert data == EXPECTED_REFORMAT_DATA
@@ -87,7 +94,7 @@ class TestClassUpdateDatabase:
         Endesa.edis.get_list_cycles.return_value = CYCLES
         Endesa.edis.get_meas.return_value = MEASURED_CONSUMPTION
 
-        date = dt.date.fromisoformat(EXPECTED_REFORMAT_DATA[0][0]["date"])
+        date = dt.datetime.fromisoformat(EXPECTED_REFORMAT_DATA[0][0]["datetime"])
         month = date.strftime("%b")
         year = date.strftime("%y")
 

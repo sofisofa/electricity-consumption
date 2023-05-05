@@ -53,20 +53,20 @@ class TestClassCreateDatabase:
         en_table_name = os.getenv('EN_TABLE_NAME')
         
         hl_create_table_q = f"CREATE TABLE IF NOT EXISTS {hl_table_name} (" \
-                            "day_id BIGSERIAL PRIMARY KEY, " \
-                            "creation_date  DATE, " \
-                            "update_date  DATE, " \
+                            "id BIGSERIAL PRIMARY KEY, " \
                             "date DATE, " \
                             "consumption FLOAT(8), " \
-                            "cost FLOAT(8));"
-        
+                            "cost FLOAT(8), " \
+                            "creation_date TIMESTAMPTZ, " \
+                            "modified_date  TIMESTAMPTZ);"
+
         en_create_table_q = f"CREATE TABLE IF NOT EXISTS {en_table_name} (" \
-                            "point_id BIGSERIAL PRIMARY KEY, " \
-                            "creation_date  DATE, " \
-                            "update_date  DATE, " \
-                            "date DATE, " \
-                            "hour TIME, " \
-                            "consumption FLOAT(8));"
+                            "id BIGSERIAL PRIMARY KEY, " \
+                            "datetime TIMESTAMPTZ, " \
+                            "consumption FLOAT(8), " \
+                            "creation_date  TIMESTAMPTZ, " \
+                            "modified_date  TIMESTAMPTZ);" \
+
         
         return [hl_create_table_q, en_create_table_q]
         

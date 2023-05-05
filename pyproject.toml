@@ -19,6 +19,7 @@ python-dotenv = "^0.21.1"
 coverage = "^7.2.1"
 logging = "^0.4.9.6"
 edistribucionapi = {git = "https://github.com/trocotronic/edistribucion"}
+pytz = "^2023.3"
 
 [build-system]
 requires = ["poetry-core"]

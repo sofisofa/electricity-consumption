@@ -51,9 +51,10 @@ def insert_in_daily_consumption_db(data_to_insert, table_name, db_conn):
         for day in data_to_insert:
             if last_date is None or dt.date.fromisoformat(day['date']) > last_date:
                 try:
-                    insert_query = f"INSERT INTO {table_name} (creation_date, update_date, date, consumption, cost) " \
-                                   f"VALUES (CURRENT_DATE, CURRENT_DATE, '{day['date']}', " \
-                                   f"{day['total_consumption']}, {day['total_cost']} );"
+                    insert_query = f"INSERT INTO {table_name} (date, consumption, cost, creation_date, modified_date) " \
+                                   f"VALUES ('{day['date']}', " \
+                                   f"{day['total_consumption']}, {day['total_cost']}, " \
+                                   f"CURRENT_TIMESTAMP(2) at time zone 'UTC', CURRENT_TIMESTAMP(2) at time zone 'UTC');"
                     execute_query(insert_query, db_conn)
                 except Exception as exc:
                     print(f"Unable to insert data: \n{type(exc).__name__}.")
@@ -81,29 +82,27 @@ def insert_in_hourly_consumption_db(data_to_insert, table_name, db_conn):
     """
 
     with db_conn.cursor() as cur:
-        select_last_date_and_hour_query = f"SELECT date, hour FROM {table_name} " \
-                                "ORDER BY hour DESC, date DESC " \
+        select_last_date_and_hour_query = f"SELECT datetime FROM {table_name} " \
+                                "ORDER BY datetime DESC " \
                                 "LIMIT 1;"
         try:
             cur.execute(select_last_date_and_hour_query)
             fetched = cur.fetchone()
             if fetched is None:
-                last_date = fetched
-                last_hour = fetched
+                last_datetime = fetched
             else:
-                last_date = fetched[0]
-                last_hour = fetched[1]
+                last_datetime = fetched[0]
         except Exception as exc:
             print(f"Unable to get last date: \n{type(exc).__name__}.")
             raise exc
 
         for day in data_to_insert:
-            if last_date is None or dt.date.fromisoformat(day[-1]['date']) > last_date:
+            if last_datetime is None or dt.datetime.fromisoformat(day[-1]['datetime']) > last_datetime:
                 for hour in day:
                     try:
-                        insert_query = f"INSERT INTO {table_name} (creation_date, update_date, date, hour, consumption) " \
-                                       f"VALUES (CURRENT_DATE, CURRENT_DATE, '{hour['date']}', " \
-                                       f"'{hour['hour']}', {hour['consumption']} );"
+                        insert_query = f"INSERT INTO {table_name} (datetime, consumption, creation_date, modified_date) " \
+                                       f"VALUES ('{hour['datetime']}', {hour['consumption']}, " \
+                                       f"CURRENT_TIMESTAMP(2) at time zone 'UTC', CURRENT_TIMESTAMP(2) at time zone 'UTC');"
                         execute_query(insert_query, db_conn)
                     except Exception as exc:
                         print(f"Unable to insert data: \n{type(exc).__name__}.")
@@ -113,22 +112,8 @@ def insert_in_hourly_consumption_db(data_to_insert, table_name, db_conn):
                     else:
                         inserted_data = True
             else:
-                if last_hour is None or dt.time.fromisoformat(day[-1]['hour']) > last_hour:
-                    for hour in day:
-                        try:
-                            insert_query = f"INSERT INTO {table_name} (creation_date, update_date, date, hour, consumption) " \
-                                           f"VALUES (CURRENT_DATE, CURRENT_DATE, '{hour['date']}', " \
-                                           f"'{hour['hour']}', {hour['consumption']} );"
-                            execute_query(insert_query, db_conn)
-                        except Exception as exc:
-                            print(f"Unable to insert data: \n{type(exc).__name__}.")
-                            db_conn.close()
-                            inserted_data = False
-                            raise exc
-                        else:
-                            inserted_data = True
-                else:
-                    inserted_data = False
+                inserted_data = False
+
     db_conn.commit()
     db_conn.close()
 

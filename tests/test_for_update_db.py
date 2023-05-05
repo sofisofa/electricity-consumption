@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import pytest
 import datetime as dt
+import pytz
 from unittest.mock import MagicMock, Mock
 from .test_for_holaluz import create_date
 from src.electricity_consumption import update_database
@@ -27,14 +28,6 @@ HL_CONSUMPTION_DATA_WITHOUT_ZERO_VALUES = [
     {'date': create_date(dt.date.today(), -1), 'total_consumption': 3.5, 'total_cost': 2},
     {'date': create_date(dt.date.today(), 0), 'total_consumption': -2, 'total_cost': -1},
 ]
-
-HL_SELECT_LAST_DATE_QUERY = f"SELECT date FROM {DB_TABLE_NAME} " \
-                             "ORDER BY date DESC " \
-                             "LIMIT 1;"
-
-HL_INSERT_QUERY = f"INSERT INTO {DB_TABLE_NAME} (creation_date, update_date, date, consumption, cost) " \
-               f"VALUES (CURRENT_DATE, CURRENT_DATE, {HL_CONSUMPTION_DATA_WITHOUT_ZERO_VALUES[1]['date']}, " \
-               f"{HL_CONSUMPTION_DATA_WITHOUT_ZERO_VALUES[1]['total_consumption']}, {HL_CONSUMPTION_DATA_WITHOUT_ZERO_VALUES[1]['total_cost']} );"
 
 
 # Endesa global variable
@@ -66,21 +59,12 @@ EN_MEASURED_CONSUMPTION = [
       'value': '0,539'}]
 ]
 
-EN_CONSUMPTION_DATA_WITHOUT_ZERO_VALUES = [
+EN_CONSUMPTION_DATA_REFORMAT = [
     [
-        {'date': create_date(dt.date.today(), -1), 'hour': '02:00:00', 'consumption': 1},
-        {'date': create_date(dt.date.today(), 0), 'hour': '04:00:00', 'consumption': 3.5}
+        {'datetime': f'{create_date(dt.date.today(), 0)}T00:00:00+00:00', 'consumption': 1},
+        {'datetime': f'{create_date(dt.date.today(), 0)}T04:00:00+00:00', 'consumption': 3.5}
     ]
 ]
-
-EN_SELECT_LAST_DATE_QUERY = f"SELECT date FROM {DB_TABLE_NAME} " \
-                             "ORDER BY hour DESC, date DESC " \
-                             "LIMIT 1;"
-
-EN_INSERT_QUERY = f"INSERT INTO {DB_TABLE_NAME} (creation_date, update_date, date, hour, consumption) " \
-               f"VALUES (CURRENT_DATE, CURRENT_DATE, {EN_CONSUMPTION_DATA_WITHOUT_ZERO_VALUES[0][1]['date']}, " \
-               f"{EN_CONSUMPTION_DATA_WITHOUT_ZERO_VALUES[0][1]['hour']}, {EN_CONSUMPTION_DATA_WITHOUT_ZERO_VALUES[0][1]['consumption']} );"
-
 
 class TestClassUpdateDatabase:
     @pytest.fixture()
@@ -138,10 +122,10 @@ class TestClassUpdateDatabase:
     def test_insert_in_hourly_consumption_db(self, stub_cursor, stub_connection):
         dummy_conn = stub_connection
         dummy_cur = stub_cursor
-        dummy_cur.fetchone.return_value = [dt.date.today() - dt.timedelta(days=1), dt.time(hour=0)]
+        dummy_cur.fetchone.return_value = [dt.datetime.now(tz=pytz.utc) - dt.timedelta(days=1)]
         dummy_cur.execute.side_effect = [None, None, None, None, None, None]
 
-        inserted_data = update_database.insert_in_hourly_consumption_db(EN_CONSUMPTION_DATA_WITHOUT_ZERO_VALUES, DB_TABLE_NAME, dummy_conn)
+        inserted_data = update_database.insert_in_hourly_consumption_db(EN_CONSUMPTION_DATA_REFORMAT, DB_TABLE_NAME, dummy_conn)
 
         assert inserted_data == True
 
@@ -152,17 +136,17 @@ class TestClassUpdateDatabase:
         dummy_cur.execute.side_effect = [Exception('oh no!'), None]
 
         with pytest.raises(Exception):
-            update_database.insert_in_daily_consumption_db(EN_CONSUMPTION_DATA_WITHOUT_ZERO_VALUES, DB_TABLE_NAME,
+            update_database.insert_in_daily_consumption_db(EN_CONSUMPTION_DATA_REFORMAT, DB_TABLE_NAME,
                                                            dummy_conn)
 
     def test_insert_in_hourly_consumption_db_raises_exception(self, stub_cursor, stub_connection):
         dummy_conn = stub_connection
         dummy_cur = stub_cursor
-        dummy_cur.fetchone.return_value = [dt.date.today() - dt.timedelta(days=1), dt.time(hour=0)]
+        dummy_cur.fetchone.return_value = [dt.date.today() - dt.timedelta(days=1)]
         dummy_cur.execute.side_effect = [None, Exception('oh no!')]
 
         with pytest.raises(Exception):
-            update_database.insert_in_daily_consumption_db(EN_CONSUMPTION_DATA_WITHOUT_ZERO_VALUES, DB_TABLE_NAME, dummy_conn)
+            update_database.insert_in_daily_consumption_db(EN_CONSUMPTION_DATA_REFORMAT, DB_TABLE_NAME, dummy_conn)
 
 
 if __name__ == "__main__":

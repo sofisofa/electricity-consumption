@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import datetime as dt
+import pytz
 import json
 import os
 
@@ -39,6 +40,14 @@ class Endesa:
             consumption_data.append(day_in_data)
         
         return consumption_data
+
+    @staticmethod
+    def convert_to_utc(data_dt):
+        local = pytz.timezone("Europe/Madrid")
+        naive = dt.datetime.strptime(data_dt, "%d/%m/%Y %H:%M:%S")
+        local_dt = local.localize(naive)
+        utc_dt = local_dt.astimezone(pytz.utc)
+        return utc_dt
     
     @staticmethod
     def reformat_data(data):
@@ -49,12 +58,12 @@ class Endesa:
                 new_point = {}
                 raw_date = point['date']
                 raw_hour = point['hour']
-                new_date = dt.datetime.strptime(raw_date, '%d/%m/%Y')
-                new_date = new_date.date()
-                new_point['date'] = new_date.isoformat()
-                new_hour = dt.time(hour=raw_hour-1)
-                new_point['hour'] = new_hour.isoformat('seconds')
-                new_point['label'] = point['label']
+                if raw_hour < 10:
+                    raw_dt = raw_date + f" 0{raw_hour-1}:00:00"
+                else:
+                    raw_dt = raw_date + f" {raw_hour-1}:00:00"
+                new_dt = Endesa.convert_to_utc(raw_dt)
+                new_point['datetime'] = new_dt.isoformat()
                 new_point['consumption'] = point['consumption']
                 new_day.append(new_point)
             new_data.append(new_day)
@@ -67,9 +76,9 @@ def run():
     consumption_data_reform = endesa.reformat_data(consumption_data)
     
     # Get year and month of consumption data
-    date = dt.date.fromisoformat(consumption_data_reform[0][0]["date"])
-    month = date.strftime("%b")
-    year = date.strftime("%y")
+    datetime = dt.datetime.fromisoformat(consumption_data_reform[0][0]["datetime"])
+    month = datetime.strftime("%b")
+    year = datetime.strftime("%y")
     #
     consumption_json = {'creation date': dt.date.isoformat(dt.date.today()),
                         'hourly_consumption': consumption_data}

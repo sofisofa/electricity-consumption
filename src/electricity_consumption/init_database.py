@@ -67,12 +67,12 @@ def run():
 
     if strtobool(os.getenv('ENDESA_ENABLED')):
         creating_table_query = f"CREATE TABLE IF NOT EXISTS {EN_TABLE_NAME} (" \
-                               "point_id BIGSERIAL PRIMARY KEY, " \
-                               "creation_date  DATE, " \
-                               "update_date  DATE, " \
-                               "date DATE, " \
-                               "hour TIME, " \
-                               "consumption FLOAT(8));"
+                               "id BIGSERIAL PRIMARY KEY, " \
+                               "datetime TIMESTAMPTZ, " \
+                               "consumption FLOAT(8), " \
+                               "creation_date  TIMESTAMPTZ, " \
+                               "modified_date  TIMESTAMPTZ);" \
+
         
         with connect_to_database(DB_NAME, conn_info) as conn:
             try:
@@ -85,13 +85,13 @@ def run():
 
     if strtobool(os.getenv('HOLALUZ_ENABLED')):
         creating_table_query = f"CREATE TABLE IF NOT EXISTS {HL_TABLE_NAME} (" \
-                               "day_id BIGSERIAL PRIMARY KEY, " \
-                               "creation_date  DATE, " \
-                               "update_date  DATE, " \
+                               "id BIGSERIAL PRIMARY KEY, " \
                                "date DATE, " \
                                "consumption FLOAT(8), " \
-                               "cost FLOAT(8));"
-        
+                               "cost FLOAT(8), " \
+                               "creation_date TIMESTAMPTZ, " \
+                               "modified_date  TIMESTAMPTZ);"
+
         with connect_to_database(DB_NAME, conn_info) as conn:
             try:
                 execute_query(creating_table_query, conn)

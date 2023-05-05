@@ -100,25 +100,24 @@ class TestClassIntegrationUpdateDatabase:
             json=hl_api_consumption_json_reply
         )
 
-        expected_number_of_rows = nest_length(en_data_to_insert)
-
         # Run the update
         init_database.run()
         update_database.run()
         
         # Assertions for Endesa
-        count_query = f'SELECT COUNT(point_id) FROM {EN_TABLE_NAME}'
+        count_query = f'SELECT COUNT(id) FROM {EN_TABLE_NAME}'
         with connect_to_database(DB_NAME, CONN_INFO) as conn:
             with conn.cursor() as cur:
                 cur.execute(count_query)
                 rows_inserted = cur.fetchone()[0]
-        
+
+        expected_number_of_rows = nest_length(en_data_to_insert)
         assert rows_inserted == expected_number_of_rows
         
         # Assertions for Holaluz
         expected_number_of_rows = len(hl_data_to_insert)
         
-        count_query = f'SELECT COUNT(day_id) FROM {HL_TABLE_NAME}'
+        count_query = f'SELECT COUNT(id) FROM {HL_TABLE_NAME}'
         with connect_to_database(DB_NAME, CONN_INFO) as conn:
             with conn.cursor() as cur:
                 cur.execute(count_query)
