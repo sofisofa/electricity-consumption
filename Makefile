@@ -6,7 +6,7 @@ initTestDb:
 	python3 ./src/electricity_consumption/init_database.py
 
 updateDB:
-	python3 ./src/electricity_consumption/update_database.py
+	ENV_FILE_PATH='/.env.prod' python3 ./src/electricity_consumption/update_database.py
 
 coverage:
 	coverage run -m pytest

@@ -9,14 +9,18 @@ from holaluz_api import HolaLuz
 from endesa_api import Endesa
 from init_database import connect_to_database, execute_query
 
-load_dotenv()
+envFilePath = os.getcwd() + os.getenv('ENV_FILE_PATH')
+if os.getenv('ENV_FILE_PATH'):
+    load_dotenv(envFilePath, override=True)
+else:
+    load_dotenv()
+
 
 DB_USER = os.getenv('DB_USER')
 DB_PW = os.getenv('DB_PASS')
 DB_NAME = os.getenv('DB_NAME')
 DB_PORT = os.getenv('DB_PORT')
 DB_HOST = os.getenv('DB_HOST')
-
 
 HL_TABLE_NAME = os.getenv('HL_TABLE_NAME')
 
@@ -80,11 +84,11 @@ def insert_in_hourly_consumption_db(data_to_insert, table_name, db_conn):
         -db_name: name of the database
         -db_conn: connection to the database
     """
-
+    
     with db_conn.cursor() as cur:
         select_last_date_and_hour_query = f"SELECT datetime FROM {table_name} " \
-                                "ORDER BY datetime DESC " \
-                                "LIMIT 1;"
+                                          "ORDER BY datetime DESC " \
+                                          "LIMIT 1;"
         try:
             cur.execute(select_last_date_and_hour_query)
             fetched = cur.fetchone()
@@ -95,7 +99,7 @@ def insert_in_hourly_consumption_db(data_to_insert, table_name, db_conn):
         except Exception as exc:
             print(f"Unable to get last date: \n{type(exc).__name__}.")
             raise exc
-
+        
         for day in data_to_insert:
             if last_datetime is None or dt.datetime.fromisoformat(day[-1]['datetime']) > last_datetime:
                 for hour in day:
@@ -113,10 +117,10 @@ def insert_in_hourly_consumption_db(data_to_insert, table_name, db_conn):
                         inserted_data = True
             else:
                 inserted_data = False
-
+    
     db_conn.commit()
     db_conn.close()
-
+    
     return inserted_data
 
 
@@ -127,20 +131,20 @@ def run():
         "user": DB_USER,
         "password": DB_PW,
     }
-
+    
     if strtobool(os.getenv('ENDESA_ENABLED')):
         en = Endesa(os.getenv('EN_USER'), os.getenv('EN_PASS'))
         consumption_data = en.get_last_consumption_data()
         consumption_data = en.reformat_data(consumption_data)
-
+        
         conn = connect_to_database(DB_NAME, db_conn_info)
         insert_in_hourly_consumption_db(consumption_data, EN_TABLE_NAME, conn)
-
+    
     if strtobool(os.getenv('HOLALUZ_ENABLED')):
         hl = HolaLuz()
         consumption_data = hl.api.retrieve_data()
         cleaned_data = hl.clean_data(consumption_data)
-
+        
         conn = connect_to_database(DB_NAME, db_conn_info)
         insert_in_daily_consumption_db(cleaned_data, HL_TABLE_NAME, conn)
 
