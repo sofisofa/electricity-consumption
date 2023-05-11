@@ -9,8 +9,8 @@ from holaluz_api import HolaLuz
 from endesa_api import Endesa
 from init_database import connect_to_database, execute_query
 
-envFilePath = os.getcwd() + os.getenv('ENV_FILE_PATH')
 if os.getenv('ENV_FILE_PATH'):
+    envFilePath = os.getcwd() + os.getenv('ENV_FILE_PATH')
     load_dotenv(envFilePath, override=True)
 else:
     load_dotenv()

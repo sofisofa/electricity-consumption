@@ -21,7 +21,9 @@ Dockerfile
 .coverage
 
 /tests/test_for_createdb.py
+/tests/test_for_data_visualization.py
 /src/electricity_consumption/create_db.py
+/src/electricity_consumption/data_visualization.py
 
 credentials.py
 edistribucion.access
