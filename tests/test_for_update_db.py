@@ -2,7 +2,7 @@
 import pytest
 import datetime as dt
 import pytz
-from unittest.mock import MagicMock, Mock
+from unittest.mock import MagicMock, Mock, patch
 from .test_for_holaluz import create_date
 from src.electricity_consumption import update_database
 
@@ -119,6 +119,26 @@ class TestClassUpdateDatabase:
         with pytest.raises(Exception):
             update_database.insert_in_daily_consumption_db(HL_CONSUMPTION_DATA_WITHOUT_ZERO_VALUES, DB_TABLE_NAME, dummy_conn)
 
+    def test_get_last_inserted_datetime(self, stub_cursor, stub_connection):
+        dummy_conn = stub_connection
+        dummy_cur = stub_cursor
+        dummy_cur.fetchone.return_value = [dt.datetime.now(tz=pytz.utc) - dt.timedelta(days=1)]
+        dummy_cur.execute.side_effect = [None, None]
+        
+        last_datetime = update_database.get_last_inserted_datetime(DB_TABLE_NAME, dummy_conn)
+        last_datetime = last_datetime.isoformat(timespec='seconds')
+        
+        assert last_datetime == (dt.datetime.now(tz=pytz.utc) - dt.timedelta(days=1)).isoformat(timespec='seconds')
+    
+    def test_get_last_inserted_datetime_cannot_get_last_date(self, stub_cursor, stub_connection):
+        dummy_conn = stub_connection
+        dummy_cur = stub_cursor
+        dummy_cur.fetchone.return_value = [None]
+        dummy_cur.execute.side_effect = [Exception('oh no!'), None]
+
+        with pytest.raises(Exception):
+            update_database.get_last_inserted_datetime(DB_TABLE_NAME, dummy_conn)
+
     def test_insert_in_hourly_consumption_db(self, stub_cursor, stub_connection):
         dummy_conn = stub_connection
         dummy_cur = stub_cursor
@@ -129,15 +149,15 @@ class TestClassUpdateDatabase:
 
         assert inserted_data == True
 
-    def test_insert_in_hourly_consumption_db_cannot_get_last_date(self, stub_cursor, stub_connection):
+    def test_insert_in_hourly_consumption_w_none_last_date(self, stub_cursor, stub_connection):
         dummy_conn = stub_connection
         dummy_cur = stub_cursor
-        dummy_cur.fetchone.return_value = [None]
-        dummy_cur.execute.side_effect = [Exception('oh no!'), None]
+        dummy_cur.fetchone.return_value = None
+        dummy_cur.execute.side_effect = [None, None, None, None, None, None, None]
 
-        with pytest.raises(Exception):
-            update_database.insert_in_daily_consumption_db(EN_CONSUMPTION_DATA_REFORMAT, DB_TABLE_NAME,
-                                                           dummy_conn)
+        inserted_data = update_database.insert_in_hourly_consumption_db(EN_CONSUMPTION_DATA_REFORMAT, DB_TABLE_NAME, dummy_conn)
+    
+        assert inserted_data == True
 
     def test_insert_in_hourly_consumption_db_raises_exception(self, stub_cursor, stub_connection):
         dummy_conn = stub_connection
@@ -146,7 +166,20 @@ class TestClassUpdateDatabase:
         dummy_cur.execute.side_effect = [None, Exception('oh no!')]
 
         with pytest.raises(Exception):
-            update_database.insert_in_daily_consumption_db(EN_CONSUMPTION_DATA_REFORMAT, DB_TABLE_NAME, dummy_conn)
+            update_database.insert_in_hourly_consumption_db(EN_CONSUMPTION_DATA_REFORMAT, DB_TABLE_NAME, dummy_conn)
+    
+    @patch("builtins.print")
+    def test_insert_in_hourly_consumption_up_to_date(self, mock_print, stub_cursor, stub_connection):
+        dummy_conn = stub_connection
+        dummy_cur = stub_cursor
+        dummy_cur.fetchone.return_value = [dt.datetime.now(tz=pytz.utc) + dt.timedelta(days=1)]
+        dummy_cur.execute.side_effect = [None, None, None, None, None, None, None]
+        
+        inserted_data = update_database.insert_in_hourly_consumption_db(EN_CONSUMPTION_DATA_REFORMAT, DB_TABLE_NAME,
+                                                                        dummy_conn)
+        
+        assert inserted_data == False
+        mock_print.assert_called_with('Data already up to date!')
 
 
 if __name__ == "__main__":

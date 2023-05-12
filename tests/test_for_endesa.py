@@ -16,7 +16,7 @@ CONSUMPTION_URL = 'https://zc-consumption.holaluz.com/consumption'
 
 L_CUPS = {'Id': 'Id'}
 CYCLES = ['last cycle']
-MEASURED_CONSUMPTION = [[
+MEASURED_INVOICED_CONSUMPTION = [[
     {'date': '08/03/2023',
      'hourCCH': 1,
      'hour': '00 - 01 h',
@@ -38,6 +38,54 @@ MEASURED_CONSUMPTION = [[
      'value': '0,539'
      }
 ]]
+
+MEASURED_INTERVAL_CONSUMPTION = [
+    [
+        {'date': '08/03/2023',
+         'hourCCH': 1,
+         'hour': '00 - 01 h',
+         'invoiced': True,
+         'typePM': '5',
+         'valueDouble': 0.922,
+         'obtainingMethod': 'R',
+         'real': True,
+         'value': '0,922'
+         },
+        {'date': '08/03/2023',
+         'hourCCH': 2,
+         'hour': '01 - 02 h',
+         'invoiced': True,
+         'typePM': '5',
+         'valueDouble': 0.539,
+         'obtainingMethod': 'R',
+         'real': True,
+         'value': '0,539'
+         }
+    ],
+    [
+        {'date': '09/03/2023',
+         'hourCCH': 1,
+         'hour': '00 - 01 h',
+         'invoiced': True,
+         'typePM': '5',
+         'valueDouble': 0.922,
+         'obtainingMethod': 'E',
+         'real': True,
+         'value': '0,922'
+         },
+        {'date': '09/03/2023',
+         'hourCCH': 2,
+         'hour': '01 - 02 h',
+         'invoiced': True,
+         'typePM': '5',
+         'valueDouble': 0.539,
+         'obtainingMethod': 'E',
+         'real': True,
+         'value': '0,539'
+         }
+    ]
+]
+
 EXPECTED_CONSUMPTION_DATA = [[
     {'date': '08/03/2023',
      'hour': 1,
@@ -60,19 +108,32 @@ EXPECTED_REFORMAT_DATA = [[
 
 class TestClassUpdateDatabase:
     @patch("src.electricity_consumption.endesa_api.Edistribucion")
-    def test_get_last_consumption_data(self, mock):
+    def test_get_last_invoiced_consumption_data(self, mock):
         Endesa.edis = mock.return_value
         Endesa.edis.get_list_cups.return_value = [L_CUPS]
         Endesa.edis.get_list_cycles.return_value = CYCLES
-        Endesa.edis.get_meas.return_value = MEASURED_CONSUMPTION
+        Endesa.edis.get_meas.return_value = MEASURED_INVOICED_CONSUMPTION
         
         #When
         en = ea.Endesa(EN_USER, EN_PW)
         
         #Then
-        data = en.get_last_consumption_data()
+        data = en.get_last_invoiced_consumption_data()
         Endesa.edis.get_list_cycles.assert_called_with('Id')
         Endesa.edis.get_meas.assert_called_with(L_CUPS['Id'], CYCLES[0])
+        assert data == EXPECTED_CONSUMPTION_DATA
+        
+    @patch("src.electricity_consumption.endesa_api.Edistribucion")
+    def test_get_interval_consumption_data(self, mock):
+        Endesa.edis = mock.return_value
+        Endesa.edis.get_list_cups.return_value = [L_CUPS]
+        Endesa.edis.get_meas_interval.return_value = MEASURED_INTERVAL_CONSUMPTION
+        
+        en = ea.Endesa(EN_USER, EN_PW)
+        
+        # Then
+        data = en.get_interval_consumption_data('2023-03-08', '2023-03-09')
+        Endesa.edis.get_meas_interval.assert_called_with(L_CUPS['Id'], '2023-03-08', '2023-03-09')
         assert data == EXPECTED_CONSUMPTION_DATA
 
     def test_convert_to_utc(self):
@@ -92,7 +153,7 @@ class TestClassUpdateDatabase:
         Endesa.edis = mock_edis.return_value
         Endesa.edis.get_list_cups.return_value = [L_CUPS]
         Endesa.edis.get_list_cycles.return_value = CYCLES
-        Endesa.edis.get_meas.return_value = MEASURED_CONSUMPTION
+        Endesa.edis.get_meas.return_value = MEASURED_INVOICED_CONSUMPTION
 
         date = dt.datetime.fromisoformat(EXPECTED_REFORMAT_DATA[0][0]["datetime"])
         month = date.strftime("%b")

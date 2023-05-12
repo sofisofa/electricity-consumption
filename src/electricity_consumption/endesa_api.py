@@ -20,7 +20,7 @@ class Endesa:
     def __init__(self, user, pw):
         self.edis = Edistribucion(user, pw)
         
-    def get_last_consumption_data(self):
+    def get_last_invoiced_consumption_data(self):
         l_cups = self.edis.get_list_cups()[-1]
         l_cups_id = l_cups['Id']
         cycles = self.edis.get_list_cycles(l_cups_id)
@@ -38,6 +38,28 @@ class Endesa:
                      }
                 )
             consumption_data.append(day_in_data)
+        
+        return consumption_data
+    
+    def get_interval_consumption_data(self, start_date, end_date):
+        l_cups = self.edis.get_list_cups()[-1]
+        l_cups_id = l_cups['Id']
+        meas = self.edis.get_meas_interval(l_cups_id, start_date, end_date)
+        consumption_data = []
+        
+        for day in meas:
+            day_in_data = []
+            for hourly_point in day:
+                if hourly_point['obtainingMethod'] != 'E' and 'valueDouble' in hourly_point.keys():
+                    day_in_data.append(
+                        {'date': hourly_point['date'],
+                         'hour': hourly_point['hourCCH'],
+                         'label': hourly_point['hour'],
+                         'consumption': hourly_point['valueDouble']
+                         }
+                    )
+            if len(day_in_data) > 0:
+                consumption_data.append(day_in_data)
         
         return consumption_data
 
@@ -72,7 +94,7 @@ class Endesa:
         
 def run():
     endesa = Endesa(USERNAME, PW)
-    consumption_data = endesa.get_last_consumption_data()
+    consumption_data = endesa.get_last_invoiced_consumption_data()
     consumption_data_reform = endesa.reformat_data(consumption_data)
     
     # Get year and month of consumption data

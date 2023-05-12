@@ -15,7 +15,6 @@ if os.getenv('ENV_FILE_PATH'):
 else:
     load_dotenv()
 
-
 DB_USER = os.getenv('DB_USER')
 DB_PW = os.getenv('DB_PASS')
 DB_NAME = os.getenv('DB_NAME')
@@ -75,16 +74,7 @@ def insert_in_daily_consumption_db(data_to_insert, table_name, db_conn):
     return inserted_data
 
 
-def insert_in_hourly_consumption_db(data_to_insert, table_name, db_conn):
-    """This method inserts the data in a table,
-    if their date and hour is after than the last date and hour inserted in the table.
-
-    Parameters:
-        -data: should be similar to endesa_api consumption data (after reformat)
-        -db_name: name of the database
-        -db_conn: connection to the database
-    """
-    
+def get_last_inserted_datetime(table_name, db_conn):
     with db_conn.cursor() as cur:
         select_last_date_and_hour_query = f"SELECT datetime FROM {table_name} " \
                                           "ORDER BY datetime DESC " \
@@ -99,24 +89,38 @@ def insert_in_hourly_consumption_db(data_to_insert, table_name, db_conn):
         except Exception as exc:
             print(f"Unable to get last date: \n{type(exc).__name__}.")
             raise exc
-        
-        for day in data_to_insert:
-            if last_datetime is None or dt.datetime.fromisoformat(day[-1]['datetime']) > last_datetime:
-                for hour in day:
-                    try:
-                        insert_query = f"INSERT INTO {table_name} (datetime, consumption, creation_date, modified_date) " \
-                                       f"VALUES ('{hour['datetime']}', {hour['consumption']}, " \
-                                       f"CURRENT_TIMESTAMP(2) at time zone 'UTC', CURRENT_TIMESTAMP(2) at time zone 'UTC');"
-                        execute_query(insert_query, db_conn)
-                    except Exception as exc:
-                        print(f"Unable to insert data: \n{type(exc).__name__}.")
-                        db_conn.close()
-                        inserted_data = False
-                        raise exc
-                    else:
-                        inserted_data = True
-            else:
-                inserted_data = False
+    return last_datetime
+
+
+def insert_in_hourly_consumption_db(data_to_insert, table_name, db_conn):
+    """This method inserts the data in a table,
+    if their date and hour is after than the last date and hour inserted in the table.
+
+    Parameters:
+        -data: should be similar to endesa_api consumption data (after reformat)
+        -db_name: name of the database
+        -db_conn: connection to the database
+    """
+    
+    last_datetime = get_last_inserted_datetime(table_name, db_conn)
+    inserted_data = False
+    for day in data_to_insert:
+        if last_datetime is None or dt.datetime.fromisoformat(day[-1]['datetime']) > last_datetime:
+            for hour in day:
+                try:
+                    insert_query = f"INSERT INTO {table_name} (datetime, consumption, creation_date, modified_date) " \
+                                   f"VALUES ('{hour['datetime']}', {hour['consumption']}, " \
+                                   f"CURRENT_TIMESTAMP(2) at time zone 'UTC', CURRENT_TIMESTAMP(2) at time zone 'UTC');"
+                    execute_query(insert_query, db_conn)
+                except Exception as exc:
+                    print(f"Unable to insert data: \n{type(exc).__name__}.")
+                    db_conn.close()
+                    raise exc
+                else:
+                    inserted_data = True
+            
+    if not inserted_data:
+        print('Data already up to date!')
     
     db_conn.commit()
     db_conn.close()
@@ -134,10 +138,18 @@ def run():
     
     if strtobool(os.getenv('ENDESA_ENABLED')):
         en = Endesa(os.getenv('EN_USER'), os.getenv('EN_PASS'))
-        consumption_data = en.get_last_consumption_data()
+        conn = connect_to_database(DB_NAME, db_conn_info)
+        
+        last_inserted_datetime = get_last_inserted_datetime(EN_TABLE_NAME, conn)
+        
+        if last_inserted_datetime is not None:
+            consumption_data = en.get_interval_consumption_data(dt.date.isoformat(last_inserted_datetime),
+                                                                dt.date.isoformat(dt.date.today()))
+        else:
+            consumption_data = en.get_last_invoiced_consumption_data()
+            
         consumption_data = en.reformat_data(consumption_data)
         
-        conn = connect_to_database(DB_NAME, db_conn_info)
         insert_in_hourly_consumption_db(consumption_data, EN_TABLE_NAME, conn)
     
     if strtobool(os.getenv('HOLALUZ_ENABLED')):

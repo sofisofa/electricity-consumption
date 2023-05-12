@@ -65,7 +65,7 @@ class TestClassIntegrationUpdateDatabase:
     
     @responses.activate
     @patch("src.electricity_consumption.endesa_api.Edistribucion.__init__")
-    @patch("src.electricity_consumption.update_database.Endesa.get_last_consumption_data")
+    @patch("src.electricity_consumption.update_database.Endesa.get_last_invoiced_consumption_data")
     def test_api_reply_stored_in_db(self, mock_get_last_cons, mock_edis_init, stub_env_var):
         # Mock the call to Endesa
         mock_edis_init.return_value = None
