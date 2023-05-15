@@ -1,9 +1,14 @@
 tests: dockerUp _sleep2 initTestDb _coverage dockerDown
 
+initDb: prodUp _sleep2 initProdDb prodDown
+
 updateDb: prodUp _sleep2 run
 
 initTestDb:
 	python3 ./src/electricity_consumption/init_database.py
+
+initProdDb:
+ENV_FILE_PATH='/.env.prod' python3 ./src/electricity_consumption/init_database.py
 
 run:
 	ENV_FILE_PATH='/.env.prod' python3 ./src/electricity_consumption/update_database.py
