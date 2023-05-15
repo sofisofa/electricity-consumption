@@ -1,14 +1,14 @@
-tests: dockerUp sleep2 initTestDb coverage dockerDown
+tests: dockerUp _sleep2 initTestDb _coverage dockerDown
 
-prod: prodUp sleep2 updateDB prodDown
+updateDb: prodUp _sleep2 run
 
 initTestDb:
 	python3 ./src/electricity_consumption/init_database.py
 
-updateDB:
+run:
 	ENV_FILE_PATH='/.env.prod' python3 ./src/electricity_consumption/update_database.py
 
-coverage:
+_coverage:
 	coverage run -m pytest
 	coverage report -m
 	coverage erase
@@ -25,5 +25,5 @@ dockerUp:
 dockerDown:
 	docker compose down
 
-sleep2:
+_sleep2:
 	sleep 2
