@@ -1,0 +1,130 @@
+{
+  "creation date": "2023-02-28",
+  "daily_consumption": [
+    {
+      "date": "2023-02-01",
+      "total_consumption": 8.563,
+      "total_cost": 3.7316833571995125
+    },
+    {
+      "date": "2023-02-02",
+      "total_consumption": 7.473999999999999,
+      "total_cost": 3.3020600498894725
+    },
+    {
+      "date": "2023-02-03",
+      "total_consumption": 7.8420000000000005,
+      "total_cost": 3.4472403777958958
+    },
+    {
+      "date": "2023-02-04",
+      "total_consumption": 7.745999999999999,
+      "total_cost": 3.409367248776828
+    },
+    {
+      "date": "2023-02-05",
+      "total_consumption": 8.416,
+      "total_cost": 3.6736901283890666
+    },
+    {
+      "date": "2023-02-06",
+      "total_consumption": 10.936,
+      "total_cost": 4.667859765139572
+    },
+    {
+      "date": "2023-02-07",
+      "total_consumption": 4.317,
+      "total_cost": 2.0565864216270335
+    },
+    {
+      "date": "2023-02-08",
+      "total_consumption": 12.802999999999997,
+      "total_cost": 5.4044132222083
+    },
+    {
+      "date": "2023-02-09",
+      "total_consumption": 14.946,
+      "total_cost": 6.249851925206846
+    },
+    {
+      "date": "2023-02-10",
+      "total_consumption": 10.186,
+      "total_cost": 4.371975944678112
+    },
+    {
+      "date": "2023-02-11",
+      "total_consumption": 8.232,
+      "total_cost": 3.6010999644358543
+    },
+    {
+      "date": "2023-02-12",
+      "total_consumption": 7.332999999999998,
+      "total_cost": 3.2464338916427176
+    },
+    {
+      "date": "2023-02-13",
+      "total_consumption": 12.331,
+      "total_cost": 5.218203671197887
+    },
+    {
+      "date": "2023-02-14",
+      "total_consumption": 10.483,
+      "total_cost": 4.48914593758085
+    },
+    {
+      "date": "2023-02-15",
+      "total_consumption": 13.101000000000003,
+      "total_cost": 5.521977726871653
+    },
+    {
+      "date": "2023-02-16",
+      "total_consumption": 7.550000000000001,
+      "total_cost": 3.332042943696234
+    },
+    {
+      "date": "2023-02-17",
+      "total_consumption": 7.5840000000000005,
+      "total_cost": 3.3454563435571534
+    },
+    {
+      "date": "2023-02-18",
+      "total_consumption": 5.092,
+      "total_cost": 2.362333036103875
+    },
+    {
+      "date": "2023-02-19",
+      "total_consumption": 12.136,
+      "total_cost": 5.141273877877907
+    },
+    {
+      "date": "2023-02-20",
+      "total_consumption": 8.621,
+      "total_cost": 3.754565039315199
+    },
+    {
+      "date": "2023-02-21",
+      "total_consumption": 8.461,
+      "total_cost": 3.6914431576167543
+    },
+    {
+      "date": "2023-02-22",
+      "total_consumption": 6.3149999999999995,
+      "total_cost": 2.844820919336363
+    },
+    {
+      "date": "2023-02-23",
+      "total_consumption": 6.181000000000001,
+      "total_cost": 2.791956343413916
+    },
+    {
+      "date": "2023-02-24",
+      "total_consumption": 5.317,
+      "total_cost": 2.4510981822423137
+    },
+    {
+      "date": "2023-02-25",
+      "total_consumption": 10.306,
+      "total_cost": 4.419317355951946
+    }
+  ]
+}

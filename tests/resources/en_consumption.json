@@ -1,0 +1,5109 @@
+{
+  "creation date": "2023-05-04",
+  "hourly_consumption": [
+    [
+      {
+        "date": "08/03/2023",
+        "hour": 1,
+        "label": "00 - 01 h",
+        "consumption": 0.922
+      },
+      {
+        "date": "08/03/2023",
+        "hour": 2,
+        "label": "01 - 02 h",
+        "consumption": 0.539
+      },
+      {
+        "date": "08/03/2023",
+        "hour": 3,
+        "label": "02 - 03 h",
+        "consumption": 0.442
+      },
+      {
+        "date": "08/03/2023",
+        "hour": 4,
+        "label": "03 - 04 h",
+        "consumption": 0.11
+      },
+      {
+        "date": "08/03/2023",
+        "hour": 5,
+        "label": "04 - 05 h",
+        "consumption": 0.056
+      },
+      {
+        "date": "08/03/2023",
+        "hour": 6,
+        "label": "05 - 06 h",
+        "consumption": 0.095
+      },
+      {
+        "date": "08/03/2023",
+        "hour": 7,
+        "label": "06 - 07 h",
+        "consumption": 0.063
+      },
+      {
+        "date": "08/03/2023",
+        "hour": 8,
+        "label": "07 - 08 h",
+        "consumption": 0.081
+      },
+      {
+        "date": "08/03/2023",
+        "hour": 9,
+        "label": "08 - 09 h",
+        "consumption": 0.103
+      },
+      {
+        "date": "08/03/2023",
+        "hour": 10,
+        "label": "09 - 10 h",
+        "consumption": 0.084
+      },
+      {
+        "date": "08/03/2023",
+        "hour": 11,
+        "label": "10 - 11 h",
+        "consumption": 0.238
+      },
+      {
+        "date": "08/03/2023",
+        "hour": 12,
+        "label": "11 - 12 h",
+        "consumption": 0.146
+      },
+      {
+        "date": "08/03/2023",
+        "hour": 13,
+        "label": "12 - 13 h",
+        "consumption": 0.164
+      },
+      {
+        "date": "08/03/2023",
+        "hour": 14,
+        "label": "13 - 14 h",
+        "consumption": 0.135
+      },
+      {
+        "date": "08/03/2023",
+        "hour": 15,
+        "label": "14 - 15 h",
+        "consumption": 0.393
+      },
+      {
+        "date": "08/03/2023",
+        "hour": 16,
+        "label": "15 - 16 h",
+        "consumption": 0.298
+      },
+      {
+        "date": "08/03/2023",
+        "hour": 17,
+        "label": "16 - 17 h",
+        "consumption": 0.184
+      },
+      {
+        "date": "08/03/2023",
+        "hour": 18,
+        "label": "17 - 18 h",
+        "consumption": 0.131
+      },
+      {
+        "date": "08/03/2023",
+        "hour": 19,
+        "label": "18 - 19 h",
+        "consumption": 0.096
+      },
+      {
+        "date": "08/03/2023",
+        "hour": 20,
+        "label": "19 - 20 h",
+        "consumption": 0.16
+      },
+      {
+        "date": "08/03/2023",
+        "hour": 21,
+        "label": "20 - 21 h",
+        "consumption": 0.158
+      },
+      {
+        "date": "08/03/2023",
+        "hour": 22,
+        "label": "21 - 22 h",
+        "consumption": 0.226
+      },
+      {
+        "date": "08/03/2023",
+        "hour": 23,
+        "label": "22 - 23 h",
+        "consumption": 0.312
+      },
+      {
+        "date": "08/03/2023",
+        "hour": 24,
+        "label": "23 - 24 h",
+        "consumption": 0.269
+      }
+    ],
+    [
+      {
+        "date": "09/03/2023",
+        "hour": 1,
+        "label": "00 - 01 h",
+        "consumption": 0.418
+      },
+      {
+        "date": "09/03/2023",
+        "hour": 2,
+        "label": "01 - 02 h",
+        "consumption": 0.272
+      },
+      {
+        "date": "09/03/2023",
+        "hour": 3,
+        "label": "02 - 03 h",
+        "consumption": 0.366
+      },
+      {
+        "date": "09/03/2023",
+        "hour": 4,
+        "label": "03 - 04 h",
+        "consumption": 0.133
+      },
+      {
+        "date": "09/03/2023",
+        "hour": 5,
+        "label": "04 - 05 h",
+        "consumption": 0.095
+      },
+      {
+        "date": "09/03/2023",
+        "hour": 6,
+        "label": "05 - 06 h",
+        "consumption": 0.075
+      },
+      {
+        "date": "09/03/2023",
+        "hour": 7,
+        "label": "06 - 07 h",
+        "consumption": 0.056
+      },
+      {
+        "date": "09/03/2023",
+        "hour": 8,
+        "label": "07 - 08 h",
+        "consumption": 0.098
+      },
+      {
+        "date": "09/03/2023",
+        "hour": 9,
+        "label": "08 - 09 h",
+        "consumption": 0.052
+      },
+      {
+        "date": "09/03/2023",
+        "hour": 10,
+        "label": "09 - 10 h",
+        "consumption": 0.101
+      },
+      {
+        "date": "09/03/2023",
+        "hour": 11,
+        "label": "10 - 11 h",
+        "consumption": 0.543
+      },
+      {
+        "date": "09/03/2023",
+        "hour": 12,
+        "label": "11 - 12 h",
+        "consumption": 0.473
+      },
+      {
+        "date": "09/03/2023",
+        "hour": 13,
+        "label": "12 - 13 h",
+        "consumption": 0.617
+      },
+      {
+        "date": "09/03/2023",
+        "hour": 14,
+        "label": "13 - 14 h",
+        "consumption": 0.481
+      },
+      {
+        "date": "09/03/2023",
+        "hour": 15,
+        "label": "14 - 15 h",
+        "consumption": 0.228
+      },
+      {
+        "date": "09/03/2023",
+        "hour": 16,
+        "label": "15 - 16 h",
+        "consumption": 0.122
+      },
+      {
+        "date": "09/03/2023",
+        "hour": 17,
+        "label": "16 - 17 h",
+        "consumption": 0.173
+      },
+      {
+        "date": "09/03/2023",
+        "hour": 18,
+        "label": "17 - 18 h",
+        "consumption": 0.122
+      },
+      {
+        "date": "09/03/2023",
+        "hour": 19,
+        "label": "18 - 19 h",
+        "consumption": 0.101
+      },
+      {
+        "date": "09/03/2023",
+        "hour": 20,
+        "label": "19 - 20 h",
+        "consumption": 0.071
+      },
+      {
+        "date": "09/03/2023",
+        "hour": 21,
+        "label": "20 - 21 h",
+        "consumption": 0.068
+      },
+      {
+        "date": "09/03/2023",
+        "hour": 22,
+        "label": "21 - 22 h",
+        "consumption": 0.094
+      },
+      {
+        "date": "09/03/2023",
+        "hour": 23,
+        "label": "22 - 23 h",
+        "consumption": 0.057
+      },
+      {
+        "date": "09/03/2023",
+        "hour": 24,
+        "label": "23 - 24 h",
+        "consumption": 0.19
+      }
+    ],
+    [
+      {
+        "date": "10/03/2023",
+        "hour": 1,
+        "label": "00 - 01 h",
+        "consumption": 0.153
+      },
+      {
+        "date": "10/03/2023",
+        "hour": 2,
+        "label": "01 - 02 h",
+        "consumption": 0.179
+      },
+      {
+        "date": "10/03/2023",
+        "hour": 3,
+        "label": "02 - 03 h",
+        "consumption": 0.074
+      },
+      {
+        "date": "10/03/2023",
+        "hour": 4,
+        "label": "03 - 04 h",
+        "consumption": 0.073
+      },
+      {
+        "date": "10/03/2023",
+        "hour": 5,
+        "label": "04 - 05 h",
+        "consumption": 0.104
+      },
+      {
+        "date": "10/03/2023",
+        "hour": 6,
+        "label": "05 - 06 h",
+        "consumption": 0.055
+      },
+      {
+        "date": "10/03/2023",
+        "hour": 7,
+        "label": "06 - 07 h",
+        "consumption": 0.124
+      },
+      {
+        "date": "10/03/2023",
+        "hour": 8,
+        "label": "07 - 08 h",
+        "consumption": 0.104
+      },
+      {
+        "date": "10/03/2023",
+        "hour": 9,
+        "label": "08 - 09 h",
+        "consumption": 0.054
+      },
+      {
+        "date": "10/03/2023",
+        "hour": 10,
+        "label": "09 - 10 h",
+        "consumption": 0.135
+      },
+      {
+        "date": "10/03/2023",
+        "hour": 11,
+        "label": "10 - 11 h",
+        "consumption": 0.162
+      },
+      {
+        "date": "10/03/2023",
+        "hour": 12,
+        "label": "11 - 12 h",
+        "consumption": 0.18
+      },
+      {
+        "date": "10/03/2023",
+        "hour": 13,
+        "label": "12 - 13 h",
+        "consumption": 0.167
+      },
+      {
+        "date": "10/03/2023",
+        "hour": 14,
+        "label": "13 - 14 h",
+        "consumption": 0.335
+      },
+      {
+        "date": "10/03/2023",
+        "hour": 15,
+        "label": "14 - 15 h",
+        "consumption": 0.289
+      },
+      {
+        "date": "10/03/2023",
+        "hour": 16,
+        "label": "15 - 16 h",
+        "consumption": 0.709
+      },
+      {
+        "date": "10/03/2023",
+        "hour": 17,
+        "label": "16 - 17 h",
+        "consumption": 0.67
+      },
+      {
+        "date": "10/03/2023",
+        "hour": 18,
+        "label": "17 - 18 h",
+        "consumption": 0.073
+      },
+      {
+        "date": "10/03/2023",
+        "hour": 19,
+        "label": "18 - 19 h",
+        "consumption": 0.13
+      },
+      {
+        "date": "10/03/2023",
+        "hour": 20,
+        "label": "19 - 20 h",
+        "consumption": 0.142
+      },
+      {
+        "date": "10/03/2023",
+        "hour": 21,
+        "label": "20 - 21 h",
+        "consumption": 0.329
+      },
+      {
+        "date": "10/03/2023",
+        "hour": 22,
+        "label": "21 - 22 h",
+        "consumption": 0.149
+      },
+      {
+        "date": "10/03/2023",
+        "hour": 23,
+        "label": "22 - 23 h",
+        "consumption": 0.07
+      },
+      {
+        "date": "10/03/2023",
+        "hour": 24,
+        "label": "23 - 24 h",
+        "consumption": 0.137
+      }
+    ],
+    [
+      {
+        "date": "11/03/2023",
+        "hour": 1,
+        "label": "00 - 01 h",
+        "consumption": 0.141
+      },
+      {
+        "date": "11/03/2023",
+        "hour": 2,
+        "label": "01 - 02 h",
+        "consumption": 0.096
+      },
+      {
+        "date": "11/03/2023",
+        "hour": 3,
+        "label": "02 - 03 h",
+        "consumption": 0.079
+      },
+      {
+        "date": "11/03/2023",
+        "hour": 4,
+        "label": "03 - 04 h",
+        "consumption": 0.169
+      },
+      {
+        "date": "11/03/2023",
+        "hour": 5,
+        "label": "04 - 05 h",
+        "consumption": 0.303
+      },
+      {
+        "date": "11/03/2023",
+        "hour": 6,
+        "label": "05 - 06 h",
+        "consumption": 0.217
+      },
+      {
+        "date": "11/03/2023",
+        "hour": 7,
+        "label": "06 - 07 h",
+        "consumption": 0.121
+      },
+      {
+        "date": "11/03/2023",
+        "hour": 8,
+        "label": "07 - 08 h",
+        "consumption": 0.144
+      },
+      {
+        "date": "11/03/2023",
+        "hour": 9,
+        "label": "08 - 09 h",
+        "consumption": 0.122
+      },
+      {
+        "date": "11/03/2023",
+        "hour": 10,
+        "label": "09 - 10 h",
+        "consumption": 0.055
+      },
+      {
+        "date": "11/03/2023",
+        "hour": 11,
+        "label": "10 - 11 h",
+        "consumption": 0.108
+      },
+      {
+        "date": "11/03/2023",
+        "hour": 12,
+        "label": "11 - 12 h",
+        "consumption": 0.129
+      },
+      {
+        "date": "11/03/2023",
+        "hour": 13,
+        "label": "12 - 13 h",
+        "consumption": 0.096
+      },
+      {
+        "date": "11/03/2023",
+        "hour": 14,
+        "label": "13 - 14 h",
+        "consumption": 0.11
+      },
+      {
+        "date": "11/03/2023",
+        "hour": 15,
+        "label": "14 - 15 h",
+        "consumption": 0.13
+      },
+      {
+        "date": "11/03/2023",
+        "hour": 16,
+        "label": "15 - 16 h",
+        "consumption": 0.126
+      },
+      {
+        "date": "11/03/2023",
+        "hour": 17,
+        "label": "16 - 17 h",
+        "consumption": 0.075
+      },
+      {
+        "date": "11/03/2023",
+        "hour": 18,
+        "label": "17 - 18 h",
+        "consumption": 0.246
+      },
+      {
+        "date": "11/03/2023",
+        "hour": 19,
+        "label": "18 - 19 h",
+        "consumption": 0.187
+      },
+      {
+        "date": "11/03/2023",
+        "hour": 20,
+        "label": "19 - 20 h",
+        "consumption": 0.143
+      },
+      {
+        "date": "11/03/2023",
+        "hour": 21,
+        "label": "20 - 21 h",
+        "consumption": 0.086
+      },
+      {
+        "date": "11/03/2023",
+        "hour": 22,
+        "label": "21 - 22 h",
+        "consumption": 0.051
+      },
+      {
+        "date": "11/03/2023",
+        "hour": 23,
+        "label": "22 - 23 h",
+        "consumption": 0.093
+      },
+      {
+        "date": "11/03/2023",
+        "hour": 24,
+        "label": "23 - 24 h",
+        "consumption": 0.051
+      }
+    ],
+    [
+      {
+        "date": "12/03/2023",
+        "hour": 1,
+        "label": "00 - 01 h",
+        "consumption": 0.094
+      },
+      {
+        "date": "12/03/2023",
+        "hour": 2,
+        "label": "01 - 02 h",
+        "consumption": 0.051
+      },
+      {
+        "date": "12/03/2023",
+        "hour": 3,
+        "label": "02 - 03 h",
+        "consumption": 0.136
+      },
+      {
+        "date": "12/03/2023",
+        "hour": 4,
+        "label": "03 - 04 h",
+        "consumption": 0.431
+      },
+      {
+        "date": "12/03/2023",
+        "hour": 5,
+        "label": "04 - 05 h",
+        "consumption": 0.313
+      },
+      {
+        "date": "12/03/2023",
+        "hour": 6,
+        "label": "05 - 06 h",
+        "consumption": 0.08
+      },
+      {
+        "date": "12/03/2023",
+        "hour": 7,
+        "label": "06 - 07 h",
+        "consumption": 0.053
+      },
+      {
+        "date": "12/03/2023",
+        "hour": 8,
+        "label": "07 - 08 h",
+        "consumption": 0.101
+      },
+      {
+        "date": "12/03/2023",
+        "hour": 9,
+        "label": "08 - 09 h",
+        "consumption": 0.051
+      },
+      {
+        "date": "12/03/2023",
+        "hour": 10,
+        "label": "09 - 10 h",
+        "consumption": 0.111
+      },
+      {
+        "date": "12/03/2023",
+        "hour": 11,
+        "label": "10 - 11 h",
+        "consumption": 0.14
+      },
+      {
+        "date": "12/03/2023",
+        "hour": 12,
+        "label": "11 - 12 h",
+        "consumption": 0.057
+      },
+      {
+        "date": "12/03/2023",
+        "hour": 13,
+        "label": "12 - 13 h",
+        "consumption": 0.115
+      },
+      {
+        "date": "12/03/2023",
+        "hour": 14,
+        "label": "13 - 14 h",
+        "consumption": 0.069
+      },
+      {
+        "date": "12/03/2023",
+        "hour": 15,
+        "label": "14 - 15 h",
+        "consumption": 0.078
+      },
+      {
+        "date": "12/03/2023",
+        "hour": 16,
+        "label": "15 - 16 h",
+        "consumption": 0.095
+      },
+      {
+        "date": "12/03/2023",
+        "hour": 17,
+        "label": "16 - 17 h",
+        "consumption": 0.06
+      },
+      {
+        "date": "12/03/2023",
+        "hour": 18,
+        "label": "17 - 18 h",
+        "consumption": 0.113
+      },
+      {
+        "date": "12/03/2023",
+        "hour": 19,
+        "label": "18 - 19 h",
+        "consumption": 0.057
+      },
+      {
+        "date": "12/03/2023",
+        "hour": 20,
+        "label": "19 - 20 h",
+        "consumption": 0.097
+      },
+      {
+        "date": "12/03/2023",
+        "hour": 21,
+        "label": "20 - 21 h",
+        "consumption": 0.191
+      },
+      {
+        "date": "12/03/2023",
+        "hour": 22,
+        "label": "21 - 22 h",
+        "consumption": 0.404
+      },
+      {
+        "date": "12/03/2023",
+        "hour": 23,
+        "label": "22 - 23 h",
+        "consumption": 0.52
+      },
+      {
+        "date": "12/03/2023",
+        "hour": 24,
+        "label": "23 - 24 h",
+        "consumption": 0.487
+      }
+    ],
+    [
+      {
+        "date": "13/03/2023",
+        "hour": 1,
+        "label": "00 - 01 h",
+        "consumption": 0.532
+      },
+      {
+        "date": "13/03/2023",
+        "hour": 2,
+        "label": "01 - 02 h",
+        "consumption": 0.462
+      },
+      {
+        "date": "13/03/2023",
+        "hour": 3,
+        "label": "02 - 03 h",
+        "consumption": 0.103
+      },
+      {
+        "date": "13/03/2023",
+        "hour": 4,
+        "label": "03 - 04 h",
+        "consumption": 0.064
+      },
+      {
+        "date": "13/03/2023",
+        "hour": 5,
+        "label": "04 - 05 h",
+        "consumption": 0.068
+      },
+      {
+        "date": "13/03/2023",
+        "hour": 6,
+        "label": "05 - 06 h",
+        "consumption": 0.088
+      },
+      {
+        "date": "13/03/2023",
+        "hour": 7,
+        "label": "06 - 07 h",
+        "consumption": 0.051
+      },
+      {
+        "date": "13/03/2023",
+        "hour": 8,
+        "label": "07 - 08 h",
+        "consumption": 0.102
+      },
+      {
+        "date": "13/03/2023",
+        "hour": 9,
+        "label": "08 - 09 h",
+        "consumption": 0.051
+      },
+      {
+        "date": "13/03/2023",
+        "hour": 10,
+        "label": "09 - 10 h",
+        "consumption": 0.099
+      },
+      {
+        "date": "13/03/2023",
+        "hour": 11,
+        "label": "10 - 11 h",
+        "consumption": 0.19
+      },
+      {
+        "date": "13/03/2023",
+        "hour": 12,
+        "label": "11 - 12 h",
+        "consumption": 0.138
+      },
+      {
+        "date": "13/03/2023",
+        "hour": 13,
+        "label": "12 - 13 h",
+        "consumption": 0.139
+      },
+      {
+        "date": "13/03/2023",
+        "hour": 14,
+        "label": "13 - 14 h",
+        "consumption": 1.191
+      },
+      {
+        "date": "13/03/2023",
+        "hour": 15,
+        "label": "14 - 15 h",
+        "consumption": 0.313
+      },
+      {
+        "date": "13/03/2023",
+        "hour": 16,
+        "label": "15 - 16 h",
+        "consumption": 0.136
+      },
+      {
+        "date": "13/03/2023",
+        "hour": 17,
+        "label": "16 - 17 h",
+        "consumption": 0.199
+      },
+      {
+        "date": "13/03/2023",
+        "hour": 18,
+        "label": "17 - 18 h",
+        "consumption": 0.135
+      },
+      {
+        "date": "13/03/2023",
+        "hour": 19,
+        "label": "18 - 19 h",
+        "consumption": 0.101
+      },
+      {
+        "date": "13/03/2023",
+        "hour": 20,
+        "label": "19 - 20 h",
+        "consumption": 0.177
+      },
+      {
+        "date": "13/03/2023",
+        "hour": 21,
+        "label": "20 - 21 h",
+        "consumption": 0.712
+      },
+      {
+        "date": "13/03/2023",
+        "hour": 22,
+        "label": "21 - 22 h",
+        "consumption": 1.029
+      },
+      {
+        "date": "13/03/2023",
+        "hour": 23,
+        "label": "22 - 23 h",
+        "consumption": 0.742
+      },
+      {
+        "date": "13/03/2023",
+        "hour": 24,
+        "label": "23 - 24 h",
+        "consumption": 1.376
+      }
+    ],
+    [
+      {
+        "date": "14/03/2023",
+        "hour": 1,
+        "label": "00 - 01 h",
+        "consumption": 0.968
+      },
+      {
+        "date": "14/03/2023",
+        "hour": 2,
+        "label": "01 - 02 h",
+        "consumption": 0.426
+      },
+      {
+        "date": "14/03/2023",
+        "hour": 3,
+        "label": "02 - 03 h",
+        "consumption": 0.484
+      },
+      {
+        "date": "14/03/2023",
+        "hour": 4,
+        "label": "03 - 04 h",
+        "consumption": 0.294
+      },
+      {
+        "date": "14/03/2023",
+        "hour": 5,
+        "label": "04 - 05 h",
+        "consumption": 0.07
+      },
+      {
+        "date": "14/03/2023",
+        "hour": 6,
+        "label": "05 - 06 h",
+        "consumption": 0.101
+      },
+      {
+        "date": "14/03/2023",
+        "hour": 7,
+        "label": "06 - 07 h",
+        "consumption": 0.054
+      },
+      {
+        "date": "14/03/2023",
+        "hour": 8,
+        "label": "07 - 08 h",
+        "consumption": 0.102
+      },
+      {
+        "date": "14/03/2023",
+        "hour": 9,
+        "label": "08 - 09 h",
+        "consumption": 0.054
+      },
+      {
+        "date": "14/03/2023",
+        "hour": 10,
+        "label": "09 - 10 h",
+        "consumption": 0.102
+      },
+      {
+        "date": "14/03/2023",
+        "hour": 11,
+        "label": "10 - 11 h",
+        "consumption": 0.158
+      },
+      {
+        "date": "14/03/2023",
+        "hour": 12,
+        "label": "11 - 12 h",
+        "consumption": 0.78
+      },
+      {
+        "date": "14/03/2023",
+        "hour": 13,
+        "label": "12 - 13 h",
+        "consumption": 0.604
+      },
+      {
+        "date": "14/03/2023",
+        "hour": 14,
+        "label": "13 - 14 h",
+        "consumption": 0.526
+      },
+      {
+        "date": "14/03/2023",
+        "hour": 15,
+        "label": "14 - 15 h",
+        "consumption": 0.408
+      },
+      {
+        "date": "14/03/2023",
+        "hour": 16,
+        "label": "15 - 16 h",
+        "consumption": 0.977
+      },
+      {
+        "date": "14/03/2023",
+        "hour": 17,
+        "label": "16 - 17 h",
+        "consumption": 0.199
+      },
+      {
+        "date": "14/03/2023",
+        "hour": 18,
+        "label": "17 - 18 h",
+        "consumption": 0.194
+      },
+      {
+        "date": "14/03/2023",
+        "hour": 19,
+        "label": "18 - 19 h",
+        "consumption": 0.188
+      },
+      {
+        "date": "14/03/2023",
+        "hour": 20,
+        "label": "19 - 20 h",
+        "consumption": 0.171
+      },
+      {
+        "date": "14/03/2023",
+        "hour": 21,
+        "label": "20 - 21 h",
+        "consumption": 0.14
+      },
+      {
+        "date": "14/03/2023",
+        "hour": 22,
+        "label": "21 - 22 h",
+        "consumption": 0.163
+      },
+      {
+        "date": "14/03/2023",
+        "hour": 23,
+        "label": "22 - 23 h",
+        "consumption": 0.639
+      },
+      {
+        "date": "14/03/2023",
+        "hour": 24,
+        "label": "23 - 24 h",
+        "consumption": 0.692
+      }
+    ],
+    [
+      {
+        "date": "15/03/2023",
+        "hour": 1,
+        "label": "00 - 01 h",
+        "consumption": 0.524
+      },
+      {
+        "date": "15/03/2023",
+        "hour": 2,
+        "label": "01 - 02 h",
+        "consumption": 0.647
+      },
+      {
+        "date": "15/03/2023",
+        "hour": 3,
+        "label": "02 - 03 h",
+        "consumption": 0.142
+      },
+      {
+        "date": "15/03/2023",
+        "hour": 4,
+        "label": "03 - 04 h",
+        "consumption": 0.094
+      },
+      {
+        "date": "15/03/2023",
+        "hour": 5,
+        "label": "04 - 05 h",
+        "consumption": 0.06
+      },
+      {
+        "date": "15/03/2023",
+        "hour": 6,
+        "label": "05 - 06 h",
+        "consumption": 0.098
+      },
+      {
+        "date": "15/03/2023",
+        "hour": 7,
+        "label": "06 - 07 h",
+        "consumption": 0.053
+      },
+      {
+        "date": "15/03/2023",
+        "hour": 8,
+        "label": "07 - 08 h",
+        "consumption": 0.102
+      },
+      {
+        "date": "15/03/2023",
+        "hour": 9,
+        "label": "08 - 09 h",
+        "consumption": 0.054
+      },
+      {
+        "date": "15/03/2023",
+        "hour": 10,
+        "label": "09 - 10 h",
+        "consumption": 0.11
+      },
+      {
+        "date": "15/03/2023",
+        "hour": 11,
+        "label": "10 - 11 h",
+        "consumption": 0.194
+      },
+      {
+        "date": "15/03/2023",
+        "hour": 12,
+        "label": "11 - 12 h",
+        "consumption": 0.135
+      },
+      {
+        "date": "15/03/2023",
+        "hour": 13,
+        "label": "12 - 13 h",
+        "consumption": 0.338
+      },
+      {
+        "date": "15/03/2023",
+        "hour": 14,
+        "label": "13 - 14 h",
+        "consumption": 1.42
+      },
+      {
+        "date": "15/03/2023",
+        "hour": 15,
+        "label": "14 - 15 h",
+        "consumption": 0.512
+      },
+      {
+        "date": "15/03/2023",
+        "hour": 16,
+        "label": "15 - 16 h",
+        "consumption": 0.608
+      },
+      {
+        "date": "15/03/2023",
+        "hour": 17,
+        "label": "16 - 17 h",
+        "consumption": 0.164
+      },
+      {
+        "date": "15/03/2023",
+        "hour": 18,
+        "label": "17 - 18 h",
+        "consumption": 0.331
+      },
+      {
+        "date": "15/03/2023",
+        "hour": 19,
+        "label": "18 - 19 h",
+        "consumption": 0.189
+      },
+      {
+        "date": "15/03/2023",
+        "hour": 20,
+        "label": "19 - 20 h",
+        "consumption": 0.054
+      },
+      {
+        "date": "15/03/2023",
+        "hour": 21,
+        "label": "20 - 21 h",
+        "consumption": 0.099
+      },
+      {
+        "date": "15/03/2023",
+        "hour": 22,
+        "label": "21 - 22 h",
+        "consumption": 0.054
+      },
+      {
+        "date": "15/03/2023",
+        "hour": 23,
+        "label": "22 - 23 h",
+        "consumption": 0.079
+      },
+      {
+        "date": "15/03/2023",
+        "hour": 24,
+        "label": "23 - 24 h",
+        "consumption": 0.075
+      }
+    ],
+    [
+      {
+        "date": "16/03/2023",
+        "hour": 1,
+        "label": "00 - 01 h",
+        "consumption": 0.058
+      },
+      {
+        "date": "16/03/2023",
+        "hour": 2,
+        "label": "01 - 02 h",
+        "consumption": 0.096
+      },
+      {
+        "date": "16/03/2023",
+        "hour": 3,
+        "label": "02 - 03 h",
+        "consumption": 0.4
+      },
+      {
+        "date": "16/03/2023",
+        "hour": 4,
+        "label": "03 - 04 h",
+        "consumption": 0.178
+      },
+      {
+        "date": "16/03/2023",
+        "hour": 5,
+        "label": "04 - 05 h",
+        "consumption": 0.06
+      },
+      {
+        "date": "16/03/2023",
+        "hour": 6,
+        "label": "05 - 06 h",
+        "consumption": 0.1
+      },
+      {
+        "date": "16/03/2023",
+        "hour": 7,
+        "label": "06 - 07 h",
+        "consumption": 0.111
+      },
+      {
+        "date": "16/03/2023",
+        "hour": 8,
+        "label": "07 - 08 h",
+        "consumption": 0.058
+      },
+      {
+        "date": "16/03/2023",
+        "hour": 9,
+        "label": "08 - 09 h",
+        "consumption": 0.107
+      },
+      {
+        "date": "16/03/2023",
+        "hour": 10,
+        "label": "09 - 10 h",
+        "consumption": 0.057
+      },
+      {
+        "date": "16/03/2023",
+        "hour": 11,
+        "label": "10 - 11 h",
+        "consumption": 0.152
+      },
+      {
+        "date": "16/03/2023",
+        "hour": 12,
+        "label": "11 - 12 h",
+        "consumption": 0.151
+      },
+      {
+        "date": "16/03/2023",
+        "hour": 13,
+        "label": "12 - 13 h",
+        "consumption": 0.14
+      },
+      {
+        "date": "16/03/2023",
+        "hour": 14,
+        "label": "13 - 14 h",
+        "consumption": 0.174
+      },
+      {
+        "date": "16/03/2023",
+        "hour": 15,
+        "label": "14 - 15 h",
+        "consumption": 0.138
+      },
+      {
+        "date": "16/03/2023",
+        "hour": 16,
+        "label": "15 - 16 h",
+        "consumption": 0.242
+      },
+      {
+        "date": "16/03/2023",
+        "hour": 17,
+        "label": "16 - 17 h",
+        "consumption": 0.124
+      },
+      {
+        "date": "16/03/2023",
+        "hour": 18,
+        "label": "17 - 18 h",
+        "consumption": 0.166
+      },
+      {
+        "date": "16/03/2023",
+        "hour": 19,
+        "label": "18 - 19 h",
+        "consumption": 0.193
+      },
+      {
+        "date": "16/03/2023",
+        "hour": 20,
+        "label": "19 - 20 h",
+        "consumption": 0.206
+      },
+      {
+        "date": "16/03/2023",
+        "hour": 21,
+        "label": "20 - 21 h",
+        "consumption": 0.081
+      },
+      {
+        "date": "16/03/2023",
+        "hour": 22,
+        "label": "21 - 22 h",
+        "consumption": 0.1
+      },
+      {
+        "date": "16/03/2023",
+        "hour": 23,
+        "label": "22 - 23 h",
+        "consumption": 0.542
+      },
+      {
+        "date": "16/03/2023",
+        "hour": 24,
+        "label": "23 - 24 h",
+        "consumption": 0.691
+      }
+    ],
+    [
+      {
+        "date": "17/03/2023",
+        "hour": 1,
+        "label": "00 - 01 h",
+        "consumption": 0.655
+      },
+      {
+        "date": "17/03/2023",
+        "hour": 2,
+        "label": "01 - 02 h",
+        "consumption": 0.92
+      },
+      {
+        "date": "17/03/2023",
+        "hour": 3,
+        "label": "02 - 03 h",
+        "consumption": 0.451
+      },
+      {
+        "date": "17/03/2023",
+        "hour": 4,
+        "label": "03 - 04 h",
+        "consumption": 0.214
+      },
+      {
+        "date": "17/03/2023",
+        "hour": 5,
+        "label": "04 - 05 h",
+        "consumption": 0.119
+      },
+      {
+        "date": "17/03/2023",
+        "hour": 6,
+        "label": "05 - 06 h",
+        "consumption": 0.055
+      },
+      {
+        "date": "17/03/2023",
+        "hour": 7,
+        "label": "06 - 07 h",
+        "consumption": 0.087
+      },
+      {
+        "date": "17/03/2023",
+        "hour": 8,
+        "label": "07 - 08 h",
+        "consumption": 0.068
+      },
+      {
+        "date": "17/03/2023",
+        "hour": 9,
+        "label": "08 - 09 h",
+        "consumption": 0.066
+      },
+      {
+        "date": "17/03/2023",
+        "hour": 10,
+        "label": "09 - 10 h",
+        "consumption": 0.098
+      },
+      {
+        "date": "17/03/2023",
+        "hour": 11,
+        "label": "10 - 11 h",
+        "consumption": 0.099
+      },
+      {
+        "date": "17/03/2023",
+        "hour": 12,
+        "label": "11 - 12 h",
+        "consumption": 0.126
+      },
+      {
+        "date": "17/03/2023",
+        "hour": 13,
+        "label": "12 - 13 h",
+        "consumption": 0.176
+      },
+      {
+        "date": "17/03/2023",
+        "hour": 14,
+        "label": "13 - 14 h",
+        "consumption": 0.105
+      },
+      {
+        "date": "17/03/2023",
+        "hour": 15,
+        "label": "14 - 15 h",
+        "consumption": 0.132
+      },
+      {
+        "date": "17/03/2023",
+        "hour": 16,
+        "label": "15 - 16 h",
+        "consumption": 0.119
+      },
+      {
+        "date": "17/03/2023",
+        "hour": 17,
+        "label": "16 - 17 h",
+        "consumption": 0.125
+      },
+      {
+        "date": "17/03/2023",
+        "hour": 18,
+        "label": "17 - 18 h",
+        "consumption": 0.078
+      },
+      {
+        "date": "17/03/2023",
+        "hour": 19,
+        "label": "18 - 19 h",
+        "consumption": 0.079
+      },
+      {
+        "date": "17/03/2023",
+        "hour": 20,
+        "label": "19 - 20 h",
+        "consumption": 0.088
+      },
+      {
+        "date": "17/03/2023",
+        "hour": 21,
+        "label": "20 - 21 h",
+        "consumption": 0.056
+      },
+      {
+        "date": "17/03/2023",
+        "hour": 22,
+        "label": "21 - 22 h",
+        "consumption": 0.105
+      },
+      {
+        "date": "17/03/2023",
+        "hour": 23,
+        "label": "22 - 23 h",
+        "consumption": 0.056
+      },
+      {
+        "date": "17/03/2023",
+        "hour": 24,
+        "label": "23 - 24 h",
+        "consumption": 0.102
+      }
+    ],
+    [
+      {
+        "date": "18/03/2023",
+        "hour": 1,
+        "label": "00 - 01 h",
+        "consumption": 0.065
+      },
+      {
+        "date": "18/03/2023",
+        "hour": 2,
+        "label": "01 - 02 h",
+        "consumption": 0.197
+      },
+      {
+        "date": "18/03/2023",
+        "hour": 3,
+        "label": "02 - 03 h",
+        "consumption": 0.448
+      },
+      {
+        "date": "18/03/2023",
+        "hour": 4,
+        "label": "03 - 04 h",
+        "consumption": 0.226
+      },
+      {
+        "date": "18/03/2023",
+        "hour": 5,
+        "label": "04 - 05 h",
+        "consumption": 0.117
+      },
+      {
+        "date": "18/03/2023",
+        "hour": 6,
+        "label": "05 - 06 h",
+        "consumption": 0.072
+      },
+      {
+        "date": "18/03/2023",
+        "hour": 7,
+        "label": "06 - 07 h",
+        "consumption": 0.119
+      },
+      {
+        "date": "18/03/2023",
+        "hour": 8,
+        "label": "07 - 08 h",
+        "consumption": 0.067
+      },
+      {
+        "date": "18/03/2023",
+        "hour": 9,
+        "label": "08 - 09 h",
+        "consumption": 0.109
+      },
+      {
+        "date": "18/03/2023",
+        "hour": 10,
+        "label": "09 - 10 h",
+        "consumption": 0.075
+      },
+      {
+        "date": "18/03/2023",
+        "hour": 11,
+        "label": "10 - 11 h",
+        "consumption": 0.125
+      },
+      {
+        "date": "18/03/2023",
+        "hour": 12,
+        "label": "11 - 12 h",
+        "consumption": 0.072
+      },
+      {
+        "date": "18/03/2023",
+        "hour": 13,
+        "label": "12 - 13 h",
+        "consumption": 0.067
+      },
+      {
+        "date": "18/03/2023",
+        "hour": 14,
+        "label": "13 - 14 h",
+        "consumption": 0.097
+      },
+      {
+        "date": "18/03/2023",
+        "hour": 15,
+        "label": "14 - 15 h",
+        "consumption": 0.055
+      },
+      {
+        "date": "18/03/2023",
+        "hour": 16,
+        "label": "15 - 16 h",
+        "consumption": 0.106
+      },
+      {
+        "date": "18/03/2023",
+        "hour": 17,
+        "label": "16 - 17 h",
+        "consumption": 0.055
+      },
+      {
+        "date": "18/03/2023",
+        "hour": 18,
+        "label": "17 - 18 h",
+        "consumption": 0.093
+      },
+      {
+        "date": "18/03/2023",
+        "hour": 19,
+        "label": "18 - 19 h",
+        "consumption": 0.108
+      },
+      {
+        "date": "18/03/2023",
+        "hour": 20,
+        "label": "19 - 20 h",
+        "consumption": 0.077
+      },
+      {
+        "date": "18/03/2023",
+        "hour": 21,
+        "label": "20 - 21 h",
+        "consumption": 0.076
+      },
+      {
+        "date": "18/03/2023",
+        "hour": 22,
+        "label": "21 - 22 h",
+        "consumption": 0.207
+      },
+      {
+        "date": "18/03/2023",
+        "hour": 23,
+        "label": "22 - 23 h",
+        "consumption": 0.309
+      },
+      {
+        "date": "18/03/2023",
+        "hour": 24,
+        "label": "23 - 24 h",
+        "consumption": 0.236
+      }
+    ],
+    [
+      {
+        "date": "19/03/2023",
+        "hour": 1,
+        "label": "00 - 01 h",
+        "consumption": 0.269
+      },
+      {
+        "date": "19/03/2023",
+        "hour": 2,
+        "label": "01 - 02 h",
+        "consumption": 0.385
+      },
+      {
+        "date": "19/03/2023",
+        "hour": 3,
+        "label": "02 - 03 h",
+        "consumption": 0.255
+      },
+      {
+        "date": "19/03/2023",
+        "hour": 4,
+        "label": "03 - 04 h",
+        "consumption": 0.079
+      },
+      {
+        "date": "19/03/2023",
+        "hour": 5,
+        "label": "04 - 05 h",
+        "consumption": 0.097
+      },
+      {
+        "date": "19/03/2023",
+        "hour": 6,
+        "label": "05 - 06 h",
+        "consumption": 0.053
+      },
+      {
+        "date": "19/03/2023",
+        "hour": 7,
+        "label": "06 - 07 h",
+        "consumption": 0.101
+      },
+      {
+        "date": "19/03/2023",
+        "hour": 8,
+        "label": "07 - 08 h",
+        "consumption": 0.052
+      },
+      {
+        "date": "19/03/2023",
+        "hour": 9,
+        "label": "08 - 09 h",
+        "consumption": 0.095
+      },
+      {
+        "date": "19/03/2023",
+        "hour": 10,
+        "label": "09 - 10 h",
+        "consumption": 0.063
+      },
+      {
+        "date": "19/03/2023",
+        "hour": 11,
+        "label": "10 - 11 h",
+        "consumption": 0.071
+      },
+      {
+        "date": "19/03/2023",
+        "hour": 12,
+        "label": "11 - 12 h",
+        "consumption": 0.13
+      },
+      {
+        "date": "19/03/2023",
+        "hour": 13,
+        "label": "12 - 13 h",
+        "consumption": 0.096
+      },
+      {
+        "date": "19/03/2023",
+        "hour": 14,
+        "label": "13 - 14 h",
+        "consumption": 0.221
+      },
+      {
+        "date": "19/03/2023",
+        "hour": 15,
+        "label": "14 - 15 h",
+        "consumption": 0.068
+      },
+      {
+        "date": "19/03/2023",
+        "hour": 16,
+        "label": "15 - 16 h",
+        "consumption": 0.102
+      },
+      {
+        "date": "19/03/2023",
+        "hour": 17,
+        "label": "16 - 17 h",
+        "consumption": 0.051
+      },
+      {
+        "date": "19/03/2023",
+        "hour": 18,
+        "label": "17 - 18 h",
+        "consumption": 0.162
+      },
+      {
+        "date": "19/03/2023",
+        "hour": 19,
+        "label": "18 - 19 h",
+        "consumption": 0.069
+      },
+      {
+        "date": "19/03/2023",
+        "hour": 20,
+        "label": "19 - 20 h",
+        "consumption": 0.098
+      },
+      {
+        "date": "19/03/2023",
+        "hour": 21,
+        "label": "20 - 21 h",
+        "consumption": 0.078
+      },
+      {
+        "date": "19/03/2023",
+        "hour": 22,
+        "label": "21 - 22 h",
+        "consumption": 0.051
+      },
+      {
+        "date": "19/03/2023",
+        "hour": 23,
+        "label": "22 - 23 h",
+        "consumption": 0.111
+      },
+      {
+        "date": "19/03/2023",
+        "hour": 24,
+        "label": "23 - 24 h",
+        "consumption": 1.01
+      }
+    ],
+    [
+      {
+        "date": "20/03/2023",
+        "hour": 1,
+        "label": "00 - 01 h",
+        "consumption": 0.979
+      },
+      {
+        "date": "20/03/2023",
+        "hour": 2,
+        "label": "01 - 02 h",
+        "consumption": 0.41
+      },
+      {
+        "date": "20/03/2023",
+        "hour": 3,
+        "label": "02 - 03 h",
+        "consumption": 0.251
+      },
+      {
+        "date": "20/03/2023",
+        "hour": 4,
+        "label": "03 - 04 h",
+        "consumption": 0.111
+      },
+      {
+        "date": "20/03/2023",
+        "hour": 5,
+        "label": "04 - 05 h",
+        "consumption": 0.048
+      },
+      {
+        "date": "20/03/2023",
+        "hour": 6,
+        "label": "05 - 06 h",
+        "consumption": 0.076
+      },
+      {
+        "date": "20/03/2023",
+        "hour": 7,
+        "label": "06 - 07 h",
+        "consumption": 0.069
+      },
+      {
+        "date": "20/03/2023",
+        "hour": 8,
+        "label": "07 - 08 h",
+        "consumption": 0.052
+      },
+      {
+        "date": "20/03/2023",
+        "hour": 9,
+        "label": "08 - 09 h",
+        "consumption": 0.098
+      },
+      {
+        "date": "20/03/2023",
+        "hour": 10,
+        "label": "09 - 10 h",
+        "consumption": 0.054
+      },
+      {
+        "date": "20/03/2023",
+        "hour": 11,
+        "label": "10 - 11 h",
+        "consumption": 0.154
+      },
+      {
+        "date": "20/03/2023",
+        "hour": 12,
+        "label": "11 - 12 h",
+        "consumption": 0.112
+      },
+      {
+        "date": "20/03/2023",
+        "hour": 13,
+        "label": "12 - 13 h",
+        "consumption": 0.142
+      },
+      {
+        "date": "20/03/2023",
+        "hour": 14,
+        "label": "13 - 14 h",
+        "consumption": 0.432
+      },
+      {
+        "date": "20/03/2023",
+        "hour": 15,
+        "label": "14 - 15 h",
+        "consumption": 0.29
+      },
+      {
+        "date": "20/03/2023",
+        "hour": 16,
+        "label": "15 - 16 h",
+        "consumption": 0.175
+      },
+      {
+        "date": "20/03/2023",
+        "hour": 17,
+        "label": "16 - 17 h",
+        "consumption": 0.159
+      },
+      {
+        "date": "20/03/2023",
+        "hour": 18,
+        "label": "17 - 18 h",
+        "consumption": 0.129
+      },
+      {
+        "date": "20/03/2023",
+        "hour": 19,
+        "label": "18 - 19 h",
+        "consumption": 0.094
+      },
+      {
+        "date": "20/03/2023",
+        "hour": 20,
+        "label": "19 - 20 h",
+        "consumption": 0.106
+      },
+      {
+        "date": "20/03/2023",
+        "hour": 21,
+        "label": "20 - 21 h",
+        "consumption": 0.062
+      },
+      {
+        "date": "20/03/2023",
+        "hour": 22,
+        "label": "21 - 22 h",
+        "consumption": 0.309
+      },
+      {
+        "date": "20/03/2023",
+        "hour": 23,
+        "label": "22 - 23 h",
+        "consumption": 0.181
+      },
+      {
+        "date": "20/03/2023",
+        "hour": 24,
+        "label": "23 - 24 h",
+        "consumption": 0.218
+      }
+    ],
+    [
+      {
+        "date": "21/03/2023",
+        "hour": 1,
+        "label": "00 - 01 h",
+        "consumption": 0.376
+      },
+      {
+        "date": "21/03/2023",
+        "hour": 2,
+        "label": "01 - 02 h",
+        "consumption": 0.396
+      },
+      {
+        "date": "21/03/2023",
+        "hour": 3,
+        "label": "02 - 03 h",
+        "consumption": 0.254
+      },
+      {
+        "date": "21/03/2023",
+        "hour": 4,
+        "label": "03 - 04 h",
+        "consumption": 0.085
+      },
+      {
+        "date": "21/03/2023",
+        "hour": 5,
+        "label": "04 - 05 h",
+        "consumption": 0.117
+      },
+      {
+        "date": "21/03/2023",
+        "hour": 6,
+        "label": "05 - 06 h",
+        "consumption": 0.063
+      },
+      {
+        "date": "21/03/2023",
+        "hour": 7,
+        "label": "06 - 07 h",
+        "consumption": 0.103
+      },
+      {
+        "date": "21/03/2023",
+        "hour": 8,
+        "label": "07 - 08 h",
+        "consumption": 0.093
+      },
+      {
+        "date": "21/03/2023",
+        "hour": 9,
+        "label": "08 - 09 h",
+        "consumption": 0.082
+      },
+      {
+        "date": "21/03/2023",
+        "hour": 10,
+        "label": "09 - 10 h",
+        "consumption": 0.101
+      },
+      {
+        "date": "21/03/2023",
+        "hour": 11,
+        "label": "10 - 11 h",
+        "consumption": 0.106
+      },
+      {
+        "date": "21/03/2023",
+        "hour": 12,
+        "label": "11 - 12 h",
+        "consumption": 0.112
+      },
+      {
+        "date": "21/03/2023",
+        "hour": 13,
+        "label": "12 - 13 h",
+        "consumption": 0.144
+      },
+      {
+        "date": "21/03/2023",
+        "hour": 14,
+        "label": "13 - 14 h",
+        "consumption": 0.235
+      },
+      {
+        "date": "21/03/2023",
+        "hour": 15,
+        "label": "14 - 15 h",
+        "consumption": 0.554
+      },
+      {
+        "date": "21/03/2023",
+        "hour": 16,
+        "label": "15 - 16 h",
+        "consumption": 0.412
+      },
+      {
+        "date": "21/03/2023",
+        "hour": 17,
+        "label": "16 - 17 h",
+        "consumption": 0.606
+      },
+      {
+        "date": "21/03/2023",
+        "hour": 18,
+        "label": "17 - 18 h",
+        "consumption": 0.091
+      },
+      {
+        "date": "21/03/2023",
+        "hour": 19,
+        "label": "18 - 19 h",
+        "consumption": 0.097
+      },
+      {
+        "date": "21/03/2023",
+        "hour": 20,
+        "label": "19 - 20 h",
+        "consumption": 0.109
+      },
+      {
+        "date": "21/03/2023",
+        "hour": 21,
+        "label": "20 - 21 h",
+        "consumption": 0.067
+      },
+      {
+        "date": "21/03/2023",
+        "hour": 22,
+        "label": "21 - 22 h",
+        "consumption": 0.117
+      },
+      {
+        "date": "21/03/2023",
+        "hour": 23,
+        "label": "22 - 23 h",
+        "consumption": 0.067
+      },
+      {
+        "date": "21/03/2023",
+        "hour": 24,
+        "label": "23 - 24 h",
+        "consumption": 0.117
+      }
+    ],
+    [
+      {
+        "date": "22/03/2023",
+        "hour": 1,
+        "label": "00 - 01 h",
+        "consumption": 0.189
+      },
+      {
+        "date": "22/03/2023",
+        "hour": 2,
+        "label": "01 - 02 h",
+        "consumption": 0.242
+      },
+      {
+        "date": "22/03/2023",
+        "hour": 3,
+        "label": "02 - 03 h",
+        "consumption": 0.443
+      },
+      {
+        "date": "22/03/2023",
+        "hour": 4,
+        "label": "03 - 04 h",
+        "consumption": 0.272
+      },
+      {
+        "date": "22/03/2023",
+        "hour": 5,
+        "label": "04 - 05 h",
+        "consumption": 0.106
+      },
+      {
+        "date": "22/03/2023",
+        "hour": 6,
+        "label": "05 - 06 h",
+        "consumption": 0.052
+      },
+      {
+        "date": "22/03/2023",
+        "hour": 7,
+        "label": "06 - 07 h",
+        "consumption": 0.1
+      },
+      {
+        "date": "22/03/2023",
+        "hour": 8,
+        "label": "07 - 08 h",
+        "consumption": 0.052
+      },
+      {
+        "date": "22/03/2023",
+        "hour": 9,
+        "label": "08 - 09 h",
+        "consumption": 0.087
+      },
+      {
+        "date": "22/03/2023",
+        "hour": 10,
+        "label": "09 - 10 h",
+        "consumption": 0.076
+      },
+      {
+        "date": "22/03/2023",
+        "hour": 11,
+        "label": "10 - 11 h",
+        "consumption": 0.078
+      },
+      {
+        "date": "22/03/2023",
+        "hour": 12,
+        "label": "11 - 12 h",
+        "consumption": 0.27
+      },
+      {
+        "date": "22/03/2023",
+        "hour": 13,
+        "label": "12 - 13 h",
+        "consumption": 0.052
+      },
+      {
+        "date": "22/03/2023",
+        "hour": 14,
+        "label": "13 - 14 h",
+        "consumption": 0.099
+      },
+      {
+        "date": "22/03/2023",
+        "hour": 15,
+        "label": "14 - 15 h",
+        "consumption": 0.143
+      },
+      {
+        "date": "22/03/2023",
+        "hour": 16,
+        "label": "15 - 16 h",
+        "consumption": 0.152
+      },
+      {
+        "date": "22/03/2023",
+        "hour": 17,
+        "label": "16 - 17 h",
+        "consumption": 0.172
+      },
+      {
+        "date": "22/03/2023",
+        "hour": 18,
+        "label": "17 - 18 h",
+        "consumption": 0.083
+      },
+      {
+        "date": "22/03/2023",
+        "hour": 19,
+        "label": "18 - 19 h",
+        "consumption": 0.123
+      },
+      {
+        "date": "22/03/2023",
+        "hour": 20,
+        "label": "19 - 20 h",
+        "consumption": 0.117
+      },
+      {
+        "date": "22/03/2023",
+        "hour": 21,
+        "label": "20 - 21 h",
+        "consumption": 1.515
+      },
+      {
+        "date": "22/03/2023",
+        "hour": 22,
+        "label": "21 - 22 h",
+        "consumption": 0.489
+      },
+      {
+        "date": "22/03/2023",
+        "hour": 23,
+        "label": "22 - 23 h",
+        "consumption": 0.063
+      },
+      {
+        "date": "22/03/2023",
+        "hour": 24,
+        "label": "23 - 24 h",
+        "consumption": 0.863
+      }
+    ],
+    [
+      {
+        "date": "23/03/2023",
+        "hour": 1,
+        "label": "00 - 01 h",
+        "consumption": 0.675
+      },
+      {
+        "date": "23/03/2023",
+        "hour": 2,
+        "label": "01 - 02 h",
+        "consumption": 0.178
+      },
+      {
+        "date": "23/03/2023",
+        "hour": 3,
+        "label": "02 - 03 h",
+        "consumption": 0.355
+      },
+      {
+        "date": "23/03/2023",
+        "hour": 4,
+        "label": "03 - 04 h",
+        "consumption": 0.157
+      },
+      {
+        "date": "23/03/2023",
+        "hour": 5,
+        "label": "04 - 05 h",
+        "consumption": 0.092
+      },
+      {
+        "date": "23/03/2023",
+        "hour": 6,
+        "label": "05 - 06 h",
+        "consumption": 0.077
+      },
+      {
+        "date": "23/03/2023",
+        "hour": 7,
+        "label": "06 - 07 h",
+        "consumption": 0.077
+      },
+      {
+        "date": "23/03/2023",
+        "hour": 8,
+        "label": "07 - 08 h",
+        "consumption": 0.084
+      },
+      {
+        "date": "23/03/2023",
+        "hour": 9,
+        "label": "08 - 09 h",
+        "consumption": 0.063
+      },
+      {
+        "date": "23/03/2023",
+        "hour": 10,
+        "label": "09 - 10 h",
+        "consumption": 0.098
+      },
+      {
+        "date": "23/03/2023",
+        "hour": 11,
+        "label": "10 - 11 h",
+        "consumption": 0.099
+      },
+      {
+        "date": "23/03/2023",
+        "hour": 12,
+        "label": "11 - 12 h",
+        "consumption": 0.839
+      },
+      {
+        "date": "23/03/2023",
+        "hour": 13,
+        "label": "12 - 13 h",
+        "consumption": 0.625
+      },
+      {
+        "date": "23/03/2023",
+        "hour": 14,
+        "label": "13 - 14 h",
+        "consumption": 0.49
+      },
+      {
+        "date": "23/03/2023",
+        "hour": 15,
+        "label": "14 - 15 h",
+        "consumption": 0.202
+      },
+      {
+        "date": "23/03/2023",
+        "hour": 16,
+        "label": "15 - 16 h",
+        "consumption": 0.145
+      },
+      {
+        "date": "23/03/2023",
+        "hour": 17,
+        "label": "16 - 17 h",
+        "consumption": 0.113
+      },
+      {
+        "date": "23/03/2023",
+        "hour": 18,
+        "label": "17 - 18 h",
+        "consumption": 0.149
+      },
+      {
+        "date": "23/03/2023",
+        "hour": 19,
+        "label": "18 - 19 h",
+        "consumption": 0.114
+      },
+      {
+        "date": "23/03/2023",
+        "hour": 20,
+        "label": "19 - 20 h",
+        "consumption": 0.096
+      },
+      {
+        "date": "23/03/2023",
+        "hour": 21,
+        "label": "20 - 21 h",
+        "consumption": 0.138
+      },
+      {
+        "date": "23/03/2023",
+        "hour": 22,
+        "label": "21 - 22 h",
+        "consumption": 0.143
+      },
+      {
+        "date": "23/03/2023",
+        "hour": 23,
+        "label": "22 - 23 h",
+        "consumption": 0.144
+      },
+      {
+        "date": "23/03/2023",
+        "hour": 24,
+        "label": "23 - 24 h",
+        "consumption": 0.145
+      }
+    ],
+    [
+      {
+        "date": "24/03/2023",
+        "hour": 1,
+        "label": "00 - 01 h",
+        "consumption": 0.187
+      },
+      {
+        "date": "24/03/2023",
+        "hour": 2,
+        "label": "01 - 02 h",
+        "consumption": 0.15
+      },
+      {
+        "date": "24/03/2023",
+        "hour": 3,
+        "label": "02 - 03 h",
+        "consumption": 0.085
+      },
+      {
+        "date": "24/03/2023",
+        "hour": 4,
+        "label": "03 - 04 h",
+        "consumption": 0.084
+      },
+      {
+        "date": "24/03/2023",
+        "hour": 5,
+        "label": "04 - 05 h",
+        "consumption": 0.053
+      },
+      {
+        "date": "24/03/2023",
+        "hour": 6,
+        "label": "05 - 06 h",
+        "consumption": 0.104
+      },
+      {
+        "date": "24/03/2023",
+        "hour": 7,
+        "label": "06 - 07 h",
+        "consumption": 0.053
+      },
+      {
+        "date": "24/03/2023",
+        "hour": 8,
+        "label": "07 - 08 h",
+        "consumption": 0.099
+      },
+      {
+        "date": "24/03/2023",
+        "hour": 9,
+        "label": "08 - 09 h",
+        "consumption": 0.055
+      },
+      {
+        "date": "24/03/2023",
+        "hour": 10,
+        "label": "09 - 10 h",
+        "consumption": 0.084
+      },
+      {
+        "date": "24/03/2023",
+        "hour": 11,
+        "label": "10 - 11 h",
+        "consumption": 0.126
+      },
+      {
+        "date": "24/03/2023",
+        "hour": 12,
+        "label": "11 - 12 h",
+        "consumption": 0.111
+      },
+      {
+        "date": "24/03/2023",
+        "hour": 13,
+        "label": "12 - 13 h",
+        "consumption": 0.163
+      },
+      {
+        "date": "24/03/2023",
+        "hour": 14,
+        "label": "13 - 14 h",
+        "consumption": 0.494
+      },
+      {
+        "date": "24/03/2023",
+        "hour": 15,
+        "label": "14 - 15 h",
+        "consumption": 0.202
+      },
+      {
+        "date": "24/03/2023",
+        "hour": 16,
+        "label": "15 - 16 h",
+        "consumption": 0.175
+      },
+      {
+        "date": "24/03/2023",
+        "hour": 17,
+        "label": "16 - 17 h",
+        "consumption": 0.159
+      },
+      {
+        "date": "24/03/2023",
+        "hour": 18,
+        "label": "17 - 18 h",
+        "consumption": 0.074
+      },
+      {
+        "date": "24/03/2023",
+        "hour": 19,
+        "label": "18 - 19 h",
+        "consumption": 0.558
+      },
+      {
+        "date": "24/03/2023",
+        "hour": 20,
+        "label": "19 - 20 h",
+        "consumption": 0.741
+      },
+      {
+        "date": "24/03/2023",
+        "hour": 21,
+        "label": "20 - 21 h",
+        "consumption": 0.301
+      },
+      {
+        "date": "24/03/2023",
+        "hour": 22,
+        "label": "21 - 22 h",
+        "consumption": 0.293
+      },
+      {
+        "date": "24/03/2023",
+        "hour": 23,
+        "label": "22 - 23 h",
+        "consumption": 0.789
+      },
+      {
+        "date": "24/03/2023",
+        "hour": 24,
+        "label": "23 - 24 h",
+        "consumption": 0.463
+      }
+    ],
+    [
+      {
+        "date": "25/03/2023",
+        "hour": 1,
+        "label": "00 - 01 h",
+        "consumption": 0.427
+      },
+      {
+        "date": "25/03/2023",
+        "hour": 2,
+        "label": "01 - 02 h",
+        "consumption": 0.345
+      },
+      {
+        "date": "25/03/2023",
+        "hour": 3,
+        "label": "02 - 03 h",
+        "consumption": 0.391
+      },
+      {
+        "date": "25/03/2023",
+        "hour": 4,
+        "label": "03 - 04 h",
+        "consumption": 0.299
+      },
+      {
+        "date": "25/03/2023",
+        "hour": 5,
+        "label": "04 - 05 h",
+        "consumption": 0.072
+      },
+      {
+        "date": "25/03/2023",
+        "hour": 6,
+        "label": "05 - 06 h",
+        "consumption": 0.108
+      },
+      {
+        "date": "25/03/2023",
+        "hour": 7,
+        "label": "06 - 07 h",
+        "consumption": 0.053
+      },
+      {
+        "date": "25/03/2023",
+        "hour": 8,
+        "label": "07 - 08 h",
+        "consumption": 0.08
+      },
+      {
+        "date": "25/03/2023",
+        "hour": 9,
+        "label": "08 - 09 h",
+        "consumption": 0.072
+      },
+      {
+        "date": "25/03/2023",
+        "hour": 10,
+        "label": "09 - 10 h",
+        "consumption": 0.079
+      },
+      {
+        "date": "25/03/2023",
+        "hour": 11,
+        "label": "10 - 11 h",
+        "consumption": 0.077
+      },
+      {
+        "date": "25/03/2023",
+        "hour": 12,
+        "label": "11 - 12 h",
+        "consumption": 0.052
+      },
+      {
+        "date": "25/03/2023",
+        "hour": 13,
+        "label": "12 - 13 h",
+        "consumption": 0.101
+      },
+      {
+        "date": "25/03/2023",
+        "hour": 14,
+        "label": "13 - 14 h",
+        "consumption": 0.051
+      },
+      {
+        "date": "25/03/2023",
+        "hour": 15,
+        "label": "14 - 15 h",
+        "consumption": 0.101
+      },
+      {
+        "date": "25/03/2023",
+        "hour": 16,
+        "label": "15 - 16 h",
+        "consumption": 0.051
+      },
+      {
+        "date": "25/03/2023",
+        "hour": 17,
+        "label": "16 - 17 h",
+        "consumption": 0.082
+      },
+      {
+        "date": "25/03/2023",
+        "hour": 18,
+        "label": "17 - 18 h",
+        "consumption": 0.069
+      },
+      {
+        "date": "25/03/2023",
+        "hour": 19,
+        "label": "18 - 19 h",
+        "consumption": 0.06
+      },
+      {
+        "date": "25/03/2023",
+        "hour": 20,
+        "label": "19 - 20 h",
+        "consumption": 0.155
+      },
+      {
+        "date": "25/03/2023",
+        "hour": 21,
+        "label": "20 - 21 h",
+        "consumption": 0.388
+      },
+      {
+        "date": "25/03/2023",
+        "hour": 22,
+        "label": "21 - 22 h",
+        "consumption": 0.591
+      },
+      {
+        "date": "25/03/2023",
+        "hour": 23,
+        "label": "22 - 23 h",
+        "consumption": 0.712
+      },
+      {
+        "date": "25/03/2023",
+        "hour": 24,
+        "label": "23 - 24 h",
+        "consumption": 0.061
+      }
+    ],
+    [
+      {
+        "date": "26/03/2023",
+        "hour": 1,
+        "label": "00 - 01 h",
+        "consumption": 0.145
+      },
+      {
+        "date": "26/03/2023",
+        "hour": 2,
+        "label": "01 - 02 h",
+        "consumption": 0.235
+      },
+      {
+        "date": "26/03/2023",
+        "hour": 3,
+        "label": "03 - 04 h",
+        "consumption": 0.079
+      },
+      {
+        "date": "26/03/2023",
+        "hour": 4,
+        "label": "04 - 05 h",
+        "consumption": 0.08
+      },
+      {
+        "date": "26/03/2023",
+        "hour": 5,
+        "label": "05 - 06 h",
+        "consumption": 0.129
+      },
+      {
+        "date": "26/03/2023",
+        "hour": 6,
+        "label": "06 - 07 h",
+        "consumption": 0.127
+      },
+      {
+        "date": "26/03/2023",
+        "hour": 7,
+        "label": "07 - 08 h",
+        "consumption": 0.052
+      },
+      {
+        "date": "26/03/2023",
+        "hour": 8,
+        "label": "08 - 09 h",
+        "consumption": 0.093
+      },
+      {
+        "date": "26/03/2023",
+        "hour": 9,
+        "label": "09 - 10 h",
+        "consumption": 0.126
+      },
+      {
+        "date": "26/03/2023",
+        "hour": 10,
+        "label": "10 - 11 h",
+        "consumption": 0.145
+      },
+      {
+        "date": "26/03/2023",
+        "hour": 11,
+        "label": "11 - 12 h",
+        "consumption": 0.089
+      },
+      {
+        "date": "26/03/2023",
+        "hour": 12,
+        "label": "12 - 13 h",
+        "consumption": 0.151
+      },
+      {
+        "date": "26/03/2023",
+        "hour": 13,
+        "label": "13 - 14 h",
+        "consumption": 0.378
+      },
+      {
+        "date": "26/03/2023",
+        "hour": 14,
+        "label": "14 - 15 h",
+        "consumption": 0.366
+      },
+      {
+        "date": "26/03/2023",
+        "hour": 15,
+        "label": "15 - 16 h",
+        "consumption": 0.152
+      },
+      {
+        "date": "26/03/2023",
+        "hour": 16,
+        "label": "16 - 17 h",
+        "consumption": 0.249
+      },
+      {
+        "date": "26/03/2023",
+        "hour": 17,
+        "label": "17 - 18 h",
+        "consumption": 0.304
+      },
+      {
+        "date": "26/03/2023",
+        "hour": 18,
+        "label": "18 - 19 h",
+        "consumption": 0.2
+      },
+      {
+        "date": "26/03/2023",
+        "hour": 19,
+        "label": "19 - 20 h",
+        "consumption": 0.257
+      },
+      {
+        "date": "26/03/2023",
+        "hour": 20,
+        "label": "20 - 21 h",
+        "consumption": 0.355
+      },
+      {
+        "date": "26/03/2023",
+        "hour": 21,
+        "label": "21 - 22 h",
+        "consumption": 0.323
+      },
+      {
+        "date": "26/03/2023",
+        "hour": 22,
+        "label": "22 - 23 h",
+        "consumption": 0.184
+      },
+      {
+        "date": "26/03/2023",
+        "hour": 23,
+        "label": "23 - 24 h",
+        "consumption": 0.179
+      }
+    ],
+    [
+      {
+        "date": "27/03/2023",
+        "hour": 1,
+        "label": "00 - 01 h",
+        "consumption": 0.155
+      },
+      {
+        "date": "27/03/2023",
+        "hour": 2,
+        "label": "01 - 02 h",
+        "consumption": 0.203
+      },
+      {
+        "date": "27/03/2023",
+        "hour": 3,
+        "label": "02 - 03 h",
+        "consumption": 0.352
+      },
+      {
+        "date": "27/03/2023",
+        "hour": 4,
+        "label": "03 - 04 h",
+        "consumption": 0.099
+      },
+      {
+        "date": "27/03/2023",
+        "hour": 5,
+        "label": "04 - 05 h",
+        "consumption": 0.063
+      },
+      {
+        "date": "27/03/2023",
+        "hour": 6,
+        "label": "05 - 06 h",
+        "consumption": 0.088
+      },
+      {
+        "date": "27/03/2023",
+        "hour": 7,
+        "label": "06 - 07 h",
+        "consumption": 0.062
+      },
+      {
+        "date": "27/03/2023",
+        "hour": 8,
+        "label": "07 - 08 h",
+        "consumption": 0.077
+      },
+      {
+        "date": "27/03/2023",
+        "hour": 9,
+        "label": "08 - 09 h",
+        "consumption": 0.072
+      },
+      {
+        "date": "27/03/2023",
+        "hour": 10,
+        "label": "09 - 10 h",
+        "consumption": 0.073
+      },
+      {
+        "date": "27/03/2023",
+        "hour": 11,
+        "label": "10 - 11 h",
+        "consumption": 0.64
+      },
+      {
+        "date": "27/03/2023",
+        "hour": 12,
+        "label": "11 - 12 h",
+        "consumption": 0.366
+      },
+      {
+        "date": "27/03/2023",
+        "hour": 13,
+        "label": "12 - 13 h",
+        "consumption": 0.635
+      },
+      {
+        "date": "27/03/2023",
+        "hour": 14,
+        "label": "13 - 14 h",
+        "consumption": 1.193
+      },
+      {
+        "date": "27/03/2023",
+        "hour": 15,
+        "label": "14 - 15 h",
+        "consumption": 0.349
+      },
+      {
+        "date": "27/03/2023",
+        "hour": 16,
+        "label": "15 - 16 h",
+        "consumption": 0.235
+      },
+      {
+        "date": "27/03/2023",
+        "hour": 17,
+        "label": "16 - 17 h",
+        "consumption": 0.112
+      },
+      {
+        "date": "27/03/2023",
+        "hour": 18,
+        "label": "17 - 18 h",
+        "consumption": 0.162
+      },
+      {
+        "date": "27/03/2023",
+        "hour": 19,
+        "label": "18 - 19 h",
+        "consumption": 0.073
+      },
+      {
+        "date": "27/03/2023",
+        "hour": 20,
+        "label": "19 - 20 h",
+        "consumption": 0.092
+      },
+      {
+        "date": "27/03/2023",
+        "hour": 21,
+        "label": "20 - 21 h",
+        "consumption": 0.063
+      },
+      {
+        "date": "27/03/2023",
+        "hour": 22,
+        "label": "21 - 22 h",
+        "consumption": 0.071
+      },
+      {
+        "date": "27/03/2023",
+        "hour": 23,
+        "label": "22 - 23 h",
+        "consumption": 0.083
+      },
+      {
+        "date": "27/03/2023",
+        "hour": 24,
+        "label": "23 - 24 h",
+        "consumption": 0.054
+      }
+    ],
+    [
+      {
+        "date": "28/03/2023",
+        "hour": 1,
+        "label": "00 - 01 h",
+        "consumption": 1.098
+      },
+      {
+        "date": "28/03/2023",
+        "hour": 2,
+        "label": "01 - 02 h",
+        "consumption": 0.75
+      },
+      {
+        "date": "28/03/2023",
+        "hour": 3,
+        "label": "02 - 03 h",
+        "consumption": 0.21
+      },
+      {
+        "date": "28/03/2023",
+        "hour": 4,
+        "label": "03 - 04 h",
+        "consumption": 0.112
+      },
+      {
+        "date": "28/03/2023",
+        "hour": 5,
+        "label": "04 - 05 h",
+        "consumption": 0.089
+      },
+      {
+        "date": "28/03/2023",
+        "hour": 6,
+        "label": "05 - 06 h",
+        "consumption": 0.081
+      },
+      {
+        "date": "28/03/2023",
+        "hour": 7,
+        "label": "06 - 07 h",
+        "consumption": 0.064
+      },
+      {
+        "date": "28/03/2023",
+        "hour": 8,
+        "label": "07 - 08 h",
+        "consumption": 0.101
+      },
+      {
+        "date": "28/03/2023",
+        "hour": 9,
+        "label": "08 - 09 h",
+        "consumption": 0.059
+      },
+      {
+        "date": "28/03/2023",
+        "hour": 10,
+        "label": "09 - 10 h",
+        "consumption": 0.114
+      },
+      {
+        "date": "28/03/2023",
+        "hour": 11,
+        "label": "10 - 11 h",
+        "consumption": 0.157
+      },
+      {
+        "date": "28/03/2023",
+        "hour": 12,
+        "label": "11 - 12 h",
+        "consumption": 0.136
+      },
+      {
+        "date": "28/03/2023",
+        "hour": 13,
+        "label": "12 - 13 h",
+        "consumption": 0.1
+      },
+      {
+        "date": "28/03/2023",
+        "hour": 14,
+        "label": "13 - 14 h",
+        "consumption": 0.119
+      },
+      {
+        "date": "28/03/2023",
+        "hour": 15,
+        "label": "14 - 15 h",
+        "consumption": 0.104
+      },
+      {
+        "date": "28/03/2023",
+        "hour": 16,
+        "label": "15 - 16 h",
+        "consumption": 0.262
+      },
+      {
+        "date": "28/03/2023",
+        "hour": 17,
+        "label": "16 - 17 h",
+        "consumption": 0.633
+      },
+      {
+        "date": "28/03/2023",
+        "hour": 18,
+        "label": "17 - 18 h",
+        "consumption": 0.676
+      },
+      {
+        "date": "28/03/2023",
+        "hour": 19,
+        "label": "18 - 19 h",
+        "consumption": 0.309
+      },
+      {
+        "date": "28/03/2023",
+        "hour": 20,
+        "label": "19 - 20 h",
+        "consumption": 0.127
+      },
+      {
+        "date": "28/03/2023",
+        "hour": 21,
+        "label": "20 - 21 h",
+        "consumption": 0.206
+      },
+      {
+        "date": "28/03/2023",
+        "hour": 22,
+        "label": "21 - 22 h",
+        "consumption": 0.229
+      },
+      {
+        "date": "28/03/2023",
+        "hour": 23,
+        "label": "22 - 23 h",
+        "consumption": 1.427
+      },
+      {
+        "date": "28/03/2023",
+        "hour": 24,
+        "label": "23 - 24 h",
+        "consumption": 0.208
+      }
+    ],
+    [
+      {
+        "date": "29/03/2023",
+        "hour": 1,
+        "label": "00 - 01 h",
+        "consumption": 0.157
+      },
+      {
+        "date": "29/03/2023",
+        "hour": 2,
+        "label": "01 - 02 h",
+        "consumption": 0.189
+      },
+      {
+        "date": "29/03/2023",
+        "hour": 3,
+        "label": "02 - 03 h",
+        "consumption": 0.072
+      },
+      {
+        "date": "29/03/2023",
+        "hour": 4,
+        "label": "03 - 04 h",
+        "consumption": 0.081
+      },
+      {
+        "date": "29/03/2023",
+        "hour": 5,
+        "label": "04 - 05 h",
+        "consumption": 0.078
+      },
+      {
+        "date": "29/03/2023",
+        "hour": 6,
+        "label": "05 - 06 h",
+        "consumption": 0.058
+      },
+      {
+        "date": "29/03/2023",
+        "hour": 7,
+        "label": "06 - 07 h",
+        "consumption": 0.095
+      },
+      {
+        "date": "29/03/2023",
+        "hour": 8,
+        "label": "07 - 08 h",
+        "consumption": 0.053
+      },
+      {
+        "date": "29/03/2023",
+        "hour": 9,
+        "label": "08 - 09 h",
+        "consumption": 0.104
+      },
+      {
+        "date": "29/03/2023",
+        "hour": 10,
+        "label": "09 - 10 h",
+        "consumption": 0.094
+      },
+      {
+        "date": "29/03/2023",
+        "hour": 11,
+        "label": "10 - 11 h",
+        "consumption": 0.118
+      },
+      {
+        "date": "29/03/2023",
+        "hour": 12,
+        "label": "11 - 12 h",
+        "consumption": 0.102
+      },
+      {
+        "date": "29/03/2023",
+        "hour": 13,
+        "label": "12 - 13 h",
+        "consumption": 0.158
+      },
+      {
+        "date": "29/03/2023",
+        "hour": 14,
+        "label": "13 - 14 h",
+        "consumption": 0.148
+      },
+      {
+        "date": "29/03/2023",
+        "hour": 15,
+        "label": "14 - 15 h",
+        "consumption": 0.172
+      },
+      {
+        "date": "29/03/2023",
+        "hour": 16,
+        "label": "15 - 16 h",
+        "consumption": 0.174
+      },
+      {
+        "date": "29/03/2023",
+        "hour": 17,
+        "label": "16 - 17 h",
+        "consumption": 0.482
+      },
+      {
+        "date": "29/03/2023",
+        "hour": 18,
+        "label": "17 - 18 h",
+        "consumption": 0.255
+      },
+      {
+        "date": "29/03/2023",
+        "hour": 19,
+        "label": "18 - 19 h",
+        "consumption": 0.648
+      },
+      {
+        "date": "29/03/2023",
+        "hour": 20,
+        "label": "19 - 20 h",
+        "consumption": 0.102
+      },
+      {
+        "date": "29/03/2023",
+        "hour": 21,
+        "label": "20 - 21 h",
+        "consumption": 0.056
+      },
+      {
+        "date": "29/03/2023",
+        "hour": 22,
+        "label": "21 - 22 h",
+        "consumption": 0.083
+      },
+      {
+        "date": "29/03/2023",
+        "hour": 23,
+        "label": "22 - 23 h",
+        "consumption": 0.073
+      },
+      {
+        "date": "29/03/2023",
+        "hour": 24,
+        "label": "23 - 24 h",
+        "consumption": 0.624
+      }
+    ],
+    [
+      {
+        "date": "30/03/2023",
+        "hour": 1,
+        "label": "00 - 01 h",
+        "consumption": 0.226
+      },
+      {
+        "date": "30/03/2023",
+        "hour": 2,
+        "label": "01 - 02 h",
+        "consumption": 0.187
+      },
+      {
+        "date": "30/03/2023",
+        "hour": 3,
+        "label": "02 - 03 h",
+        "consumption": 0.144
+      },
+      {
+        "date": "30/03/2023",
+        "hour": 4,
+        "label": "03 - 04 h",
+        "consumption": 0.104
+      },
+      {
+        "date": "30/03/2023",
+        "hour": 5,
+        "label": "04 - 05 h",
+        "consumption": 0.142
+      },
+      {
+        "date": "30/03/2023",
+        "hour": 6,
+        "label": "05 - 06 h",
+        "consumption": 0.054
+      },
+      {
+        "date": "30/03/2023",
+        "hour": 7,
+        "label": "06 - 07 h",
+        "consumption": 0.107
+      },
+      {
+        "date": "30/03/2023",
+        "hour": 8,
+        "label": "07 - 08 h",
+        "consumption": 0.053
+      },
+      {
+        "date": "30/03/2023",
+        "hour": 9,
+        "label": "08 - 09 h",
+        "consumption": 0.089
+      },
+      {
+        "date": "30/03/2023",
+        "hour": 10,
+        "label": "09 - 10 h",
+        "consumption": 0.158
+      },
+      {
+        "date": "30/03/2023",
+        "hour": 11,
+        "label": "10 - 11 h",
+        "consumption": 0.073
+      },
+      {
+        "date": "30/03/2023",
+        "hour": 12,
+        "label": "11 - 12 h",
+        "consumption": 0.438
+      },
+      {
+        "date": "30/03/2023",
+        "hour": 13,
+        "label": "12 - 13 h",
+        "consumption": 0.508
+      },
+      {
+        "date": "30/03/2023",
+        "hour": 14,
+        "label": "13 - 14 h",
+        "consumption": 0.596
+      },
+      {
+        "date": "30/03/2023",
+        "hour": 15,
+        "label": "14 - 15 h",
+        "consumption": 0.165
+      },
+      {
+        "date": "30/03/2023",
+        "hour": 16,
+        "label": "15 - 16 h",
+        "consumption": 0.131
+      },
+      {
+        "date": "30/03/2023",
+        "hour": 17,
+        "label": "16 - 17 h",
+        "consumption": 0.07
+      },
+      {
+        "date": "30/03/2023",
+        "hour": 18,
+        "label": "17 - 18 h",
+        "consumption": 0.145
+      },
+      {
+        "date": "30/03/2023",
+        "hour": 19,
+        "label": "18 - 19 h",
+        "consumption": 0.205
+      },
+      {
+        "date": "30/03/2023",
+        "hour": 20,
+        "label": "19 - 20 h",
+        "consumption": 0.092
+      },
+      {
+        "date": "30/03/2023",
+        "hour": 21,
+        "label": "20 - 21 h",
+        "consumption": 0.057
+      },
+      {
+        "date": "30/03/2023",
+        "hour": 22,
+        "label": "21 - 22 h",
+        "consumption": 0.077
+      },
+      {
+        "date": "30/03/2023",
+        "hour": 23,
+        "label": "22 - 23 h",
+        "consumption": 0.173
+      },
+      {
+        "date": "30/03/2023",
+        "hour": 24,
+        "label": "23 - 24 h",
+        "consumption": 0.17
+      }
+    ],
+    [
+      {
+        "date": "31/03/2023",
+        "hour": 1,
+        "label": "00 - 01 h",
+        "consumption": 0.422
+      },
+      {
+        "date": "31/03/2023",
+        "hour": 2,
+        "label": "01 - 02 h",
+        "consumption": 0.269
+      },
+      {
+        "date": "31/03/2023",
+        "hour": 3,
+        "label": "02 - 03 h",
+        "consumption": 0.146
+      },
+      {
+        "date": "31/03/2023",
+        "hour": 4,
+        "label": "03 - 04 h",
+        "consumption": 0.058
+      },
+      {
+        "date": "31/03/2023",
+        "hour": 5,
+        "label": "04 - 05 h",
+        "consumption": 0.09
+      },
+      {
+        "date": "31/03/2023",
+        "hour": 6,
+        "label": "05 - 06 h",
+        "consumption": 0.053
+      },
+      {
+        "date": "31/03/2023",
+        "hour": 7,
+        "label": "06 - 07 h",
+        "consumption": 0.071
+      },
+      {
+        "date": "31/03/2023",
+        "hour": 8,
+        "label": "07 - 08 h",
+        "consumption": 0.073
+      },
+      {
+        "date": "31/03/2023",
+        "hour": 9,
+        "label": "08 - 09 h",
+        "consumption": 0.053
+      },
+      {
+        "date": "31/03/2023",
+        "hour": 10,
+        "label": "09 - 10 h",
+        "consumption": 0.095
+      },
+      {
+        "date": "31/03/2023",
+        "hour": 11,
+        "label": "10 - 11 h",
+        "consumption": 0.053
+      },
+      {
+        "date": "31/03/2023",
+        "hour": 12,
+        "label": "11 - 12 h",
+        "consumption": 0.116
+      },
+      {
+        "date": "31/03/2023",
+        "hour": 13,
+        "label": "12 - 13 h",
+        "consumption": 0.111
+      },
+      {
+        "date": "31/03/2023",
+        "hour": 14,
+        "label": "13 - 14 h",
+        "consumption": 0.065
+      },
+      {
+        "date": "31/03/2023",
+        "hour": 15,
+        "label": "14 - 15 h",
+        "consumption": 0.08
+      },
+      {
+        "date": "31/03/2023",
+        "hour": 16,
+        "label": "15 - 16 h",
+        "consumption": 0.062
+      },
+      {
+        "date": "31/03/2023",
+        "hour": 17,
+        "label": "16 - 17 h",
+        "consumption": 0.055
+      },
+      {
+        "date": "31/03/2023",
+        "hour": 18,
+        "label": "17 - 18 h",
+        "consumption": 0.088
+      },
+      {
+        "date": "31/03/2023",
+        "hour": 19,
+        "label": "18 - 19 h",
+        "consumption": 0.045
+      },
+      {
+        "date": "31/03/2023",
+        "hour": 20,
+        "label": "19 - 20 h",
+        "consumption": 0.093
+      },
+      {
+        "date": "31/03/2023",
+        "hour": 21,
+        "label": "20 - 21 h",
+        "consumption": 0.044
+      },
+      {
+        "date": "31/03/2023",
+        "hour": 22,
+        "label": "21 - 22 h",
+        "consumption": 0.085
+      },
+      {
+        "date": "31/03/2023",
+        "hour": 23,
+        "label": "22 - 23 h",
+        "consumption": 0.057
+      },
+      {
+        "date": "31/03/2023",
+        "hour": 24,
+        "label": "23 - 24 h",
+        "consumption": 0.061
+      }
+    ],
+    [
+      {
+        "date": "01/04/2023",
+        "hour": 1,
+        "label": "00 - 01 h",
+        "consumption": 0.08
+      },
+      {
+        "date": "01/04/2023",
+        "hour": 2,
+        "label": "01 - 02 h",
+        "consumption": 0.045
+      },
+      {
+        "date": "01/04/2023",
+        "hour": 3,
+        "label": "02 - 03 h",
+        "consumption": 0.094
+      },
+      {
+        "date": "01/04/2023",
+        "hour": 4,
+        "label": "03 - 04 h",
+        "consumption": 0.045
+      },
+      {
+        "date": "01/04/2023",
+        "hour": 5,
+        "label": "04 - 05 h",
+        "consumption": 0.101
+      },
+      {
+        "date": "01/04/2023",
+        "hour": 6,
+        "label": "05 - 06 h",
+        "consumption": 0.049
+      },
+      {
+        "date": "01/04/2023",
+        "hour": 7,
+        "label": "06 - 07 h",
+        "consumption": 0.07
+      },
+      {
+        "date": "01/04/2023",
+        "hour": 8,
+        "label": "07 - 08 h",
+        "consumption": 0.068
+      },
+      {
+        "date": "01/04/2023",
+        "hour": 9,
+        "label": "08 - 09 h",
+        "consumption": 0.048
+      },
+      {
+        "date": "01/04/2023",
+        "hour": 10,
+        "label": "09 - 10 h",
+        "consumption": 0.088
+      },
+      {
+        "date": "01/04/2023",
+        "hour": 11,
+        "label": "10 - 11 h",
+        "consumption": 0.045
+      },
+      {
+        "date": "01/04/2023",
+        "hour": 12,
+        "label": "11 - 12 h",
+        "consumption": 0.092
+      },
+      {
+        "date": "01/04/2023",
+        "hour": 13,
+        "label": "12 - 13 h",
+        "consumption": 0.045
+      },
+      {
+        "date": "01/04/2023",
+        "hour": 14,
+        "label": "13 - 14 h",
+        "consumption": 0.087
+      },
+      {
+        "date": "01/04/2023",
+        "hour": 15,
+        "label": "14 - 15 h",
+        "consumption": 0.05
+      },
+      {
+        "date": "01/04/2023",
+        "hour": 16,
+        "label": "15 - 16 h",
+        "consumption": 0.068
+      },
+      {
+        "date": "01/04/2023",
+        "hour": 17,
+        "label": "16 - 17 h",
+        "consumption": 0.07
+      },
+      {
+        "date": "01/04/2023",
+        "hour": 18,
+        "label": "17 - 18 h",
+        "consumption": 0.053
+      },
+      {
+        "date": "01/04/2023",
+        "hour": 19,
+        "label": "18 - 19 h",
+        "consumption": 0.096
+      },
+      {
+        "date": "01/04/2023",
+        "hour": 20,
+        "label": "19 - 20 h",
+        "consumption": 0.045
+      },
+      {
+        "date": "01/04/2023",
+        "hour": 21,
+        "label": "20 - 21 h",
+        "consumption": 0.091
+      },
+      {
+        "date": "01/04/2023",
+        "hour": 22,
+        "label": "21 - 22 h",
+        "consumption": 0.045
+      },
+      {
+        "date": "01/04/2023",
+        "hour": 23,
+        "label": "22 - 23 h",
+        "consumption": 0.087
+      },
+      {
+        "date": "01/04/2023",
+        "hour": 24,
+        "label": "23 - 24 h",
+        "consumption": 0.05
+      }
+    ],
+    [
+      {
+        "date": "02/04/2023",
+        "hour": 1,
+        "label": "00 - 01 h",
+        "consumption": 0.068
+      },
+      {
+        "date": "02/04/2023",
+        "hour": 2,
+        "label": "01 - 02 h",
+        "consumption": 0.07
+      },
+      {
+        "date": "02/04/2023",
+        "hour": 3,
+        "label": "02 - 03 h",
+        "consumption": 0.047
+      },
+      {
+        "date": "02/04/2023",
+        "hour": 4,
+        "label": "03 - 04 h",
+        "consumption": 0.089
+      },
+      {
+        "date": "02/04/2023",
+        "hour": 5,
+        "label": "04 - 05 h",
+        "consumption": 0.045
+      },
+      {
+        "date": "02/04/2023",
+        "hour": 6,
+        "label": "05 - 06 h",
+        "consumption": 0.091
+      },
+      {
+        "date": "02/04/2023",
+        "hour": 7,
+        "label": "06 - 07 h",
+        "consumption": 0.045
+      },
+      {
+        "date": "02/04/2023",
+        "hour": 8,
+        "label": "07 - 08 h",
+        "consumption": 0.087
+      },
+      {
+        "date": "02/04/2023",
+        "hour": 9,
+        "label": "08 - 09 h",
+        "consumption": 0.048
+      },
+      {
+        "date": "02/04/2023",
+        "hour": 10,
+        "label": "09 - 10 h",
+        "consumption": 0.07
+      },
+      {
+        "date": "02/04/2023",
+        "hour": 11,
+        "label": "10 - 11 h",
+        "consumption": 0.064
+      },
+      {
+        "date": "02/04/2023",
+        "hour": 12,
+        "label": "11 - 12 h",
+        "consumption": 0.053
+      },
+      {
+        "date": "02/04/2023",
+        "hour": 13,
+        "label": "12 - 13 h",
+        "consumption": 0.081
+      },
+      {
+        "date": "02/04/2023",
+        "hour": 14,
+        "label": "13 - 14 h",
+        "consumption": 0.045
+      },
+      {
+        "date": "02/04/2023",
+        "hour": 15,
+        "label": "14 - 15 h",
+        "consumption": 0.088
+      },
+      {
+        "date": "02/04/2023",
+        "hour": 16,
+        "label": "15 - 16 h",
+        "consumption": 0.045
+      },
+      {
+        "date": "02/04/2023",
+        "hour": 17,
+        "label": "16 - 17 h",
+        "consumption": 0.09
+      },
+      {
+        "date": "02/04/2023",
+        "hour": 18,
+        "label": "17 - 18 h",
+        "consumption": 0.045
+      },
+      {
+        "date": "02/04/2023",
+        "hour": 19,
+        "label": "18 - 19 h",
+        "consumption": 0.079
+      },
+      {
+        "date": "02/04/2023",
+        "hour": 20,
+        "label": "19 - 20 h",
+        "consumption": 0.055
+      },
+      {
+        "date": "02/04/2023",
+        "hour": 21,
+        "label": "20 - 21 h",
+        "consumption": 0.063
+      },
+      {
+        "date": "02/04/2023",
+        "hour": 22,
+        "label": "21 - 22 h",
+        "consumption": 0.071
+      },
+      {
+        "date": "02/04/2023",
+        "hour": 23,
+        "label": "22 - 23 h",
+        "consumption": 0.045
+      },
+      {
+        "date": "02/04/2023",
+        "hour": 24,
+        "label": "23 - 24 h",
+        "consumption": 0.089
+      }
+    ],
+    [
+      {
+        "date": "03/04/2023",
+        "hour": 1,
+        "label": "00 - 01 h",
+        "consumption": 0.046
+      },
+      {
+        "date": "03/04/2023",
+        "hour": 2,
+        "label": "01 - 02 h",
+        "consumption": 0.089
+      },
+      {
+        "date": "03/04/2023",
+        "hour": 3,
+        "label": "02 - 03 h",
+        "consumption": 0.045
+      },
+      {
+        "date": "03/04/2023",
+        "hour": 4,
+        "label": "03 - 04 h",
+        "consumption": 0.088
+      },
+      {
+        "date": "03/04/2023",
+        "hour": 5,
+        "label": "04 - 05 h",
+        "consumption": 0.046
+      },
+      {
+        "date": "03/04/2023",
+        "hour": 6,
+        "label": "05 - 06 h",
+        "consumption": 0.071
+      },
+      {
+        "date": "03/04/2023",
+        "hour": 7,
+        "label": "06 - 07 h",
+        "consumption": 0.062
+      },
+      {
+        "date": "03/04/2023",
+        "hour": 8,
+        "label": "07 - 08 h",
+        "consumption": 0.056
+      },
+      {
+        "date": "03/04/2023",
+        "hour": 9,
+        "label": "08 - 09 h",
+        "consumption": 0.077
+      },
+      {
+        "date": "03/04/2023",
+        "hour": 10,
+        "label": "09 - 10 h",
+        "consumption": 0.045
+      },
+      {
+        "date": "03/04/2023",
+        "hour": 11,
+        "label": "10 - 11 h",
+        "consumption": 0.088
+      },
+      {
+        "date": "03/04/2023",
+        "hour": 12,
+        "label": "11 - 12 h",
+        "consumption": 0.048
+      },
+      {
+        "date": "03/04/2023",
+        "hour": 13,
+        "label": "12 - 13 h",
+        "consumption": 0.087
+      },
+      {
+        "date": "03/04/2023",
+        "hour": 14,
+        "label": "13 - 14 h",
+        "consumption": 0.045
+      },
+      {
+        "date": "03/04/2023",
+        "hour": 15,
+        "label": "14 - 15 h",
+        "consumption": 0.094
+      },
+      {
+        "date": "03/04/2023",
+        "hour": 16,
+        "label": "15 - 16 h",
+        "consumption": 0.046
+      },
+      {
+        "date": "03/04/2023",
+        "hour": 17,
+        "label": "16 - 17 h",
+        "consumption": 0.087
+      },
+      {
+        "date": "03/04/2023",
+        "hour": 18,
+        "label": "17 - 18 h",
+        "consumption": 0.048
+      },
+      {
+        "date": "03/04/2023",
+        "hour": 19,
+        "label": "18 - 19 h",
+        "consumption": 0.07
+      },
+      {
+        "date": "03/04/2023",
+        "hour": 20,
+        "label": "19 - 20 h",
+        "consumption": 0.066
+      },
+      {
+        "date": "03/04/2023",
+        "hour": 21,
+        "label": "20 - 21 h",
+        "consumption": 0.05
+      },
+      {
+        "date": "03/04/2023",
+        "hour": 22,
+        "label": "21 - 22 h",
+        "consumption": 0.083
+      },
+      {
+        "date": "03/04/2023",
+        "hour": 23,
+        "label": "22 - 23 h",
+        "consumption": 0.046
+      },
+      {
+        "date": "03/04/2023",
+        "hour": 24,
+        "label": "23 - 24 h",
+        "consumption": 0.089
+      }
+    ],
+    [
+      {
+        "date": "04/04/2023",
+        "hour": 1,
+        "label": "00 - 01 h",
+        "consumption": 0.046
+      },
+      {
+        "date": "04/04/2023",
+        "hour": 2,
+        "label": "01 - 02 h",
+        "consumption": 0.088
+      },
+      {
+        "date": "04/04/2023",
+        "hour": 3,
+        "label": "02 - 03 h",
+        "consumption": 0.045
+      },
+      {
+        "date": "04/04/2023",
+        "hour": 4,
+        "label": "03 - 04 h",
+        "consumption": 0.077
+      },
+      {
+        "date": "04/04/2023",
+        "hour": 5,
+        "label": "04 - 05 h",
+        "consumption": 0.056
+      },
+      {
+        "date": "04/04/2023",
+        "hour": 6,
+        "label": "05 - 06 h",
+        "consumption": 0.062
+      },
+      {
+        "date": "04/04/2023",
+        "hour": 7,
+        "label": "06 - 07 h",
+        "consumption": 0.07
+      },
+      {
+        "date": "04/04/2023",
+        "hour": 8,
+        "label": "07 - 08 h",
+        "consumption": 0.046
+      },
+      {
+        "date": "04/04/2023",
+        "hour": 9,
+        "label": "08 - 09 h",
+        "consumption": 0.087
+      },
+      {
+        "date": "04/04/2023",
+        "hour": 10,
+        "label": "09 - 10 h",
+        "consumption": 0.045
+      },
+      {
+        "date": "04/04/2023",
+        "hour": 11,
+        "label": "10 - 11 h",
+        "consumption": 0.087
+      },
+      {
+        "date": "04/04/2023",
+        "hour": 12,
+        "label": "11 - 12 h",
+        "consumption": 0.045
+      },
+      {
+        "date": "04/04/2023",
+        "hour": 13,
+        "label": "12 - 13 h",
+        "consumption": 0.088
+      },
+      {
+        "date": "04/04/2023",
+        "hour": 14,
+        "label": "13 - 14 h",
+        "consumption": 0.045
+      },
+      {
+        "date": "04/04/2023",
+        "hour": 15,
+        "label": "14 - 15 h",
+        "consumption": 0.077
+      },
+      {
+        "date": "04/04/2023",
+        "hour": 16,
+        "label": "15 - 16 h",
+        "consumption": 0.056
+      },
+      {
+        "date": "04/04/2023",
+        "hour": 17,
+        "label": "16 - 17 h",
+        "consumption": 0.061
+      },
+      {
+        "date": "04/04/2023",
+        "hour": 18,
+        "label": "17 - 18 h",
+        "consumption": 0.071
+      },
+      {
+        "date": "04/04/2023",
+        "hour": 19,
+        "label": "18 - 19 h",
+        "consumption": 0.046
+      },
+      {
+        "date": "04/04/2023",
+        "hour": 20,
+        "label": "19 - 20 h",
+        "consumption": 0.088
+      },
+      {
+        "date": "04/04/2023",
+        "hour": 21,
+        "label": "20 - 21 h",
+        "consumption": 0.044
+      },
+      {
+        "date": "04/04/2023",
+        "hour": 22,
+        "label": "21 - 22 h",
+        "consumption": 0.088
+      },
+      {
+        "date": "04/04/2023",
+        "hour": 23,
+        "label": "22 - 23 h",
+        "consumption": 0.046
+      },
+      {
+        "date": "04/04/2023",
+        "hour": 24,
+        "label": "23 - 24 h",
+        "consumption": 0.088
+      }
+    ],
+    [
+      {
+        "date": "05/04/2023",
+        "hour": 1,
+        "label": "00 - 01 h",
+        "consumption": 0.044
+      },
+      {
+        "date": "05/04/2023",
+        "hour": 2,
+        "label": "01 - 02 h",
+        "consumption": 0.075
+      },
+      {
+        "date": "05/04/2023",
+        "hour": 3,
+        "label": "02 - 03 h",
+        "consumption": 0.057
+      },
+      {
+        "date": "05/04/2023",
+        "hour": 4,
+        "label": "03 - 04 h",
+        "consumption": 0.059
+      },
+      {
+        "date": "05/04/2023",
+        "hour": 5,
+        "label": "04 - 05 h",
+        "consumption": 0.073
+      },
+      {
+        "date": "05/04/2023",
+        "hour": 6,
+        "label": "05 - 06 h",
+        "consumption": 0.055
+      },
+      {
+        "date": "05/04/2023",
+        "hour": 7,
+        "label": "06 - 07 h",
+        "consumption": 0.087
+      },
+      {
+        "date": "05/04/2023",
+        "hour": 8,
+        "label": "07 - 08 h",
+        "consumption": 0.045
+      },
+      {
+        "date": "05/04/2023",
+        "hour": 9,
+        "label": "08 - 09 h",
+        "consumption": 0.088
+      },
+      {
+        "date": "05/04/2023",
+        "hour": 10,
+        "label": "09 - 10 h",
+        "consumption": 0.045
+      },
+      {
+        "date": "05/04/2023",
+        "hour": 11,
+        "label": "10 - 11 h",
+        "consumption": 0.085
+      },
+      {
+        "date": "05/04/2023",
+        "hour": 12,
+        "label": "11 - 12 h",
+        "consumption": 0.045
+      },
+      {
+        "date": "05/04/2023",
+        "hour": 13,
+        "label": "12 - 13 h",
+        "consumption": 0.074
+      },
+      {
+        "date": "05/04/2023",
+        "hour": 14,
+        "label": "13 - 14 h",
+        "consumption": 0.059
+      },
+      {
+        "date": "05/04/2023",
+        "hour": 15,
+        "label": "14 - 15 h",
+        "consumption": 0.059
+      },
+      {
+        "date": "05/04/2023",
+        "hour": 16,
+        "label": "15 - 16 h",
+        "consumption": 0.072
+      },
+      {
+        "date": "05/04/2023",
+        "hour": 17,
+        "label": "16 - 17 h",
+        "consumption": 0.045
+      },
+      {
+        "date": "05/04/2023",
+        "hour": 18,
+        "label": "17 - 18 h",
+        "consumption": 0.087
+      },
+      {
+        "date": "05/04/2023",
+        "hour": 19,
+        "label": "18 - 19 h",
+        "consumption": 0.045
+      },
+      {
+        "date": "05/04/2023",
+        "hour": 20,
+        "label": "19 - 20 h",
+        "consumption": 0.087
+      },
+      {
+        "date": "05/04/2023",
+        "hour": 21,
+        "label": "20 - 21 h",
+        "consumption": 0.045
+      },
+      {
+        "date": "05/04/2023",
+        "hour": 22,
+        "label": "21 - 22 h",
+        "consumption": 0.087
+      },
+      {
+        "date": "05/04/2023",
+        "hour": 23,
+        "label": "22 - 23 h",
+        "consumption": 0.045
+      },
+      {
+        "date": "05/04/2023",
+        "hour": 24,
+        "label": "23 - 24 h",
+        "consumption": 0.075
+      }
+    ],
+    [
+      {
+        "date": "06/04/2023",
+        "hour": 1,
+        "label": "00 - 01 h",
+        "consumption": 0.057
+      },
+      {
+        "date": "06/04/2023",
+        "hour": 2,
+        "label": "01 - 02 h",
+        "consumption": 0.06
+      },
+      {
+        "date": "06/04/2023",
+        "hour": 3,
+        "label": "02 - 03 h",
+        "consumption": 0.072
+      },
+      {
+        "date": "06/04/2023",
+        "hour": 4,
+        "label": "03 - 04 h",
+        "consumption": 0.045
+      },
+      {
+        "date": "06/04/2023",
+        "hour": 5,
+        "label": "04 - 05 h",
+        "consumption": 0.087
+      },
+      {
+        "date": "06/04/2023",
+        "hour": 6,
+        "label": "05 - 06 h",
+        "consumption": 0.045
+      },
+      {
+        "date": "06/04/2023",
+        "hour": 7,
+        "label": "06 - 07 h",
+        "consumption": 0.086
+      },
+      {
+        "date": "06/04/2023",
+        "hour": 8,
+        "label": "07 - 08 h",
+        "consumption": 0.046
+      },
+      {
+        "date": "06/04/2023",
+        "hour": 9,
+        "label": "08 - 09 h",
+        "consumption": 0.087
+      },
+      {
+        "date": "06/04/2023",
+        "hour": 10,
+        "label": "09 - 10 h",
+        "consumption": 0.045
+      },
+      {
+        "date": "06/04/2023",
+        "hour": 11,
+        "label": "10 - 11 h",
+        "consumption": 0.078
+      },
+      {
+        "date": "06/04/2023",
+        "hour": 12,
+        "label": "11 - 12 h",
+        "consumption": 0.053
+      },
+      {
+        "date": "06/04/2023",
+        "hour": 13,
+        "label": "12 - 13 h",
+        "consumption": 0.065
+      },
+      {
+        "date": "06/04/2023",
+        "hour": 14,
+        "label": "13 - 14 h",
+        "consumption": 0.117
+      },
+      {
+        "date": "06/04/2023",
+        "hour": 15,
+        "label": "14 - 15 h",
+        "consumption": 0.045
+      },
+      {
+        "date": "06/04/2023",
+        "hour": 16,
+        "label": "15 - 16 h",
+        "consumption": 0.079
+      },
+      {
+        "date": "06/04/2023",
+        "hour": 17,
+        "label": "16 - 17 h",
+        "consumption": 0.058
+      },
+      {
+        "date": "06/04/2023",
+        "hour": 18,
+        "label": "17 - 18 h",
+        "consumption": 0.059
+      },
+      {
+        "date": "06/04/2023",
+        "hour": 19,
+        "label": "18 - 19 h",
+        "consumption": 0.073
+      },
+      {
+        "date": "06/04/2023",
+        "hour": 20,
+        "label": "19 - 20 h",
+        "consumption": 0.046
+      },
+      {
+        "date": "06/04/2023",
+        "hour": 21,
+        "label": "20 - 21 h",
+        "consumption": 0.087
+      },
+      {
+        "date": "06/04/2023",
+        "hour": 22,
+        "label": "21 - 22 h",
+        "consumption": 0.045
+      },
+      {
+        "date": "06/04/2023",
+        "hour": 23,
+        "label": "22 - 23 h",
+        "consumption": 0.092
+      },
+      {
+        "date": "06/04/2023",
+        "hour": 24,
+        "label": "23 - 24 h",
+        "consumption": 0.053
+      }
+    ],
+    [
+      {
+        "date": "07/04/2023",
+        "hour": 1,
+        "label": "00 - 01 h",
+        "consumption": 0.088
+      },
+      {
+        "date": "07/04/2023",
+        "hour": 2,
+        "label": "01 - 02 h",
+        "consumption": 0.045
+      },
+      {
+        "date": "07/04/2023",
+        "hour": 3,
+        "label": "02 - 03 h",
+        "consumption": 0.075
+      },
+      {
+        "date": "07/04/2023",
+        "hour": 4,
+        "label": "03 - 04 h",
+        "consumption": 0.058
+      },
+      {
+        "date": "07/04/2023",
+        "hour": 5,
+        "label": "04 - 05 h",
+        "consumption": 0.058
+      },
+      {
+        "date": "07/04/2023",
+        "hour": 6,
+        "label": "05 - 06 h",
+        "consumption": 0.074
+      },
+      {
+        "date": "07/04/2023",
+        "hour": 7,
+        "label": "06 - 07 h",
+        "consumption": 0.045
+      },
+      {
+        "date": "07/04/2023",
+        "hour": 8,
+        "label": "07 - 08 h",
+        "consumption": 0.087
+      },
+      {
+        "date": "07/04/2023",
+        "hour": 9,
+        "label": "08 - 09 h",
+        "consumption": 0.045
+      },
+      {
+        "date": "07/04/2023",
+        "hour": 10,
+        "label": "09 - 10 h",
+        "consumption": 0.086
+      },
+      {
+        "date": "07/04/2023",
+        "hour": 11,
+        "label": "10 - 11 h",
+        "consumption": 0.045
+      },
+      {
+        "date": "07/04/2023",
+        "hour": 12,
+        "label": "11 - 12 h",
+        "consumption": 0.086
+      },
+      {
+        "date": "07/04/2023",
+        "hour": 13,
+        "label": "12 - 13 h",
+        "consumption": 0.045
+      },
+      {
+        "date": "07/04/2023",
+        "hour": 14,
+        "label": "13 - 14 h",
+        "consumption": 0.074
+      },
+      {
+        "date": "07/04/2023",
+        "hour": 15,
+        "label": "14 - 15 h",
+        "consumption": 0.057
+      },
+      {
+        "date": "07/04/2023",
+        "hour": 16,
+        "label": "15 - 16 h",
+        "consumption": 0.06
+      },
+      {
+        "date": "07/04/2023",
+        "hour": 17,
+        "label": "16 - 17 h",
+        "consumption": 0.072
+      },
+      {
+        "date": "07/04/2023",
+        "hour": 18,
+        "label": "17 - 18 h",
+        "consumption": 0.045
+      },
+      {
+        "date": "07/04/2023",
+        "hour": 19,
+        "label": "18 - 19 h",
+        "consumption": 0.086
+      },
+      {
+        "date": "07/04/2023",
+        "hour": 20,
+        "label": "19 - 20 h",
+        "consumption": 0.045
+      },
+      {
+        "date": "07/04/2023",
+        "hour": 21,
+        "label": "20 - 21 h",
+        "consumption": 0.087
+      },
+      {
+        "date": "07/04/2023",
+        "hour": 22,
+        "label": "21 - 22 h",
+        "consumption": 0.045
+      },
+      {
+        "date": "07/04/2023",
+        "hour": 23,
+        "label": "22 - 23 h",
+        "consumption": 0.088
+      },
+      {
+        "date": "07/04/2023",
+        "hour": 24,
+        "label": "23 - 24 h",
+        "consumption": 0.045
+      }
+    ],
+    [
+      {
+        "date": "08/04/2023",
+        "hour": 1,
+        "label": "00 - 01 h",
+        "consumption": 0.077
+      },
+      {
+        "date": "08/04/2023",
+        "hour": 2,
+        "label": "01 - 02 h",
+        "consumption": 0.055
+      },
+      {
+        "date": "08/04/2023",
+        "hour": 3,
+        "label": "02 - 03 h",
+        "consumption": 0.063
+      },
+      {
+        "date": "08/04/2023",
+        "hour": 4,
+        "label": "03 - 04 h",
+        "consumption": 0.069
+      },
+      {
+        "date": "08/04/2023",
+        "hour": 5,
+        "label": "04 - 05 h",
+        "consumption": 0.047
+      },
+      {
+        "date": "08/04/2023",
+        "hour": 6,
+        "label": "05 - 06 h",
+        "consumption": 0.085
+      },
+      {
+        "date": "08/04/2023",
+        "hour": 7,
+        "label": "06 - 07 h",
+        "consumption": 0.045
+      },
+      {
+        "date": "08/04/2023",
+        "hour": 8,
+        "label": "07 - 08 h",
+        "consumption": 0.086
+      },
+      {
+        "date": "08/04/2023",
+        "hour": 9,
+        "label": "08 - 09 h",
+        "consumption": 0.045
+      },
+      {
+        "date": "08/04/2023",
+        "hour": 10,
+        "label": "09 - 10 h",
+        "consumption": 0.087
+      },
+      {
+        "date": "08/04/2023",
+        "hour": 11,
+        "label": "10 - 11 h",
+        "consumption": 0.045
+      },
+      {
+        "date": "08/04/2023",
+        "hour": 12,
+        "label": "11 - 12 h",
+        "consumption": 0.077
+      },
+      {
+        "date": "08/04/2023",
+        "hour": 13,
+        "label": "12 - 13 h",
+        "consumption": 0.055
+      },
+      {
+        "date": "08/04/2023",
+        "hour": 14,
+        "label": "13 - 14 h",
+        "consumption": 0.063
+      },
+      {
+        "date": "08/04/2023",
+        "hour": 15,
+        "label": "14 - 15 h",
+        "consumption": 0.069
+      },
+      {
+        "date": "08/04/2023",
+        "hour": 16,
+        "label": "15 - 16 h",
+        "consumption": 0.048
+      },
+      {
+        "date": "08/04/2023",
+        "hour": 17,
+        "label": "16 - 17 h",
+        "consumption": 0.095
+      },
+      {
+        "date": "08/04/2023",
+        "hour": 18,
+        "label": "17 - 18 h",
+        "consumption": 0.045
+      },
+      {
+        "date": "08/04/2023",
+        "hour": 19,
+        "label": "18 - 19 h",
+        "consumption": 0.089
+      },
+      {
+        "date": "08/04/2023",
+        "hour": 20,
+        "label": "19 - 20 h",
+        "consumption": 0.045
+      },
+      {
+        "date": "08/04/2023",
+        "hour": 21,
+        "label": "20 - 21 h",
+        "consumption": 0.087
+      },
+      {
+        "date": "08/04/2023",
+        "hour": 22,
+        "label": "21 - 22 h",
+        "consumption": 0.046
+      },
+      {
+        "date": "08/04/2023",
+        "hour": 23,
+        "label": "22 - 23 h",
+        "consumption": 0.079
+      },
+      {
+        "date": "08/04/2023",
+        "hour": 24,
+        "label": "23 - 24 h",
+        "consumption": 0.054
+      }
+    ],
+    [
+      {
+        "date": "09/04/2023",
+        "hour": 1,
+        "label": "00 - 01 h",
+        "consumption": 0.064
+      },
+      {
+        "date": "09/04/2023",
+        "hour": 2,
+        "label": "01 - 02 h",
+        "consumption": 0.07
+      },
+      {
+        "date": "09/04/2023",
+        "hour": 3,
+        "label": "02 - 03 h",
+        "consumption": 0.047
+      },
+      {
+        "date": "09/04/2023",
+        "hour": 4,
+        "label": "03 - 04 h",
+        "consumption": 0.085
+      },
+      {
+        "date": "09/04/2023",
+        "hour": 5,
+        "label": "04 - 05 h",
+        "consumption": 0.045
+      },
+      {
+        "date": "09/04/2023",
+        "hour": 6,
+        "label": "05 - 06 h",
+        "consumption": 0.087
+      },
+      {
+        "date": "09/04/2023",
+        "hour": 7,
+        "label": "06 - 07 h",
+        "consumption": 0.045
+      },
+      {
+        "date": "09/04/2023",
+        "hour": 8,
+        "label": "07 - 08 h",
+        "consumption": 0.087
+      },
+      {
+        "date": "09/04/2023",
+        "hour": 9,
+        "label": "08 - 09 h",
+        "consumption": 0.045
+      },
+      {
+        "date": "09/04/2023",
+        "hour": 10,
+        "label": "09 - 10 h",
+        "consumption": 0.079
+      },
+      {
+        "date": "09/04/2023",
+        "hour": 11,
+        "label": "10 - 11 h",
+        "consumption": 0.053
+      },
+      {
+        "date": "09/04/2023",
+        "hour": 12,
+        "label": "11 - 12 h",
+        "consumption": 0.065
+      },
+      {
+        "date": "09/04/2023",
+        "hour": 13,
+        "label": "12 - 13 h",
+        "consumption": 0.067
+      },
+      {
+        "date": "09/04/2023",
+        "hour": 14,
+        "label": "13 - 14 h",
+        "consumption": 0.049
+      },
+      {
+        "date": "09/04/2023",
+        "hour": 15,
+        "label": "14 - 15 h",
+        "consumption": 0.123
+      },
+      {
+        "date": "09/04/2023",
+        "hour": 16,
+        "label": "15 - 16 h",
+        "consumption": 0.056
+      },
+      {
+        "date": "09/04/2023",
+        "hour": 17,
+        "label": "16 - 17 h",
+        "consumption": 0.062
+      },
+      {
+        "date": "09/04/2023",
+        "hour": 18,
+        "label": "17 - 18 h",
+        "consumption": 0.075
+      },
+      {
+        "date": "09/04/2023",
+        "hour": 19,
+        "label": "18 - 19 h",
+        "consumption": 0.045
+      },
+      {
+        "date": "09/04/2023",
+        "hour": 20,
+        "label": "19 - 20 h",
+        "consumption": 0.089
+      },
+      {
+        "date": "09/04/2023",
+        "hour": 21,
+        "label": "20 - 21 h",
+        "consumption": 0.045
+      },
+      {
+        "date": "09/04/2023",
+        "hour": 22,
+        "label": "21 - 22 h",
+        "consumption": 0.088
+      },
+      {
+        "date": "09/04/2023",
+        "hour": 23,
+        "label": "22 - 23 h",
+        "consumption": 0.049
+      },
+      {
+        "date": "09/04/2023",
+        "hour": 24,
+        "label": "23 - 24 h",
+        "consumption": 0.604
+      }
+    ],
+    [
+      {
+        "date": "10/04/2023",
+        "hour": 1,
+        "label": "00 - 01 h",
+        "consumption": 0.159
+      },
+      {
+        "date": "10/04/2023",
+        "hour": 2,
+        "label": "01 - 02 h",
+        "consumption": 0.164
+      },
+      {
+        "date": "10/04/2023",
+        "hour": 3,
+        "label": "02 - 03 h",
+        "consumption": 0.171
+      },
+      {
+        "date": "10/04/2023",
+        "hour": 4,
+        "label": "03 - 04 h",
+        "consumption": 0.079
+      },
+      {
+        "date": "10/04/2023",
+        "hour": 5,
+        "label": "04 - 05 h",
+        "consumption": 0.095
+      },
+      {
+        "date": "10/04/2023",
+        "hour": 6,
+        "label": "05 - 06 h",
+        "consumption": 0.046
+      },
+      {
+        "date": "10/04/2023",
+        "hour": 7,
+        "label": "06 - 07 h",
+        "consumption": 0.097
+      },
+      {
+        "date": "10/04/2023",
+        "hour": 8,
+        "label": "07 - 08 h",
+        "consumption": 0.046
+      },
+      {
+        "date": "10/04/2023",
+        "hour": 9,
+        "label": "08 - 09 h",
+        "consumption": 0.074
+      },
+      {
+        "date": "10/04/2023",
+        "hour": 10,
+        "label": "09 - 10 h",
+        "consumption": 0.078
+      },
+      {
+        "date": "10/04/2023",
+        "hour": 11,
+        "label": "10 - 11 h",
+        "consumption": 0.05
+      },
+      {
+        "date": "10/04/2023",
+        "hour": 12,
+        "label": "11 - 12 h",
+        "consumption": 0.124
+      },
+      {
+        "date": "10/04/2023",
+        "hour": 13,
+        "label": "12 - 13 h",
+        "consumption": 0.099
+      },
+      {
+        "date": "10/04/2023",
+        "hour": 14,
+        "label": "13 - 14 h",
+        "consumption": 0.246
+      },
+      {
+        "date": "10/04/2023",
+        "hour": 15,
+        "label": "14 - 15 h",
+        "consumption": 0.494
+      },
+      {
+        "date": "10/04/2023",
+        "hour": 16,
+        "label": "15 - 16 h",
+        "consumption": 0.315
+      },
+      {
+        "date": "10/04/2023",
+        "hour": 17,
+        "label": "16 - 17 h",
+        "consumption": 0.098
+      },
+      {
+        "date": "10/04/2023",
+        "hour": 18,
+        "label": "17 - 18 h",
+        "consumption": 0.054
+      },
+      {
+        "date": "10/04/2023",
+        "hour": 19,
+        "label": "18 - 19 h",
+        "consumption": 0.092
+      },
+      {
+        "date": "10/04/2023",
+        "hour": 20,
+        "label": "19 - 20 h",
+        "consumption": 0.045
+      },
+      {
+        "date": "10/04/2023",
+        "hour": 21,
+        "label": "20 - 21 h",
+        "consumption": 0.107
+      },
+      {
+        "date": "10/04/2023",
+        "hour": 22,
+        "label": "21 - 22 h",
+        "consumption": 0.141
+      },
+      {
+        "date": "10/04/2023",
+        "hour": 23,
+        "label": "22 - 23 h",
+        "consumption": 0.045
+      },
+      {
+        "date": "10/04/2023",
+        "hour": 24,
+        "label": "23 - 24 h",
+        "consumption": 0.095
+      }
+    ],
+    [
+      {
+        "date": "11/04/2023",
+        "hour": 1,
+        "label": "00 - 01 h",
+        "consumption": 0.325
+      },
+      {
+        "date": "11/04/2023",
+        "hour": 2,
+        "label": "01 - 02 h",
+        "consumption": 0.493
+      },
+      {
+        "date": "11/04/2023",
+        "hour": 3,
+        "label": "02 - 03 h",
+        "consumption": 0.514
+      },
+      {
+        "date": "11/04/2023",
+        "hour": 4,
+        "label": "03 - 04 h",
+        "consumption": 0.169
+      },
+      {
+        "date": "11/04/2023",
+        "hour": 5,
+        "label": "04 - 05 h",
+        "consumption": 0.104
+      },
+      {
+        "date": "11/04/2023",
+        "hour": 6,
+        "label": "05 - 06 h",
+        "consumption": 0.047
+      },
+      {
+        "date": "11/04/2023",
+        "hour": 7,
+        "label": "06 - 07 h",
+        "consumption": 0.086
+      },
+      {
+        "date": "11/04/2023",
+        "hour": 8,
+        "label": "07 - 08 h",
+        "consumption": 0.066
+      },
+      {
+        "date": "11/04/2023",
+        "hour": 9,
+        "label": "08 - 09 h",
+        "consumption": 0.053
+      },
+      {
+        "date": "11/04/2023",
+        "hour": 10,
+        "label": "09 - 10 h",
+        "consumption": 0.102
+      },
+      {
+        "date": "11/04/2023",
+        "hour": 11,
+        "label": "10 - 11 h",
+        "consumption": 0.451
+      },
+      {
+        "date": "11/04/2023",
+        "hour": 12,
+        "label": "11 - 12 h",
+        "consumption": 0.486
+      },
+      {
+        "date": "11/04/2023",
+        "hour": 13,
+        "label": "12 - 13 h",
+        "consumption": 0.648
+      },
+      {
+        "date": "11/04/2023",
+        "hour": 14,
+        "label": "13 - 14 h",
+        "consumption": 0.907
+      },
+      {
+        "date": "11/04/2023",
+        "hour": 15,
+        "label": "14 - 15 h",
+        "consumption": 0.277
+      },
+      {
+        "date": "11/04/2023",
+        "hour": 16,
+        "label": "15 - 16 h",
+        "consumption": 0.455
+      },
+      {
+        "date": "11/04/2023",
+        "hour": 17,
+        "label": "16 - 17 h",
+        "consumption": 0.454
+      },
+      {
+        "date": "11/04/2023",
+        "hour": 18,
+        "label": "17 - 18 h",
+        "consumption": 0.612
+      },
+      {
+        "date": "11/04/2023",
+        "hour": 19,
+        "label": "18 - 19 h",
+        "consumption": 0.098
+      },
+      {
+        "date": "11/04/2023",
+        "hour": 20,
+        "label": "19 - 20 h",
+        "consumption": 0.07
+      },
+      {
+        "date": "11/04/2023",
+        "hour": 21,
+        "label": "20 - 21 h",
+        "consumption": 0.064
+      },
+      {
+        "date": "11/04/2023",
+        "hour": 22,
+        "label": "21 - 22 h",
+        "consumption": 0.123
+      },
+      {
+        "date": "11/04/2023",
+        "hour": 23,
+        "label": "22 - 23 h",
+        "consumption": 0.132
+      },
+      {
+        "date": "11/04/2023",
+        "hour": 24,
+        "label": "23 - 24 h",
+        "consumption": 0.202
+      }
+    ]
+  ]
+}
