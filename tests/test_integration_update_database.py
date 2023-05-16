@@ -35,8 +35,8 @@ HL_API_LOGIN_JSON_REPLY = {
     "token": "token",
     "refresh_token": "refresh_token"
 }
-
-HL_PATH_TO_JSON = os.getenv('HL_PATH_TO_JSON')
+CWD = os.getcwd()
+HL_PATH_TO_JSON = f'{CWD}/tests/resources/hl_consumption.json'
 
 # Endesa global variables
 EN_TABLE_NAME = os.getenv('EN_TABLE_NAME')
@@ -44,7 +44,7 @@ EN_TABLE_NAME = os.getenv('EN_TABLE_NAME')
 EN_L_CUPS = {'Id': 'Id'}
 EN_CYCLES = ['last cycle']
 
-EN_PATH_TO_JSON = os.getenv('EN_PATH_TO_JSON')
+EN_PATH_TO_JSON = f'{CWD}/tests/resources/en_consumption.json'
 
 
 def nest_length(nlist):
