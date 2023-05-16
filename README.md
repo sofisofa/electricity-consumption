@@ -2,6 +2,8 @@
 
 Retrieve home consumption data from companies Endesa and Holaluz, store them in a database and plot them via Grafana.
 
+![Grafana Image](https://github.com/sofisofa/electricity-consumption-retriever/blob/main/Screensh-Grafana.png)
+
 ### Introduction
 This is project started as a learning exercise and for personal usage, but if you live in Spain this repository may be also for you. The electricity consumption data of your home is retrieved from the companies Holaluz [^1] and Endesa [^2], is stored in a PostgreSQL database and can then be plotted using Grafana. Both PostgreSQL and Grafana images are ran via Docker.
 
