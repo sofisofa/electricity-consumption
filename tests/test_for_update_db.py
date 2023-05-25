@@ -168,8 +168,8 @@ class TestClassUpdateDatabase:
         with pytest.raises(Exception):
             update_database.insert_in_hourly_consumption_db(EN_CONSUMPTION_DATA_REFORMAT, DB_TABLE_NAME, dummy_conn)
     
-    @patch("builtins.print")
-    def test_insert_in_hourly_consumption_up_to_date(self, mock_print, stub_cursor, stub_connection):
+    @patch("logging.info")
+    def test_insert_in_hourly_consumption_up_to_date(self, mock_log, stub_cursor, stub_connection):
         dummy_conn = stub_connection
         dummy_cur = stub_cursor
         dummy_cur.fetchone.return_value = [dt.datetime.now(tz=pytz.utc) + dt.timedelta(days=1)]
@@ -179,7 +179,7 @@ class TestClassUpdateDatabase:
                                                                         dummy_conn)
         
         assert inserted_data == False
-        mock_print.assert_called_with('Data already up to date!')
+        mock_log.assert_called_with('Data already up to date!')
 
 
 if __name__ == "__main__":

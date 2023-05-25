@@ -9,13 +9,13 @@ from dotenv import load_dotenv
 # TODO:
 #   -refactor with SQLAlchemy
 
+
 if os.getenv('ENV_FILE_PATH'):
     envFilePath = os.getcwd() + os.getenv('ENV_FILE_PATH')
     load_dotenv(envFilePath, override=True)
 else:
     load_dotenv()
 
-load_dotenv()
 
 DB_USER = os.getenv('DB_USER')
 DB_PW = os.getenv('DB_PASS')
@@ -52,7 +52,7 @@ def connect_to_database(db_name, conn_info):
         )
         return conn
     except Exception as exc:
-        print(f"Unable to connect: \n{type(exc).__name__}.")
+        logging.error(f"Unable to connect to database: \n{type(exc).__name__}.")
         raise exc
 
 
@@ -63,6 +63,16 @@ def execute_query(query, connection):
 
 
 def run():
+    logging.basicConfig(level=logging.DEBUG,
+                        format='[%(asctime)s] [%(levelname)s] %(message)s',
+                        datefmt='%d/%m/%Y %H:%M:%S',
+                        filename='/tmp/electricityconsumption.log',
+                        filemode='w')
+    console = logging.StreamHandler()
+    console.setLevel(logging.INFO)
+    logging.getLogger().addHandler(console)
+    logging.getLogger()
+
     """Connects to database and creates the table in case it was not already created"""
     conn_info = {
         "host": DB_HOST,
@@ -81,10 +91,11 @@ def run():
 
         
         with connect_to_database(DB_NAME, conn_info) as conn:
+            logging.info(f"Creating table: {EN_TABLE_NAME}.")
             try:
                 execute_query(creating_table_query, conn)
             except Exception as exc:
-                print(f"Unable to create table: \n {type(exc).__name__}")
+                logging.error(f"Unable to create table: \n {type(exc).__name__}")
                 raise exc
             
             conn.commit()
@@ -99,10 +110,11 @@ def run():
                                "modified_date  TIMESTAMPTZ);"
 
         with connect_to_database(DB_NAME, conn_info) as conn:
+            logging.info(f"Creating table: {HL_TABLE_NAME}.")
             try:
                 execute_query(creating_table_query, conn)
             except Exception as exc:
-                print(f"Unable to create table: \n {type(exc).__name__}")
+                logging.error(f"Unable to create table: \n {type(exc).__name__}")
                 raise exc
             
             conn.commit()

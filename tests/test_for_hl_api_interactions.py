@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import pytest
-from src.electricity_consumption.api_interactions import Api
+from src.electricity_consumption.hl_api_interactions import Api
 import responses
 
 LOGIN_URL = "https://example/login"

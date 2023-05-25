@@ -12,6 +12,8 @@ from src.electricity_consumption.init_database import connect_to_database
 
 load_dotenv()
 
+CWD = os.getcwd()
+
 # database global variables
 DB_USER = os.getenv('DB_USER')
 DB_PW = os.getenv('DB_PASS')
@@ -35,7 +37,7 @@ HL_API_LOGIN_JSON_REPLY = {
     "token": "token",
     "refresh_token": "refresh_token"
 }
-CWD = os.getcwd()
+
 HL_PATH_TO_JSON = f'{CWD}/tests/resources/hl_consumption.json'
 
 # Endesa global variables

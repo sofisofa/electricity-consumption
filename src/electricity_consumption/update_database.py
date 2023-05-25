@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import os
-
+import logging
 from dotenv import load_dotenv
 from distutils.util import strtobool
 import datetime as dt
@@ -48,7 +48,7 @@ def insert_in_daily_consumption_db(data_to_insert, table_name, db_conn):
             else:
                 last_date = fetched[0]
         except Exception as exc:
-            print(f"Unable to get last date: \n{type(exc).__name__}.")
+            logging.error(f"Unable to get last date: \n{type(exc).__name__}.")
             raise exc
         
         for day in data_to_insert:
@@ -60,7 +60,7 @@ def insert_in_daily_consumption_db(data_to_insert, table_name, db_conn):
                                    f"CURRENT_TIMESTAMP(2) at time zone 'UTC', CURRENT_TIMESTAMP(2) at time zone 'UTC');"
                     execute_query(insert_query, db_conn)
                 except Exception as exc:
-                    print(f"Unable to insert data: \n{type(exc).__name__}.")
+                    logging.error(f"Unable to insert data: \n{type(exc).__name__}.")
                     db_conn.close()
                     inserted_data = False
                     raise exc
@@ -80,6 +80,7 @@ def get_last_inserted_datetime(table_name, db_conn):
                                           "ORDER BY datetime DESC " \
                                           "LIMIT 1;"
         try:
+            logging.info(f"Fetching last inserted date from {table_name}")
             cur.execute(select_last_date_and_hour_query)
             fetched = cur.fetchone()
             if fetched is None:
@@ -87,7 +88,7 @@ def get_last_inserted_datetime(table_name, db_conn):
             else:
                 last_datetime = fetched[0]
         except Exception as exc:
-            print(f"Unable to get last date: \n{type(exc).__name__}.")
+            logging.error(f"Unable to get last date: \n{type(exc).__name__}.")
             raise exc
     return last_datetime
 
@@ -113,14 +114,14 @@ def insert_in_hourly_consumption_db(data_to_insert, table_name, db_conn):
                                    f"CURRENT_TIMESTAMP(2) at time zone 'UTC', CURRENT_TIMESTAMP(2) at time zone 'UTC');"
                     execute_query(insert_query, db_conn)
                 except Exception as exc:
-                    print(f"Unable to insert data: \n{type(exc).__name__}.")
+                    logging.error(f"Unable to insert data: \n{type(exc).__name__}.")
                     db_conn.close()
                     raise exc
                 else:
                     inserted_data = True
             
     if not inserted_data:
-        print('Data already up to date!')
+        logging.info('Data already up to date!')
     
     db_conn.commit()
     db_conn.close()
@@ -129,6 +130,12 @@ def insert_in_hourly_consumption_db(data_to_insert, table_name, db_conn):
 
 
 def run():
+    logging.basicConfig(level=logging.DEBUG,
+                        format='[%(asctime)s] [%(levelname)s] %(message)s',
+                        datefmt='%d/%m/%Y %H:%M:%S',
+                        filename='/tmp/electricityconsumption.log',
+                        filemode='w')
+
     db_conn_info = {
         "host": DB_HOST,
         "port": DB_PORT,
@@ -149,7 +156,8 @@ def run():
             consumption_data = en.get_last_invoiced_consumption_data()
             
         consumption_data = en.reformat_data(consumption_data)
-        
+
+        logging.info(f"Inserting data into {EN_TABLE_NAME}.")
         insert_in_hourly_consumption_db(consumption_data, EN_TABLE_NAME, conn)
     
     if strtobool(os.getenv('HOLALUZ_ENABLED')):
@@ -158,6 +166,7 @@ def run():
         cleaned_data = hl.clean_data(consumption_data)
         
         conn = connect_to_database(DB_NAME, db_conn_info)
+        logging.info(f"Inserting data into {HL_TABLE_NAME}.")
         insert_in_daily_consumption_db(cleaned_data, HL_TABLE_NAME, conn)
 
 

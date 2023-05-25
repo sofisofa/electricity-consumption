@@ -1,5 +1,6 @@
 import json
-from api_interactions import Api
+import logging
+from hl_api_interactions import Api
 import datetime as dt
 import os
 from dotenv import load_dotenv
@@ -50,7 +51,8 @@ def run():
     
     cleaned_consumption_json = {'creation date': dt.date.isoformat(dt.date.today()),
                                 'daily_consumption': cleaned_data}
-    
+
+    logging.info("Dumping Holaluz data into JSON.")
     with open(f"{os.getenv('PATH_TO_CONSUMPTION_FILES')}hl_consumption_{month}_{year}.json", 'w+') as f_obj:
         json.dump(cleaned_consumption_json, f_obj)
 
