@@ -30,3 +30,5 @@ edistribucion.access
 edistribucion.session
 /src/electricity_consumption/edistribucion.access
 /src/electricity_consumption/edistribucion.session
+
+Electricity_Consumption_GrafanaDashboard.json

@@ -37,6 +37,7 @@ class HolaLuz:
 
 
 def run():
+    logger = logging.getLogger(__name__)
     hl = HolaLuz()
     consumption_data = hl.api.retrieve_data()
     cleaned_data = hl.clean_data(consumption_data)
@@ -52,7 +53,7 @@ def run():
     cleaned_consumption_json = {'creation date': dt.date.isoformat(dt.date.today()),
                                 'daily_consumption': cleaned_data}
 
-    logging.info("Dumping Holaluz data into JSON.")
+    logger.info("Dumping Holaluz data into JSON.")
     with open(f"{os.getenv('PATH_TO_CONSUMPTION_FILES')}hl_consumption_{month}_{year}.json", 'w+') as f_obj:
         json.dump(cleaned_consumption_json, f_obj)
 

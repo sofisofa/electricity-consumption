@@ -7,13 +7,14 @@ from dotenv import load_dotenv
 load_dotenv()
 
 logging.basicConfig(level=logging.DEBUG,
-                    format='[%(asctime)s] [%(levelname)s] %(message)s',
+                    format='[%(asctime)s] [%(levelname)s] %(name)s: %(message)s',
                     datefmt='%d/%m/%Y %H:%M:%S',
                     filename='/tmp/electricityconsumption.log',
                     filemode='w')
 console = logging.StreamHandler()
 console.setLevel(logging.INFO)
-logging.getLogger().addHandler(console)
+logging.getLogger('').addHandler(console)
+logger = logging.getLogger(__name__)
 
 class Api:
     """Login on energy provider web and retrieve data."""
@@ -42,7 +43,7 @@ class Api:
         request_url = self.consumption_url
         auth_header = {'Authorization': f'Bearer {self.token}'}
 
-        logging.info("Retrieving data from Holaluz.")
+        logging.info("Retrieving data from Holaluz")
         r = requests.get(request_url, headers=auth_header)
         if r.status_code != 200:
             logging.warning("Data retrieval failed!")

@@ -9,6 +9,12 @@ from holaluz_api import HolaLuz
 from endesa_api import Endesa
 from init_database import connect_to_database, execute_query
 
+logging.basicConfig(level=logging.DEBUG,
+                    format='[%(asctime)s] [%(levelname)s] %(name)s: %(message)s',
+                    datefmt='%d/%m/%Y %H:%M:%S',
+                    filename='/tmp/electricityconsumption.log',
+                    filemode='w')
+
 if os.getenv('ENV_FILE_PATH'):
     envFilePath = os.getcwd() + os.getenv('ENV_FILE_PATH')
     load_dotenv(envFilePath, override=True)
@@ -60,7 +66,7 @@ def insert_in_daily_consumption_db(data_to_insert, table_name, db_conn):
                                    f"CURRENT_TIMESTAMP(2) at time zone 'UTC', CURRENT_TIMESTAMP(2) at time zone 'UTC');"
                     execute_query(insert_query, db_conn)
                 except Exception as exc:
-                    logging.error(f"Unable to insert data: \n{type(exc).__name__}.")
+                    logging.error(f"Unable to insert data: \n{type(exc).__name__}")
                     db_conn.close()
                     inserted_data = False
                     raise exc
@@ -88,7 +94,7 @@ def get_last_inserted_datetime(table_name, db_conn):
             else:
                 last_datetime = fetched[0]
         except Exception as exc:
-            logging.error(f"Unable to get last date: \n{type(exc).__name__}.")
+            logging.error(f"Unable to get last date: \n{type(exc).__name__}")
             raise exc
     return last_datetime
 
@@ -114,7 +120,7 @@ def insert_in_hourly_consumption_db(data_to_insert, table_name, db_conn):
                                    f"CURRENT_TIMESTAMP(2) at time zone 'UTC', CURRENT_TIMESTAMP(2) at time zone 'UTC');"
                     execute_query(insert_query, db_conn)
                 except Exception as exc:
-                    logging.error(f"Unable to insert data: \n{type(exc).__name__}.")
+                    logging.error(f"Unable to insert data: \n{type(exc).__name__}")
                     db_conn.close()
                     raise exc
                 else:
@@ -122,6 +128,8 @@ def insert_in_hourly_consumption_db(data_to_insert, table_name, db_conn):
             
     if not inserted_data:
         logging.info('Data already up to date!')
+    else:
+        logging.info('Data inserted!')
     
     db_conn.commit()
     db_conn.close()
@@ -130,12 +138,6 @@ def insert_in_hourly_consumption_db(data_to_insert, table_name, db_conn):
 
 
 def run():
-    logging.basicConfig(level=logging.DEBUG,
-                        format='[%(asctime)s] [%(levelname)s] %(message)s',
-                        datefmt='%d/%m/%Y %H:%M:%S',
-                        filename='/tmp/electricityconsumption.log',
-                        filemode='w')
-
     db_conn_info = {
         "host": DB_HOST,
         "port": DB_PORT,

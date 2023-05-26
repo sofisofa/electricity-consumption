@@ -10,10 +10,13 @@ from EdistribucionAPI import Edistribucion
 from dotenv import load_dotenv
 
 logging.basicConfig(level=logging.DEBUG,
-                    format='[%(asctime)s] [%(levelname)s] %(message)s',
+                    format='[%(asctime)s] [%(levelname)s] %(name)s: %(message)s',
                     datefmt='%d/%m/%Y %H:%M:%S',
                     filename='/tmp/electricityconsumption.log',
                     filemode='w')
+
+
+logger = logging.getLogger(__name__)
 
 load_dotenv()
 
@@ -24,11 +27,11 @@ PW = os.getenv('EN_PASS')
 class Endesa:
     
     def __init__(self, user, pw):
-        logging.info("Loging in Endesa")
+        logger.info("Loging in Endesa")
         self.edis = Edistribucion(user, pw)
         
     def get_last_invoiced_consumption_data(self):
-        logging.info("Retrieving last invoiced data from Endesa.")
+        logger.info("Retrieving last invoiced data from Endesa")
         l_cups = self.edis.get_list_cups()[-1]
         l_cups_id = l_cups['Id']
         cycles = self.edis.get_list_cycles(l_cups_id)
@@ -50,7 +53,7 @@ class Endesa:
         return consumption_data
     
     def get_interval_consumption_data(self, start_date, end_date):
-        logging.info(f"Retrieving consumption data in from Endesa. Time period: {start_date}-{end_date}.")
+        logger.info(f"Retrieving consumption data in from Endesa. Time period: {start_date}-{end_date}")
         l_cups = self.edis.get_list_cups()[-1]
         l_cups_id = l_cups['Id']
         meas = self.edis.get_meas_interval(l_cups_id, start_date, end_date)
@@ -114,7 +117,7 @@ def run():
     consumption_json = {'creation date': dt.date.isoformat(dt.date.today()),
                         'hourly_consumption': consumption_data}
 
-    logging.info("Dumping Endesa data into JSON.")
+    logger.info("Dumping Endesa data into JSON")
     with open(f"{os.getenv('PATH_TO_CONSUMPTION_FILES')}en_consumption_{month}_{year}.json", 'w+') as f_obj:
         json.dump(consumption_json, f_obj)
 
