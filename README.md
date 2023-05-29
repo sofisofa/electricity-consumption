@@ -58,6 +58,6 @@ This will also start the containers for the PostgreSQL database and Grafana.
 ----
 [^1]: Holaluz API has become obsolete since February 2023, due to changes to the Holaluz website. It will be updated soon.
 
-[^2]: Refer to [this web](https://www.endesa.com/es/blog/blog-de-endesa/luz/comercializadora-distribuidora-diferencias) to see if e-Distribución is the company of the region you live in.
+[^2]: Refer to [this web](https://www.endesa.com/es/blog/blog-de-endesa/luz/comercializadora-distribuidora-diferencias) to see if e-Distribución is the company protviding electricity to the region you live in.
 
 

@@ -32,3 +32,5 @@ edistribucion.session
 /src/electricity_consumption/edistribucion.session
 
 Electricity_Consumption_GrafanaDashboard.json
+
+/grafana/
