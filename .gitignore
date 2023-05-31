@@ -17,8 +17,6 @@ tests/consumption_files/
 
 .idea
 
-Dockerfile
-
 .coverage
 
 /tests/test_for_createdb.py
