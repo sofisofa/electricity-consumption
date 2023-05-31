@@ -24,6 +24,9 @@ prodUp:
 prodDown:
 	docker compose -f './docker-compose-prod.yml' --env-file ./.env.prod down
 
+BuildProdGrafana:
+	  docker compose -f './docker-compose-prod.yml' --env-file ./.env.prod build
+
 dockerUp:
 	docker compose  up -d
 

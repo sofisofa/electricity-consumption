@@ -1,0 +1,20 @@
+apiVersion: 1
+
+datasources:
+  - name: PostgreSQL
+    type: postgres
+    url: prod-db:5432
+    user: ${DB_USER}
+    database: ${DB_NAME}
+    isDefault: true
+    uid: ${GF_DATASRC_UID}
+    secureJsonData:
+      password: ${DB_PASS}
+    jsonData:
+      sslmode: 'disable'
+      maxOpenConns: 0
+      maxIdleConns: 2
+      maxIdleConnsAuto: true
+      connMaxLifetime: 14400
+      postgresVersion: 903
+      timescaledb: false
