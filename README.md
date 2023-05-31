@@ -38,6 +38,11 @@ Change to the local folder where you have cloned the repo and run the following 
     make buildProdGrafana
     ```
 
+*  Run the containers:
+    ```bash 
+    make prodUp
+    ```
+
 * Initialize the PostgreSQL database (first time only):
     ```bash
     make initDb
@@ -47,7 +52,7 @@ Change to the local folder where you have cloned the repo and run the following 
     ```bash 
     make updateDb
     ```
-  This will also start the containers for the PostgreSQL database and Grafana.
+    This will also start the containers for the PostgreSQL database and Grafana, so it can be used without running ```make prodUp``` before.
 
 
 * Take down the containers:
