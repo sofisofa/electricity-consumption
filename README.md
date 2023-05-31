@@ -5,7 +5,7 @@ Retrieve home consumption data from companies Endesa and Holaluz, store them in 
 ![Grafana Image](https://github.com/sofisofa/electricity-consumption-retriever/blob/main/Screensh-Grafana.png)
 
 ### Introduction
-This is project started as a learning exercise and for personal usage, but if you live in Spain this repository may be also for you. The electricity consumption data of your home is retrieved from the companies Holaluz [^1] and Endesa [^2], is stored in a PostgreSQL database and can then be plotted using Grafana. Both PostgreSQL and Grafana images are ran via Docker. Grafana is provisioned with the database and a dashboard similar to the image above.
+This is project started as a learning exercise and for personal usage, but if you live in Spain this repository may be also for you. The electricity consumption data of your home is retrieved from the companies Holaluz [^1] and Endesa [^2] [^3], is stored in a PostgreSQL database and can then be plotted using Grafana. Both PostgreSQL and Grafana images are ran via Docker. Grafana is provisioned with the database and a dashboard similar to the image above.
 
 A big shout out to [@trocotronic](https://github.com/trocotronic) and their [edistribucion API](https://github.com/trocotronic/edistribucion), which has been used in this project.
 
@@ -69,4 +69,4 @@ Change to the local folder where you have cloned the repo and run the following 
 
 [^2]: Refer to [this web](https://www.endesa.com/es/blog/blog-de-endesa/luz/comercializadora-distribuidora-diferencias) to see if e-Distribución is the company protviding electricity to the region you live in.
 
-
+[^3]: You need to be registered in at least one of the websites (https://www.edistribucion.com/ , https://www.holaluz.com/).
