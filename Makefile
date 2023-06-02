@@ -1,22 +1,14 @@
-tests: dockerUp _sleep2 initTestDb _coverage dockerDown
+tests: _testUp _sleep2 _initTestDb _coverage _testDown
 
 initDb: prodUp _sleep2 initProdDb prodDown
 
 updateDb: prodUp _sleep2 run
 
-initTestDb:
-	python3 ./src/electricity_consumption/init_database.py
-
 initProdDb:
-	ENV_FILE_PATH='/.env.prod' python3 ./src/electricity_consumption/init_database.py
+	ENV_FILE_PATH='/.env.prod' poetry run python ./src/electricity_consumption/init_database.py
 
 run:
-	ENV_FILE_PATH='/.env.prod' python3 ./src/electricity_consumption/update_database.py
-
-_coverage:
-	coverage run -m pytest
-	coverage report -m
-	coverage erase
+	ENV_FILE_PATH='/.env.prod' poetry run python ./src/electricity_consumption/update_database.py
 
 prodUp:
 	docker compose -f './docker-compose-prod.yml' --env-file ./.env.prod up -d
@@ -27,11 +19,19 @@ prodDown:
 buildProdGrafana:
 	  docker compose -f './docker-compose-prod.yml' --env-file ./.env.prod build
 
-dockerUp:
+_testUp:
 	docker compose  up -d
 
-dockerDown:
+_testDown:
 	docker compose down
+
+_initTestDb:
+	python3 ./src/electricity_consumption/init_database.py
+
+_coverage:
+	coverage run -m pytest
+	coverage report -m
+	coverage erase
 
 _sleep2:
 	sleep 2

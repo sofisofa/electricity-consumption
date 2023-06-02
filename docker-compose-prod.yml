@@ -14,7 +14,12 @@ services:
     volumes:
       - db-prod:/var/lib/postgresql/data
   grafana:
-    image: grafana/grafana-oss
+    build:
+      context: ./
+      dockerfile: grafana/Dockerfile
+      args:
+        GF_DATASRC_UID: ${GF_DATASRC_UID}
+        EN_TABLE_NAME: ${EN_TABLE_NAME}
     restart: always
     container_name: 'prod-grafana'
     depends_on:
@@ -25,12 +30,6 @@ services:
       - grafana-storage:/var/lib/grafana
     env_file:
       - .env.prod
-    build:
-      context: ./
-      dockerfile: grafana/Dockerfile
-      args:
-        GF_DATASRC_UID: ${GF_DATASRC_UID}
-        EN_TABLE_NAME: ${EN_TABLE_NAME}
     environment:
       GF_DASHBOARDS_DEFAULT_HOME_DASHBOARD_PATH: "/var/lib/grafana/dashboards/Electricity_Consumption_GrafanaDashboard_notexp.json"
       GF_SECURITY_ADMIN_PASSWORD: ${GF_PASS}

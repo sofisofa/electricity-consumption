@@ -1,4 +1,4 @@
-FROM grafana/grafana:latest
+FROM grafana/grafana-oss
 
 ARG GF_DATASRC_UID=${GF_DATASRC_UID}
 ARG EN_TABLE_NAME=${EN_TABLE_NAME}

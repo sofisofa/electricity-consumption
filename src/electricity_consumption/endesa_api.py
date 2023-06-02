@@ -53,7 +53,7 @@ class Endesa:
         return consumption_data
     
     def get_interval_consumption_data(self, start_date, end_date):
-        logger.info(f"Retrieving consumption data in from Endesa. Time period: {start_date}-{end_date}")
+        logger.info(f"Retrieving consumption data in from Endesa. Time period: {start_date} to {end_date}")
         l_cups = self.edis.get_list_cups()[-1]
         l_cups_id = l_cups['Id']
         meas = self.edis.get_meas_interval(l_cups_id, start_date, end_date)

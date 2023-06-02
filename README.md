@@ -27,7 +27,7 @@ poetry install
 4. Run the desired scripts or functions as explained in Usage instructions.
 
 
-5. Go to htpps://localhost:3000 to see your consumption data plotted in your Grafana dashboard.
+5. Go to https://localhost:3000 to see your consumption data plotted in your Grafana dashboard.
 
 
 ### Usage
