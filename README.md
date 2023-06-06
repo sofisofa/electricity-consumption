@@ -7,7 +7,7 @@ Retrieve home consumption data from companies Endesa and Holaluz, store them in 
 ### Introduction
 This is project started as a learning exercise and for personal usage, but if you live in Spain this repository may be also for you. The electricity consumption data of your home is retrieved from the companies Holaluz [^1] and Endesa [^2] [^3], is stored in a PostgreSQL database and can then be plotted using Grafana. Both PostgreSQL and Grafana images are ran via Docker. Grafana is provisioned with the database and a dashboard similar to the image above.
 
-A big shout out to [@trocotronic](https://github.com/trocotronic) and their [edistribucion API](https://github.com/trocotronic/edistribucion), which has been used in this project.
+A big shout-out to [@trocotronic](https://github.com/trocotronic) and their [edistribucion API](https://github.com/trocotronic/edistribucion), which has been used in this project.
 
 
 ### Installation
@@ -26,9 +26,23 @@ poetry install
 
 4. Run the desired scripts or functions as explained in Usage instructions.
 
+### Happy path for first usage
 
-5. Go to https://localhost:3000 to see your consumption data plotted in your Grafana dashboard.
+Change to the local folder where you have cloned the repo and run the following instructions in terminal.
+1. Build the Grafana docker image:
+    ```bash
+    make buildProdGrafana
+    ```
+2. Initialize the PostgreSQL database (first time only):
+    ```bash
+    make initDb
 
+3. Once the database is initialized, you can update it:
+    ```bash 
+    make updateDb
+    ```
+   
+4. Go to https://localhost:3000 to see your consumption data plotted in your Grafana dashboard.
 
 ### Usage
 Change to the local folder where you have cloned the repo and run the following instructions in terminal.
@@ -48,7 +62,7 @@ Change to the local folder where you have cloned the repo and run the following 
     make initDb
     ```
   
-* Once the database is initialized, you can update it:
+* Update database:
     ```bash 
     make updateDb
     ```
@@ -64,6 +78,8 @@ Change to the local folder where you have cloned the repo and run the following 
     ```bash
     make tests
     ```
+
+
 
 ----
 
