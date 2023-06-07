@@ -12,7 +12,7 @@ from dotenv import load_dotenv
 logging.basicConfig(level=logging.DEBUG,
                     format='[%(asctime)s] [%(levelname)s] %(name)s: %(message)s',
                     datefmt='%d/%m/%Y %H:%M:%S',
-                    filename='/tmp/electricityconsumption.log',
+                    filename=f'{os.getcwd()}/electricityconsumption.log',
                     filemode='w')
 
 
