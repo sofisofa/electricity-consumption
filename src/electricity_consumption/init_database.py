@@ -9,6 +9,11 @@ from dotenv import load_dotenv
 # TODO:
 #   -refactor with SQLAlchemy
 
+if os.getenv('ENV_FILE_PATH'):
+    envFilePath = os.getcwd() + os.getenv('ENV_FILE_PATH')
+    load_dotenv(envFilePath, override=True)
+else:
+    load_dotenv()
 
 DB_USER = os.getenv('DB_USER')
 DB_PW = os.getenv('DB_PASS')

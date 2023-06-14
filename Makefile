@@ -26,7 +26,7 @@ _testDown:
 	docker compose down
 
 _initTestDb:
-	python3 ./src/electricity_consumption/init_database.py
+	poetry run python ./src/electricity_consumption/init_database.py
 
 _coverage:
 	coverage run -m pytest
