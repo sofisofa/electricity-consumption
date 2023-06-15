@@ -211,10 +211,10 @@
         "showValue": "auto",
         "stacking": "none",
         "tooltip": {
-          "mode": "single",
+          "mode": "multi",
           "sort": "none"
         },
-        "xField": "hour",
+        "xField": "day_hour",
         "xTickLabelRotation": -15,
         "xTickLabelSpacing": 0
       },
@@ -227,7 +227,7 @@
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
-          "rawSql": "SELECT data.consumption, to_char(data.time, 'DD-MM HH24:00') as hour\nFROM (\n  SELECT datetime at time zone 'Europe/Madrid' as time, consumption as consumption\n  FROM {EN_TABLE_NAME}\n  ORDER BY datetime DESC\n  LIMIT 24) as data\nORDER BY data.time ASC;",
+          "rawSql": "SELECT data.consumption, to_char(data.time, 'DD-MM HH24:00') as day_hour\nFROM (\n  SELECT datetime at time zone 'Europe/Madrid' as time, consumption as consumption\n  FROM {EN_TABLE_NAME}\n  ORDER BY datetime DESC\n  LIMIT 24) as data\nORDER BY data.time ASC;",
           "refId": "A",
           "sql": {
             "columns": [
@@ -454,7 +454,7 @@
         "showValue": "auto",
         "stacking": "none",
         "tooltip": {
-          "mode": "single",
+          "mode": "multi",
           "sort": "none"
         },
         "xTickLabelRotation": 0,
@@ -665,7 +665,7 @@
           "values": true
         },
         "tooltip": {
-          "mode": "single",
+          "mode": "multi",
           "sort": "asc"
         }
       },
@@ -789,7 +789,7 @@
         "showValue": "auto",
         "stacking": "none",
         "tooltip": {
-          "mode": "single",
+          "mode": "multi",
           "sort": "none"
         },
         "xTickLabelRotation": 0,
